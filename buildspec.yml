@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Serverless...
+      - npm install -g serverless
+  pre_build:
+    commands:
+      - echo Installing backend dependencies...
+      - cd backend-serverless/
+      - npm install
+      - cd ..
+      - echo Installing frontend dependencies...
+      - cd frontend-serverless/
+      - npm install
+  build:
+    commands:
+      - echo Deploying serverless backend
+      - cd /backend-serverless/
+      - sls deploy
+      - cd ..
+      - echo Deploying serverless frontend
+      - cd backend-serverless/
+      - serverless
+  post_build:
+    commands:
+      - echo Deployment completed on `date`
