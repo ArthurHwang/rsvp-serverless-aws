@@ -11,6 +11,7 @@ phases:
       - echo Installing frontend dependencies...
       - cd frontend-serverless && npm install
       - echo Installing backend dependencies...
+      - cd ..
       - cd backend-serverless && npm install
   build:
     commands:
