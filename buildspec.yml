@@ -10,13 +10,13 @@ phases:
       - echo Installing backend dependencies...
       # - cd backend-serverless/ && npm install
       - echo Installing frontend dependencies...
-      - cd frontend-serverless/ && npm install
+      - cd /frontend-serverless/ && npm install
   build:
     commands:
       - echo Deploying serverless backend
-      - cd backend-serverless/ && sls deploy
+      - cd /backend-serverless/ && sls deploy
       - echo Deploying serverless frontend
-      - cd frontend-serverless/ && serverless
+      - cd /frontend-serverless/ && serverless
   post_build:
     commands:
       - echo Deployment completed on `date`
