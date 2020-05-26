@@ -14,9 +14,9 @@ phases:
   build:
     commands:
       - echo Deploying serverless backend
-      - cd /backend-serverless/ && sls deploy
+      - cd backend-serverless/ && sls deploy
       - echo Deploying serverless frontend
-      - cd backend-serverless/ && serverless
+      - cd frontend-serverless/ && serverless
   post_build:
     commands:
       - echo Deployment completed on `date`
