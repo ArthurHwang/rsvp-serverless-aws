@@ -2,8 +2,8 @@
   "name": "yys397-zpw3qwk",
   "arn": "arn:aws:iam::307030026322:role/yys397-zpw3qwk",
   "service": [
-    "lambda.amazonaws.com",
-    "edgelambda.amazonaws.com"
+    "edgelambda.amazonaws.com",
+    "lambda.amazonaws.com"
   ],
   "policy": {
     "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
