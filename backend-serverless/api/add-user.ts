@@ -13,10 +13,6 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = process.env.USERS_TABLE;
 
 exports.handler = async (event) => {
-  // console.log(event);
-  console.log(tableName);
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
   try {
     let item = JSON.parse(event.body).Item;
     item.user_id = util.getUserId(event.headers);
