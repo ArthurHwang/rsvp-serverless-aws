@@ -1,8 +1,25 @@
 service: rsvp-serverless-backend
 
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+custom:
+  allowedHeaders:
+    - Accept
+    - Content-Type
+    - Content-Length
+    - Authorization
+    - X-Amz-Date
+    - X-Api-Key
+    - X-Amz-Security-Token
+    - X-Amz-User-Agent
+    - app_user_id
+    - app_user_name
+
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   region: us-east-1
   stage: prod
   memorySize: 128
@@ -10,6 +27,46 @@ provider:
   endpointType: regional
   environment:
     USERS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}'
+
+functions:
+  add-user:
+    handler: api/add-user.handler
+    description: POST /user
+    events:
+      - http:
+          path: user
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+
+  get-user:
+    handler: api/get-user.handler
+    description: GET /user/u/{user_id}
+    events:
+      - http:
+          path: user/u/{user_id}
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+  get-users:
+    handler: api/get-users.handler
+    description: GET /users
+    events:
+      - http:
+          path: users
+          method: get
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
 
 resources:
   Resources:

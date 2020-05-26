@@ -1,3 +1,6 @@
+# Deploys both front and backend serverless projects
+# Note: Eventually split into two buildspec.yml files and run separate codebuild workflows as project grows larger
+
 version: 0.2
 
 phases:
