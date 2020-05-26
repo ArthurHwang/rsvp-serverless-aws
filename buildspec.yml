@@ -9,18 +9,18 @@ phases:
   pre_build:
     commands:
       - echo Installing frontend dependencies...
-      - cd frontend-serverless && npm install
+      - cd ~/frontend-serverless && npm install
       - echo Installing backend dependencies...
-      - cd ..
-      - cd backend-serverless && npm install
+      # - cd ..
+      - cd ~/backend-serverless && npm install
   build:
     commands:
       - echo Deploying serverless backend...
-      - cd ..
-      - cd backend-serverless && serverless deploy
+      # - cd ..
+      - cd ~/backend-serverless && serverless deploy
       - echo Deploying serverless frontend...
-      - cd ..
-      - cd frontend-serverless && serverless
+      # - cd ..
+      - cd ~/frontend-serverless && serverless
   post_build:
     commands:
       - echo Deployment completed on `date`
