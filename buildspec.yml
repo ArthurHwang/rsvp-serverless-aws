@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - echo Installing backend dependencies...
-      - cd backend-serverless/ && npm install
+      # - cd backend-serverless/ && npm install
       - echo Installing frontend dependencies...
       - cd frontend-serverless/ && npm install
   build:
