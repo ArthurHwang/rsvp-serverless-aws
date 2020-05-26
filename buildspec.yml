@@ -5,16 +5,19 @@ phases:
     commands:
       - echo Installing Serverless...
       - npm install -g serverless
+      - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
   pre_build:
     commands:
       - echo Installing backend dependencies...
-      # - cd backend-serverless/ && npm install
-      # - echo Installing frontend dependencies...
-      # - cd frontend-serverless/ && npm install
+      - cd backend-serverless && npm install
+      - echo Installing frontend dependencies...
+      - cd frontend-serverless && npm install
   build:
     commands:
       - echo Deploying serverless backend...
       - cd backend-serverless && serverless deploy
+      - echo Deploying serverless frontend...
+      - cd frontend-serverless && serverless
   post_build:
     commands:
       - echo Deployment completed on `date`
