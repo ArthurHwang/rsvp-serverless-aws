@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-// import { Meta } from './Meta';
+import { Meta } from './Meta';
 // import { Header } from './Header';
+import { Nav } from './Nav';
 // import { Footer } from './Footer';
 // import { Subheader } from './Subheader';
 // import { withRouter } from 'next/router';
@@ -12,31 +13,36 @@ import { ReactElement } from 'react';
 //   require('../util/slick-fix.css');
 // }
 
-interface Props {
+type Props = {
   children: any;
   // router: {
   //   pathname: string;
   // };
-}
+};
 
-const Layout: React.FC<Props> = ({
+export const Layout: React.FC<Props> = ({
   children,
   // router: { pathname },
 }): ReactElement => {
   return (
     // <StyledLayout pathName={pathname}>
-    <StyledLayout>{children}</StyledLayout>
+
+    <StyledLayout>
+      <Meta />
+      <Nav />
+      {children}
+    </StyledLayout>
   );
 };
 // @ts-ignore
 // export default withRouter(Layout);
-export default Layout;
+// export default Layout;
 
 // const MobilePush = styled('div')`
 //   height: 60px;
 // `;
 
-const StyledLayout = styled('div')`
+const StyledLayout = styled('main')`
   background: white;
   color: ${({ theme }) => theme.black};
   width: 100%;

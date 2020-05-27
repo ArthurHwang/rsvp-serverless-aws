@@ -1,9 +1,12 @@
 import React from 'react';
-import App from 'next/app';
-import Layout from '../components/Layout';
+import App, { AppProps } from 'next/app';
+import { Layout } from '../components/Layout';
+// import useSWR from 'swr';
+// import {App}
 // import NextNProgress from 'nextjs-progressbar';
 // import Router from 'next/router';
 // import withGA from 'next-ga';
+
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
@@ -30,13 +33,14 @@ const theme = {
   },
 };
 
-class MyApp extends App<any> {
+class MyApp extends App<AppProps> {
   render() {
     const { Component, pageProps } = this.props;
     return (
       //@ts-ignore
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+
         <Layout>
           {/* <NextNProgress
             color={theme.secondaryAccent}
@@ -124,6 +128,7 @@ h1,h2,h3 {
   font-weight: bold;
   color: ${theme.black};
   text-transform: uppercase;
+  margin: 0;
   /* letter-spacing: -1px; */
 }
 
