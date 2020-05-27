@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Hero: React.FC = () => {
+export const Rsvp: React.FC = () => {
   return (
     <StyledHero>
       <LayoutGrid>

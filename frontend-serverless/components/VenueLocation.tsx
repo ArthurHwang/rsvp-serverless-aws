@@ -9,7 +9,7 @@ export const VenueLocation: React.FC = () => {
 };
 
 const StyledVenue = styled('div')`
-  height: 500px;
+  height: 100%;
   background-color: teal;
   display: flex;
   justify-content: center;

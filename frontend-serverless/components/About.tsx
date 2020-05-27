@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Hero: React.FC = () => {
+export const About: React.FC = () => {
   return (
-    <StyledHero>
+    <StyledAbout>
       <LayoutGrid>
         <div className="left">
           <h2>PHOTO</h2>
@@ -11,11 +11,11 @@ export const Hero: React.FC = () => {
           <h2>DESCRIPTORY</h2>
         </div>
       </LayoutGrid>
-    </StyledHero>
+    </StyledAbout>
   );
 };
 
-const StyledHero = styled('div')`
+const StyledAbout = styled('div')`
   height: 100%;
 `;
 
@@ -42,5 +42,7 @@ const LayoutGrid = styled('div')`
 
   h2 {
     margin: 0;
+
+    /* border: 1px solid black; */
   }
 `;

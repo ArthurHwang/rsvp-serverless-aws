@@ -1,12 +1,30 @@
 import styled from 'styled-components';
 import { RiMenu3Line } from 'react-icons/ri';
-
+import Link from 'next/link';
 export const Nav: React.FC = () => {
   return (
     <>
       <StyledNav>
-        <h3>Carol</h3>
-        <h3>Arthur</h3>
+        <div>
+          <Link href="/">
+            <a>CAROL & Arthur</a>
+          </Link>
+        </div>
+        <div>
+          <Link href="/about">
+            <a>ABOUT</a>
+          </Link>
+        </div>
+        <div>
+          <Link href="/where">
+            <a>WHERE</a>
+          </Link>
+          <div>
+            <Link href="/rsvp">
+              <a>RSVP</a>
+            </Link>
+          </div>
+        </div>
       </StyledNav>
       <NavMobile>
         <RiMenu3Line style={{ fontSize: '3rem' }} />

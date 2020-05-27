@@ -2,8 +2,7 @@ import React from 'react';
 import App, { AppProps } from 'next/app';
 import { Layout } from '../components/Layout';
 // import useSWR from 'swr';
-// import {App}
-// import NextNProgress from 'nextjs-progressbar';
+import NextNProgress from 'nextjs-progressbar';
 // import Router from 'next/router';
 // import withGA from 'next-ga';
 
@@ -42,13 +41,13 @@ class MyApp extends App<AppProps> {
         <GlobalStyle />
 
         <Layout>
-          {/* <NextNProgress
-            color={theme.secondaryAccent}
+          <NextNProgress
+            color={theme.yellow}
             startPosition={0}
             stopDelayMs={0}
-            height="3"
+            height="2"
             style={{ zIndex: '5000' }}
-          /> */}
+          />
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
@@ -60,7 +59,7 @@ class MyApp extends App<AppProps> {
 export default MyApp;
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
+/* @font-face {
   font-family: 'Titillium';
   font-weight: 400;
   font-style: normal;
@@ -95,6 +94,14 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 700;
   font-style: normal;
   src: url('/static/fonts/SourceSansPro-Bold.ttf') format('truetype');
+} */
+
+#__next {
+  height: 100%;
+}
+
+html, body {
+  height: 100%
 }
 
 html {
