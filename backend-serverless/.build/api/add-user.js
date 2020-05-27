@@ -51,12 +51,7 @@ exports.handler = function (event) { return __awaiter(_this, void 0, void 0, fun
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                // console.log(event);
-                console.log(tableName);
-                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
+                _a.trys.push([0, 2, , 3]);
                 item = JSON.parse(event.body).Item;
                 item.user_id = util.getUserId(event.headers);
                 item.user_name = util.getUserName(event.headers);
@@ -69,14 +64,14 @@ exports.handler = function (event) { return __awaiter(_this, void 0, void 0, fun
                         Item: item,
                     })
                         .promise()];
-            case 2:
+            case 1:
                 data = _a.sent();
                 return [2 /*return*/, {
                         statusCode: 200,
                         headers: util.getResponseHeaders(),
                         body: JSON.stringify(item),
                     }];
-            case 3:
+            case 2:
                 err_1 = _a.sent();
                 console.log('Error', err_1);
                 return [2 /*return*/, {
@@ -87,7 +82,7 @@ exports.handler = function (event) { return __awaiter(_this, void 0, void 0, fun
                             message: err_1.message ? err_1.message : 'Unknown Error',
                         }),
                     }];
-            case 4: return [2 /*return*/];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
