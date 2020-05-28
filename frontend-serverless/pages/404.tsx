@@ -72,6 +72,7 @@ const ContentWrap = styled('div')`
     margin: 0px;
     text-shadow: -3px 0 0 rgba(255, 0, 0, 0.7) 3px 0 0 rgba(0, 255, 255, 0.7);
   }
+
   h2 a {
     color: #b5b5b5;
     text-decoration: none;

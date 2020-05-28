@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { RiMenu3Line } from 'react-icons/ri';
 import Link from 'next/link';
+import { RiMenu3Line } from 'react-icons/ri';
+
 export const Nav: React.FC = () => {
   return (
     <>
@@ -37,6 +38,7 @@ const StyledNav = styled('nav')`
   position: fixed;
   left: 2rem;
   top: 2rem;
+  z-index: 9999;
 
   @media (max-width: 768px) {
     display: none;
