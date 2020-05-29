@@ -11,7 +11,11 @@ export const Nav: FC = (): ReactElement => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(true);
+      if (window.scrollY === 0) {
+        setScrolled(false);
+      } else {
+        setScrolled(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
