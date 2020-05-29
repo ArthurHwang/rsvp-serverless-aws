@@ -20,21 +20,20 @@ export const Hero: React.FC = () => {
   return (
     <StyledHero>
       <LayoutGrid>
-        <Slider className="slick" {...settings}>
+        <Slider {...settings}>
           <img
-            src={require('./images/IMG_4889.jpg?webp')}
+            src={require('./images/IMG_4889_colored_toned.jpg?webp')}
             alt="carol and arthur"
           />
           <img
-            src={require('./images/IMG_4985.jpg?webp')}
+            src={require('./images/IMG_4985_colored_toned.jpg?webp')}
             alt="carol and arthur"
           />
           <img
-            src={require('./images/IMG_5123.jpg?webp')}
+            src={require('./images/IMG_5123_colored_toned.jpg?webp')}
             alt="carol and arthur"
           />
         </Slider>
-
         <div className="right">
           <h2>She said I do, I hope you do too</h2>
         </div>
@@ -48,35 +47,48 @@ const StyledHero = styled('div')`
 `;
 
 const LayoutGrid = styled('div')`
-  display: grid;
-  grid-template-columns: 60% 40%;
-  height: 100%;
-  width: 100%;
-
-  img {
+  @media (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 60% 40%;
     height: 100%;
-    object-fit: cover;
-  }
+    width: 100%;
 
-  .slick-dots {
-  }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .slick-container,
-  .slick-list,
-  .slick-track,
-  .slick-slide,
-  .slick-slide div {
-    height: 100%;
-  }
+    h2 {
+      margin: 0;
+    }
 
-  .right {
-    background-color: purple;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .right {
+      background-color: #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  h2 {
-    margin: 0;
+    .slick-dots {
+      bottom: 10px;
+
+      & button:before {
+        color: yellow;
+        opacity: 1;
+      }
+    }
+
+    .slick-active button:before {
+      color: red !important;
+      opacity: 1 !important;
+    }
+
+    .slick-container,
+    .slick-list,
+    .slick-track,
+    .slick-slide,
+    .slick-slide div {
+      height: 100%;
+    }
   }
 `;
