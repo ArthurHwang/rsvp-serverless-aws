@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { Meta } from './Meta';
-import { Nav } from './Nav';
+import styled from "styled-components";
+import { Meta } from "./Meta";
+import { Nav } from "./Nav";
 
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
 };
 
 export const Layout: React.FC<Props> = ({ children }): ReactElement => {
@@ -18,9 +18,7 @@ export const Layout: React.FC<Props> = ({ children }): ReactElement => {
   );
 };
 
-const StyledLayout = styled('main')`
-  /* background: white; */
-  /* color: ${({ theme }) => theme.black}; */
+const StyledLayout = styled("main")`
   height: 100%;
 
   @media (max-width: 910px) {

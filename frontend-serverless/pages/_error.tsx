@@ -6,11 +6,11 @@ import { NextPage } from "next";
 import { Fragment } from "react";
 // import ParticlesConfig from '../lib/particlesConfig_error';
 
-const FourOhFourPage: NextPage<any> = () => {
+const ErrorPage: NextPage<any> = () => {
   return (
     <Fragment>
       <Head>
-        <title>404 Error</title>
+        <title>Error Boundary</title>
         <meta name="description" content="error page, oh noes" />
       </Head>
       {/* 
@@ -133,4 +133,4 @@ const ContentWrap = styled("div")`
   }
 `;
 
-export default FourOhFourPage;
+export default ErrorPage;
