@@ -14,8 +14,8 @@ import 'slick-carousel/slick/slick-theme.css';
 const theme = {
   primary: '#fff',
   secondary: '#333',
-  accent: '#37bc9b',
-  secondaryAccent: '#FE4A49',
+  accent: '#0ff',
+  secondaryAccent: '#FF0039',
   yellow: '#faa916',
   blue: '#3B68B5',
   lightgrey: '#f6f6f6',
@@ -37,12 +37,10 @@ const theme = {
 
 class MyApp extends App<AppProps> {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
     return (
-      //@ts-ignore
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-
         <Layout>
           <NextNProgress
             color={theme.yellow}
@@ -51,7 +49,7 @@ class MyApp extends App<AppProps> {
             height="2"
             style={{ zIndex: '5000' }}
           />
-          <Component {...pageProps} />
+          <Component {...pageProps} key={router.route} />
         </Layout>
       </ThemeProvider>
     );
@@ -62,42 +60,18 @@ class MyApp extends App<AppProps> {
 export default MyApp;
 
 const GlobalStyle = createGlobalStyle`
-/* @font-face {
-  font-family: 'Titillium';
+@font-face {
+  font-family: 'Berthold';
   font-weight: 400;
   font-style: normal;
-  src: url('/static/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+  src: url('/fonts/Berthold-light-extended.otf') format('truetype');
 }
-@font-face {
-  font-family: 'Titillium';
-  font-weight: 600;
-  font-style: normal;
-  src: url('/static/fonts/TitilliumWeb-SemiBold.ttf') format('truetype');
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
-@font-face {
-  font-family: 'Titillium';
-  font-weight: 700;
-  font-style: normal;
-  src: url('/static/fonts/TitilliumWeb-Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  font-weight: 400;
-  font-style: normal;
-  src: url('/static/fonts/SourceSansPro-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  font-weight: 600;
-  font-style: normal;
-  src: url('/static/fonts/SourceSansPro-SemiBold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'SourceSansPro';
-  font-weight: 700;
-  font-style: normal;
-  src: url('/static/fonts/SourceSansPro-Bold.ttf') format('truetype');
-} */
 
 #__next {
   height: 100%;
@@ -113,17 +87,11 @@ html {
   scroll-behavior: smooth;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
   padding: 0;
   margin: 0;
   font-size: 1.6rem;
-  font-family:  "Titillium","-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", "Segoe UI", "lato", "Arial", "Open Sans", "sans-serif";
+  font-family:  "Berthold","-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", "Segoe UI", "lato", "Arial", "Open Sans", "sans-serif";
   font-weight: 400;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
@@ -132,21 +100,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-   animation: fadeInAnimation ease 1s ;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
+  animation: fadeInAnimation ease 1.5s ;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
 }
 
 @keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
     } 
-    100% { 
-        opacity: 1; 
-     } 
 }
 
-h1,h2,h3 {
+h1, h2, h3 {
   font-weight: bold;
   color: ${theme.black};
   text-transform: uppercase;
@@ -186,16 +154,16 @@ ul, ol {
 }
 
 p {
-  color: ${theme.grey};
-  /* text-align: justify; */
-  max-height: 999999px;
-  word-break: break-word;
-  font-family: "SourceSansPro";
+  /* color: ${theme.grey}; */
+  /* max-height: 999999px; */
+  /* word-break: break-word; */
+  font-weight: 700;
+  /* font-family: "SourceSansPro"; */
 }
 
 li {
   color: ${theme.grey};
-  font-family: "SourceSansPro"
+  /* font-family: "SourceSansPro" */
 }
 
 strong {
@@ -211,34 +179,37 @@ code {
 
 a {
   text-decoration: none;
-  color: ${theme.blue};
+  color: ${theme.accent};
   font-weight: 600;
 
   &:hover {
-    color: ${theme.accent};
+    color: ${theme.primary};
   }
 }
 
-a.invert {
+/* a.invert {
   color: ${theme.font.white};
 
   &:hover {
     color: ${theme.accent};
   }
-}
+} */
 
 a.link {
   text-decoration: none;
-  font-weight: 600;
+  /* font-weight: 600;
   background-image: linear-gradient(to right,#37bc9b,#37bc9b 50%,${theme.blue} 50%);
   background-position: 100%;
   background-size: 200% 100%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  /* color: ${theme.accent}; */
   transition: all .4s;
 
   &:hover {
     background-position: 0%;
+
+    /* color: ${theme.primary}; */
   } 
 }
 
