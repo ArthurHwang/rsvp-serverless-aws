@@ -1,24 +1,25 @@
 import { FC, ReactElement } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
+import { Indicator } from "./Indicator";
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 6500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 10000,
+  cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
+  pauseOnHover: false,
+  className: "slick-container",
+  lazyLoad: "progressive",
+  fade: true,
+};
 
 export const Carousel: FC = (): ReactElement => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 6500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 10000,
-    cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
-    pauseOnHover: false,
-    className: "slick-container",
-    lazyLoad: "progressive",
-    fade: true,
-  };
-
   return (
     <StyledCarousel>
       {/* 
@@ -37,6 +38,7 @@ export const Carousel: FC = (): ReactElement => {
           alt="carol and arthur"
         />
       </Slider>
+      <Indicator />
     </StyledCarousel>
   );
 };
