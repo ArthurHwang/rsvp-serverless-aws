@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { ReactElement, FC } from "react";
 
-export const VenueLocation: React.FC = () => {
+export const VenueLocation: FC = (): ReactElement => {
   return (
     <StyledVenue>
       <h2>Venue Location......</h2>
@@ -8,7 +9,7 @@ export const VenueLocation: React.FC = () => {
   );
 };
 
-const StyledVenue = styled('div')`
+const StyledVenue = styled("div")`
   height: 100%;
   background-color: teal;
   display: flex;

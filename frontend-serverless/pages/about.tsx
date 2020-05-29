@@ -1,8 +1,8 @@
-// import styled from 'styled-components';
+import { About } from "../components/About";
+import { NextPage } from "next";
 
-// import styled from 'styled-components';
-import { About } from '../components/About';
-
-export default function AboutPage() {
+export const AboutPage: NextPage = () => {
   return <About />;
-}
+};
+
+export default AboutPage;

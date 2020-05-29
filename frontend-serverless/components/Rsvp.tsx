@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { FC, ReactElement } from "react";
 
-export const Rsvp: React.FC = () => {
+export const Rsvp: FC = (): ReactElement => {
   return (
     <StyledHero>
       <LayoutGrid>
@@ -15,11 +16,11 @@ export const Rsvp: React.FC = () => {
   );
 };
 
-const StyledHero = styled('div')`
+const StyledHero = styled("div")`
   height: 100%;
 `;
 
-const LayoutGrid = styled('div')`
+const LayoutGrid = styled("div")`
   display: grid;
   grid-template-columns: 2fr 1.5fr;
   height: 100%;

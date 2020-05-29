@@ -1,8 +1,9 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from "styled-components";
+import Link from "next/link";
+import { ReactElement, FC } from "react";
 // import { RiMenu3Line } from 'react-icons/ri';
 
-export const Nav: React.FC = () => {
+export const Nav: FC = (): ReactElement => {
   return (
     <>
       <StyledNav>
@@ -33,7 +34,7 @@ export const Nav: React.FC = () => {
   );
 };
 
-const StyledNav = styled('nav')`
+const StyledNav = styled("nav")`
   position: fixed;
   top: 5rem;
   z-index: 9999;

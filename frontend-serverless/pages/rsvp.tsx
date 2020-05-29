@@ -1,7 +1,8 @@
-// import styled from 'styled-components';
+import { Rsvp } from "../components/Rsvp";
+import { NextPage } from "next";
 
-import { Rsvp } from '../components/Rsvp';
-
-export default function RsvpPage() {
+const RsvpPage: NextPage = () => {
   return <Rsvp />;
-}
+};
+
+export default RsvpPage;
