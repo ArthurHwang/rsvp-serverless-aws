@@ -101,4 +101,3 @@ const StyledNav = styled('nav')`
 //   @media (min-width: 769px) {
 //     display: none;
 //   }
-`;
