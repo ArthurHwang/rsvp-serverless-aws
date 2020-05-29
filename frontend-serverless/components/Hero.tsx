@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import MdHeart from 'react-ionicons/lib/MdHeart';
+import Link from 'next/link';
 
 export const Hero: React.FC = () => {
   var settings = {
@@ -37,7 +38,7 @@ export const Hero: React.FC = () => {
             alt="carol and arthur"
           />
         </Slider>
-        <div className="right">
+        <div className="fancy-border right wedding-bg">
           {/* <div className="logo"> */}
           <h2>She said I do </h2>
           <MdHeart
@@ -47,12 +48,18 @@ export const Hero: React.FC = () => {
             beat={true}
           />{' '}
           <h2>I hope you do too</h2>
-          <p>To our friends and family,</p>
-          <p>
-            We cordially invite you to come celebrate with us on August 28, 2020
-          </p>
+          <p>To our friends and family:</p>
+          <p>Come celebrate with us on August 28, 2020</p>
           <p>at The Regents Hotel in Taipei, Taiwan </p>
           {/* </div> */}
+          <div>5 MONTHS 30 DAYS 20 HOURS 3 SECONDS</div>
+          <div>
+            Please{' '}
+            <Link href="/rsvp">
+              <a className="link">RSVP</a>
+            </Link>{' '}
+            to let us know your coming
+          </div>
         </div>
       </LayoutGrid>
     </StyledHero>
@@ -75,8 +82,10 @@ const LayoutGrid = styled('div')`
     object-fit: cover;
   }
 
-  h2 {
-    margin: 0;
+  .fancy-border {
+    border: 4rem solid #b88846;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23B88846' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E")
+      25;
   }
 
   .right {
@@ -85,17 +94,17 @@ const LayoutGrid = styled('div')`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem;
+    padding: 0 2rem;
 
-    .logo {
-      background: url('https://s.cdpn.io/7635/averyson-logo.gif') no-repeat;
-      background-size: 100%;
-      float: left;
-      width: 100%;
-      height: 30em;
-      font-family: Baskerville;
-      color: #575557;
-      position: relative;
+    h2:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 2rem;
+      text-align: center;
+      margin: 1rem;
+      height: 4rem;
     }
   }
 

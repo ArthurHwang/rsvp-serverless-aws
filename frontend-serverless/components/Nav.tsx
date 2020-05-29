@@ -13,7 +13,7 @@ export const Nav: React.FC = () => {
             </a>
           </Link>
         </div>
-        <div className="subtitle">Covid Survivors</div>
+        <div className="subtitle">Covid-19 Survivors</div>
         <div className="subnav">
           <Link href="/about">
             <a className="link">ABOUT</a>
@@ -44,13 +44,19 @@ const StyledNav = styled('nav')`
   }
 
   .subtitle {
-    color: grey;
+    color: red;
     font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 4px;
     height: 1.5rem;
     padding-left: 4rem;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
     margin-bottom: 2rem;
     text-transform: uppercase;
+    background-color: ${({ theme }) => theme.yellow};
+    border-radius: 10px 0;
+    text-shadow: ${({ theme }) => theme.black} 0px 0px 15px;
   }
   .title {
 
