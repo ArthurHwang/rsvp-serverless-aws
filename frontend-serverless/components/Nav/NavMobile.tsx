@@ -4,17 +4,18 @@ import { RiMenu3Line } from "react-icons/ri";
 
 type Props = {
   path: string;
+  scrolled: boolean;
 };
 
-export const NavMobile: FC<Props> = ({ path }): ReactElement => {
+export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
   return (
-    <StyledNavMobile path={path}>
+    <StyledNavMobile scrolled={scrolled} path={path}>
       <RiMenu3Line style={{ fontSize: "3rem" }} />
     </StyledNavMobile>
   );
 };
 
-const StyledNavMobile = styled("nav")<{ path: string }>`
+const StyledNavMobile = styled("nav")<{ path: string; scrolled: boolean }>`
   position: fixed;
   left: 2rem;
   top: 2rem;
@@ -22,6 +23,7 @@ const StyledNavMobile = styled("nav")<{ path: string }>`
   color: ${({ theme }) => theme.primary};
   display: none;
   @media (max-width: 768px) {
-    display: ${(props) => (props.path === "/" ? "none" : "block")};
+    display: ${(props) =>
+      props.path === "/" && props.scrolled === false ? "none" : "block"};
   }
 `;

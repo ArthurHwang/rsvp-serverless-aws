@@ -4,11 +4,12 @@ import Link from "next/link";
 
 type Props = {
   path: string;
+  scrolled: boolean;
 };
 
-export const NavFull: FC<Props> = ({ path }): ReactElement => {
+export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
   return (
-    <StyledNav path={path}>
+    <StyledNav scrolled={scrolled} path={path}>
       <div className="title">
         <Link href="/">
           <a>
@@ -32,14 +33,11 @@ export const NavFull: FC<Props> = ({ path }): ReactElement => {
   );
 };
 
-const StyledNav = styled("nav")<{ path: string }>`
+const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
   position: fixed;
   top: 5rem;
   z-index: 9999;
 
-
-
-  
   a {
     text-transform: uppercase;
   }
@@ -89,6 +87,14 @@ const StyledNav = styled("nav")<{ path: string }>`
 
 
   @media (max-width: 768px) {
-    display: ${(props) => (props.path === "/" ? "block" : "none")};
+        
+    /* display: ${(props) =>
+      props.path === "/" && props.scrolled === false ? "block" : "none"}; */
+      transition: opacity 0.3s;   
+    opacity: ${(props) =>
+      props.path === "/" && props.scrolled === false ? "1" : "0"};
+        
   }
+
+
 `;
