@@ -92,13 +92,13 @@ const StyledNav = styled('nav')`
   }
 `;
 
-const NavMobile = styled('nav')`
-  position: fixed;
-  left: 2rem;
-  top: 2rem;
-  z-index: 9999;
-  color: ${({ theme }) => theme.primary};
-  @media (min-width: 769px) {
-    display: none;
-  }
+// const NavMobile = styled('nav')`
+//   position: fixed;
+//   left: 2rem;
+//   top: 2rem;
+//   z-index: 9999;
+//   color: ${({ theme }) => theme.primary};
+//   @media (min-width: 769px) {
+//     display: none;
+//   }
 `;
