@@ -61,6 +61,12 @@ const StyledIndicator = styled("div")`
     animation: 1.6s ease infinite wheel-up-down;
   }
 
+  @media (min-width: 1199px) {
+    & {
+      display: none;
+    }
+  }
+
   @-webkit-keyframes wheel-up-down {
     0% {
       margin-top: 2px;
