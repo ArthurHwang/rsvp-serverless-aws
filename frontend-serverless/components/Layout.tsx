@@ -19,8 +19,8 @@ export const Layout: React.FC<Props> = ({ children }): ReactElement => {
 };
 
 const StyledLayout = styled('main')`
-  background: white;
-  color: ${({ theme }) => theme.black};
+  /* background: white; */
+  /* color: ${({ theme }) => theme.black}; */
   height: 100%;
 
   @media (max-width: 910px) {

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "6KEZ");
+/******/ 	return __webpack_require__(__webpack_require__.s = "RCH2");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1073,219 +1073,6 @@ if (true) {
 /***/ (function(module) {
 
 module.exports = JSON.parse("{}");
-
-/***/ }),
-
-/***/ "6KEZ":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticParams", function() { return unstable_getStaticParams; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticPaths", function() { return getStaticPaths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticProps", function() { return unstable_getStaticProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticPaths", function() { return unstable_getStaticPaths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getServerProps", function() { return unstable_getServerProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return _app; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony import */ var next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("GX0O");
-/* harmony import */ var next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KqAr");
-/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("fkL1");
-/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__);
-
-    
-    
-    
-
-    
-    const runtimeConfig = {}
-    const {parse} = __webpack_require__("bzos")
-    const {parse: parseQs} = __webpack_require__("8xkj")
-    const {renderToHTML} = __webpack_require__("/bjS");
-    const { tryGetPreviewData } = __webpack_require__("PCLx");
-    const {sendHTML} = __webpack_require__("LuNM");
-    const {sendPayload} = __webpack_require__("KyNf");
-    const buildManifest = __webpack_require__("LZ9C");
-    const reactLoadableManifest = __webpack_require__("67Bq");
-    const Document = __webpack_require__("Y7Z2").default;
-    const Error = __webpack_require__("/a9y").default;
-    const App = __webpack_require__("cha2").default;
-    
-    
-    const { rewrites } = __webpack_require__("Skye")
-    const { pathToRegexp, default: pathMatch } = __webpack_require__("uDRR")
-  
-
-    const ComponentInfo = __webpack_require__("/a9y")
-
-    const Component = ComponentInfo.default
-    /* harmony default export */ __webpack_exports__["default"] = (Component);
-    const unstable_getStaticParams = ComponentInfo['unstable_getStaticParam' + 's']
-    const getStaticProps = ComponentInfo['getStaticProp' + 's']
-    const getStaticPaths = ComponentInfo['getStaticPath' + 's']
-    const getServerSideProps = ComponentInfo['getServerSideProp' + 's']
-
-    // kept for detecting legacy exports
-    const unstable_getStaticProps = ComponentInfo['unstable_getStaticProp' + 's']
-    const unstable_getStaticPaths = ComponentInfo['unstable_getStaticPath' + 's']
-    const unstable_getServerProps = ComponentInfo['unstable_getServerProp' + 's']
-
-    
-    
-    const getCustomRouteMatcher = pathMatch(true)
-    const {prepareDestination} = __webpack_require__("dtb4")
-
-    function handleRewrites(parsedUrl) {
-      for (const rewrite of rewrites) {
-        const matcher = getCustomRouteMatcher(rewrite.source)
-        const params = matcher(parsedUrl.pathname)
-
-        if (params) {
-          const { parsedDestination } = prepareDestination(
-            rewrite.destination,
-            params,
-            parsedUrl.query
-          )
-          Object.assign(parsedUrl.query, parsedDestination.query, params)
-          delete parsedDestination.query
-
-          Object.assign(parsedUrl, parsedDestination)
-
-          if (parsedUrl.pathname === '/_error'){
-            break
-          }
-          
-        }
-      }
-
-      return parsedUrl
-    }
-  
-
-    const config = ComponentInfo['confi' + 'g'] || {}
-    const _app = App
-    async function renderReqToHTML(req, res, renderMode, _renderOpts, _params) {
-      const fromExport = renderMode === 'export' || renderMode === true;
-      
-      const options = {
-        App,
-        Document,
-        buildManifest,
-        getStaticProps,
-        getServerSideProps,
-        getStaticPaths,
-        reactLoadableManifest,
-        canonicalBase: "",
-        buildId: "-iBetR17Zr_EWk-a3FXY0",
-        assetPrefix: "",
-        runtimeConfig: runtimeConfig.publicRuntimeConfig || {},
-        previewProps: {previewModeId:"27f310be75d3fa196419a3c4e777bcaa",previewModeSigningKey:"711985a9a1e53367b5a8777c9f93cf5bc33d87b22d9b0d9a34130a21c8b7f664",previewModeEncryptionKey:"04b2bcd786463ae50b6247b904756abfe57f6da38a15e4ac3d57d6c54fe32b32"},
-        env: process.env,
-        basePath: "",
-        ..._renderOpts
-      }
-      let _nextData = false
-      let parsedUrl
-
-      try {
-        parsedUrl = handleRewrites(parse(req.url, true))
-
-        if (parsedUrl.pathname.match(/_next\/data/)) {
-          _nextData = true
-          parsedUrl.pathname = parsedUrl.pathname
-            .replace(new RegExp('/_next/data/\-iBetR17Zr_EWk\-a3FXY0/'), '/')
-            .replace(/\.json$/, '')
-        }
-
-        const renderOpts = Object.assign(
-          {
-            Component,
-            pageConfig: config,
-            nextExport: fromExport
-          },
-          options,
-        )
-
-        
-          if (!res.statusCode) {
-            res.statusCode = 404
-          }
-        
-
-        const params = {};
-        const nowParams = null;
-        // make sure to set renderOpts to the correct params e.g. _params
-        // if provided from worker or params if we're parsing them here
-        renderOpts.params = _params || params
-
-        const isFallback = parsedUrl.query.__nextFallback
-
-        const previewData = tryGetPreviewData(req, res, options.previewProps)
-        const isPreviewMode = previewData !== false
-
-        let result = await renderToHTML(req, res, "/_error", Object.assign({}, getStaticProps ? { ...(parsedUrl.query.amp ? { amp: '1' } : {}) } : parsedUrl.query, nowParams ? nowParams : params, _params, isFallback ? { __nextFallback: 'true' } : {}), renderOpts)
-
-        if (!renderMode) {
-          if (_nextData || getStaticProps || getServerSideProps) {
-            sendPayload(res, _nextData ? JSON.stringify(renderOpts.pageData) : result, _nextData ? 'json' : 'html', {
-              private: isPreviewMode,
-              stateful: !!getServerSideProps,
-              revalidate: renderOpts.revalidate,
-            })
-            return null
-          }
-        } else if (isPreviewMode) {
-          res.setHeader(
-            'Cache-Control',
-            'private, no-cache, no-store, max-age=0, must-revalidate'
-          )
-        }
-
-        if (renderMode) return { html: result, renderOpts }
-        return result
-      } catch (err) {
-        if (!parsedUrl) {
-          parsedUrl = parse(req.url, true)
-        }
-
-        if (err.code === 'ENOENT') {
-          res.statusCode = 404
-        } else if (err.code === 'DECODE_FAILED') {
-          res.statusCode = 400
-        } else {
-          console.error(err)
-          res.statusCode = 500
-        }
-
-        const result = await renderToHTML(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
-          getStaticProps: undefined,
-          getStaticPaths: undefined,
-          getServerSideProps: undefined,
-          Component: Error,
-          err: res.statusCode === 404 ? undefined : err
-        }))
-        return result
-      }
-    }
-    async function render (req, res) {
-      try {
-        await Object(next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__["default"])()
-        const html = await renderReqToHTML(req, res)
-        if (html) {
-          sendHTML(req, res, html, {generateEtags: true})
-        }
-      } catch(err) {
-        await Object(next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__["default"])(err)
-        console.error(err)
-        res.statusCode = 500
-        res.end('Internal Server Error')
-      }
-    }
-  
 
 /***/ }),
 
@@ -2540,7 +2327,7 @@ exports.default = index;
 /***/ "LZ9C":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"devFiles\":[],\"lowPriorityFiles\":[\"static/-iBetR17Zr_EWk-a3FXY0/_buildManifest.js\",\"static/-iBetR17Zr_EWk-a3FXY0/_ssgManifest.js\"],\"pages\":{\"/\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/404\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/chunks/bacc05c6686e40f79fa16a430081f62b7aa5b303.9dc62973257190a0bfe5.js\",\"static/chunks/63193f52336d6366a817e4301fce5fcce10d54cd.4bdc537c2c557b36f43c.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_app\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/78e521c3.8986addbe2b7a251d3dc.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/chunks/bacc05c6686e40f79fa16a430081f62b7aa5b303.9dc62973257190a0bfe5.js\",\"static/chunks/63193f52336d6366a817e4301fce5fcce10d54cd.4bdc537c2c557b36f43c.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_error\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_polyfills\":[\"static/runtime/polyfills-db3eeaf8fbc6db3a50d4.js\"],\"/about\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/index\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/rsvp\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/where\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.c6faae2799416a6da8e8.js\",\"static/chunks/68a8f3763043d4bc34d1e378a0dcf6dabcde574e.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"]}}");
+module.exports = JSON.parse("{\"devFiles\":[],\"lowPriorityFiles\":[\"static/QdOui8ewCg5dXxnnxfbvr/_buildManifest.js\",\"static/QdOui8ewCg5dXxnnxfbvr/_ssgManifest.js\"],\"pages\":{\"/\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/404\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/chunks/322f3846c976772c93cec584f5fd0ed3afb08fba.9dc62973257190a0bfe5.js\",\"static/chunks/202facbe930fba7a4cea7369f120bf792c0787bb.4bdc537c2c557b36f43c.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_app\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/78e521c3.8986addbe2b7a251d3dc.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/chunks/322f3846c976772c93cec584f5fd0ed3afb08fba.9dc62973257190a0bfe5.js\",\"static/chunks/202facbe930fba7a4cea7369f120bf792c0787bb.4bdc537c2c557b36f43c.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_error\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/_polyfills\":[\"static/runtime/polyfills-db3eeaf8fbc6db3a50d4.js\"],\"/about\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/index\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/rsvp\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"],\"/where\":[\"static/runtime/webpack-c212667a5f965e81e004.js\",\"static/chunks/framework.4dd1003cc9c949c7fcd3.js\",\"static/chunks/b5829da72164cccd219792a2b8c4002fd53d3db8.643b930d22a9349bbeda.js\",\"static/runtime/main-3a9ff0e364719b5918fa.js\"]}}");
 
 /***/ }),
 
@@ -2550,6 +2337,14 @@ module.exports = JSON.parse("{\"devFiles\":[],\"lowPriorityFiles\":[\"static/-iB
 "use strict";
 exports.__esModule=true;exports.sendHTML=sendHTML;var _etag=_interopRequireDefault(__webpack_require__("Z3Jd"));var _fresh=_interopRequireDefault(__webpack_require__("IuXR"));var _utils=__webpack_require__("g/15");function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function sendHTML(req,res,html,{generateEtags,poweredByHeader}){if((0,_utils.isResSent)(res))return;const etag=generateEtags?(0,_etag.default)(html):undefined;if(poweredByHeader){res.setHeader('X-Powered-By','Next.js');}if((0,_fresh.default)(req.headers,{etag})){res.statusCode=304;res.end();return;}if(etag){res.setHeader('ETag',etag);}if(!res.getHeader('Content-Type')){res.setHeader('Content-Type','text/html; charset=utf-8');}res.setHeader('Content-Length',Buffer.byteLength(html));res.end(req.method==='HEAD'?null:html);}
 //# sourceMappingURL=send-html.js.map
+
+/***/ }),
+
+/***/ "MX0m":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("3niX")
+
 
 /***/ }),
 
@@ -2647,6 +2442,489 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+
+/***/ "Mj6V":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
+ * @license MIT */
+
+;(function(root, factory) {
+
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+})(this, function() {
+  var NProgress = {};
+
+  NProgress.version = '0.2.0';
+
+  var Settings = NProgress.settings = {
+    minimum: 0.08,
+    easing: 'ease',
+    positionUsing: '',
+    speed: 200,
+    trickle: true,
+    trickleRate: 0.02,
+    trickleSpeed: 800,
+    showSpinner: true,
+    barSelector: '[role="bar"]',
+    spinnerSelector: '[role="spinner"]',
+    parent: 'body',
+    template: '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+  };
+
+  /**
+   * Updates configuration.
+   *
+   *     NProgress.configure({
+   *       minimum: 0.1
+   *     });
+   */
+  NProgress.configure = function(options) {
+    var key, value;
+    for (key in options) {
+      value = options[key];
+      if (value !== undefined && options.hasOwnProperty(key)) Settings[key] = value;
+    }
+
+    return this;
+  };
+
+  /**
+   * Last number.
+   */
+
+  NProgress.status = null;
+
+  /**
+   * Sets the progress bar status, where `n` is a number from `0.0` to `1.0`.
+   *
+   *     NProgress.set(0.4);
+   *     NProgress.set(1.0);
+   */
+
+  NProgress.set = function(n) {
+    var started = NProgress.isStarted();
+
+    n = clamp(n, Settings.minimum, 1);
+    NProgress.status = (n === 1 ? null : n);
+
+    var progress = NProgress.render(!started),
+        bar      = progress.querySelector(Settings.barSelector),
+        speed    = Settings.speed,
+        ease     = Settings.easing;
+
+    progress.offsetWidth; /* Repaint */
+
+    queue(function(next) {
+      // Set positionUsing if it hasn't already been set
+      if (Settings.positionUsing === '') Settings.positionUsing = NProgress.getPositioningCSS();
+
+      // Add transition
+      css(bar, barPositionCSS(n, speed, ease));
+
+      if (n === 1) {
+        // Fade out
+        css(progress, { 
+          transition: 'none', 
+          opacity: 1 
+        });
+        progress.offsetWidth; /* Repaint */
+
+        setTimeout(function() {
+          css(progress, { 
+            transition: 'all ' + speed + 'ms linear', 
+            opacity: 0 
+          });
+          setTimeout(function() {
+            NProgress.remove();
+            next();
+          }, speed);
+        }, speed);
+      } else {
+        setTimeout(next, speed);
+      }
+    });
+
+    return this;
+  };
+
+  NProgress.isStarted = function() {
+    return typeof NProgress.status === 'number';
+  };
+
+  /**
+   * Shows the progress bar.
+   * This is the same as setting the status to 0%, except that it doesn't go backwards.
+   *
+   *     NProgress.start();
+   *
+   */
+  NProgress.start = function() {
+    if (!NProgress.status) NProgress.set(0);
+
+    var work = function() {
+      setTimeout(function() {
+        if (!NProgress.status) return;
+        NProgress.trickle();
+        work();
+      }, Settings.trickleSpeed);
+    };
+
+    if (Settings.trickle) work();
+
+    return this;
+  };
+
+  /**
+   * Hides the progress bar.
+   * This is the *sort of* the same as setting the status to 100%, with the
+   * difference being `done()` makes some placebo effect of some realistic motion.
+   *
+   *     NProgress.done();
+   *
+   * If `true` is passed, it will show the progress bar even if its hidden.
+   *
+   *     NProgress.done(true);
+   */
+
+  NProgress.done = function(force) {
+    if (!force && !NProgress.status) return this;
+
+    return NProgress.inc(0.3 + 0.5 * Math.random()).set(1);
+  };
+
+  /**
+   * Increments by a random amount.
+   */
+
+  NProgress.inc = function(amount) {
+    var n = NProgress.status;
+
+    if (!n) {
+      return NProgress.start();
+    } else {
+      if (typeof amount !== 'number') {
+        amount = (1 - n) * clamp(Math.random() * n, 0.1, 0.95);
+      }
+
+      n = clamp(n + amount, 0, 0.994);
+      return NProgress.set(n);
+    }
+  };
+
+  NProgress.trickle = function() {
+    return NProgress.inc(Math.random() * Settings.trickleRate);
+  };
+
+  /**
+   * Waits for all supplied jQuery promises and
+   * increases the progress as the promises resolve.
+   *
+   * @param $promise jQUery Promise
+   */
+  (function() {
+    var initial = 0, current = 0;
+
+    NProgress.promise = function($promise) {
+      if (!$promise || $promise.state() === "resolved") {
+        return this;
+      }
+
+      if (current === 0) {
+        NProgress.start();
+      }
+
+      initial++;
+      current++;
+
+      $promise.always(function() {
+        current--;
+        if (current === 0) {
+            initial = 0;
+            NProgress.done();
+        } else {
+            NProgress.set((initial - current) / initial);
+        }
+      });
+
+      return this;
+    };
+
+  })();
+
+  /**
+   * (Internal) renders the progress bar markup based on the `template`
+   * setting.
+   */
+
+  NProgress.render = function(fromStart) {
+    if (NProgress.isRendered()) return document.getElementById('nprogress');
+
+    addClass(document.documentElement, 'nprogress-busy');
+    
+    var progress = document.createElement('div');
+    progress.id = 'nprogress';
+    progress.innerHTML = Settings.template;
+
+    var bar      = progress.querySelector(Settings.barSelector),
+        perc     = fromStart ? '-100' : toBarPerc(NProgress.status || 0),
+        parent   = document.querySelector(Settings.parent),
+        spinner;
+    
+    css(bar, {
+      transition: 'all 0 linear',
+      transform: 'translate3d(' + perc + '%,0,0)'
+    });
+
+    if (!Settings.showSpinner) {
+      spinner = progress.querySelector(Settings.spinnerSelector);
+      spinner && removeElement(spinner);
+    }
+
+    if (parent != document.body) {
+      addClass(parent, 'nprogress-custom-parent');
+    }
+
+    parent.appendChild(progress);
+    return progress;
+  };
+
+  /**
+   * Removes the element. Opposite of render().
+   */
+
+  NProgress.remove = function() {
+    removeClass(document.documentElement, 'nprogress-busy');
+    removeClass(document.querySelector(Settings.parent), 'nprogress-custom-parent');
+    var progress = document.getElementById('nprogress');
+    progress && removeElement(progress);
+  };
+
+  /**
+   * Checks if the progress bar is rendered.
+   */
+
+  NProgress.isRendered = function() {
+    return !!document.getElementById('nprogress');
+  };
+
+  /**
+   * Determine which positioning CSS rule to use.
+   */
+
+  NProgress.getPositioningCSS = function() {
+    // Sniff on document.body.style
+    var bodyStyle = document.body.style;
+
+    // Sniff prefixes
+    var vendorPrefix = ('WebkitTransform' in bodyStyle) ? 'Webkit' :
+                       ('MozTransform' in bodyStyle) ? 'Moz' :
+                       ('msTransform' in bodyStyle) ? 'ms' :
+                       ('OTransform' in bodyStyle) ? 'O' : '';
+
+    if (vendorPrefix + 'Perspective' in bodyStyle) {
+      // Modern browsers with 3D support, e.g. Webkit, IE10
+      return 'translate3d';
+    } else if (vendorPrefix + 'Transform' in bodyStyle) {
+      // Browsers without 3D support, e.g. IE9
+      return 'translate';
+    } else {
+      // Browsers without translate() support, e.g. IE7-8
+      return 'margin';
+    }
+  };
+
+  /**
+   * Helpers
+   */
+
+  function clamp(n, min, max) {
+    if (n < min) return min;
+    if (n > max) return max;
+    return n;
+  }
+
+  /**
+   * (Internal) converts a percentage (`0..1`) to a bar translateX
+   * percentage (`-100%..0%`).
+   */
+
+  function toBarPerc(n) {
+    return (-1 + n) * 100;
+  }
+
+
+  /**
+   * (Internal) returns the correct CSS for changing the bar's
+   * position given an n percentage, and speed and ease from Settings
+   */
+
+  function barPositionCSS(n, speed, ease) {
+    var barCSS;
+
+    if (Settings.positionUsing === 'translate3d') {
+      barCSS = { transform: 'translate3d('+toBarPerc(n)+'%,0,0)' };
+    } else if (Settings.positionUsing === 'translate') {
+      barCSS = { transform: 'translate('+toBarPerc(n)+'%,0)' };
+    } else {
+      barCSS = { 'margin-left': toBarPerc(n)+'%' };
+    }
+
+    barCSS.transition = 'all '+speed+'ms '+ease;
+
+    return barCSS;
+  }
+
+  /**
+   * (Internal) Queues a function to be executed.
+   */
+
+  var queue = (function() {
+    var pending = [];
+    
+    function next() {
+      var fn = pending.shift();
+      if (fn) {
+        fn(next);
+      }
+    }
+
+    return function(fn) {
+      pending.push(fn);
+      if (pending.length == 1) next();
+    };
+  })();
+
+  /**
+   * (Internal) Applies css properties to an element, similar to the jQuery 
+   * css method.
+   *
+   * While this helper does assist with vendor prefixed property names, it 
+   * does not perform any manipulation of values prior to setting styles.
+   */
+
+  var css = (function() {
+    var cssPrefixes = [ 'Webkit', 'O', 'Moz', 'ms' ],
+        cssProps    = {};
+
+    function camelCase(string) {
+      return string.replace(/^-ms-/, 'ms-').replace(/-([\da-z])/gi, function(match, letter) {
+        return letter.toUpperCase();
+      });
+    }
+
+    function getVendorProp(name) {
+      var style = document.body.style;
+      if (name in style) return name;
+
+      var i = cssPrefixes.length,
+          capName = name.charAt(0).toUpperCase() + name.slice(1),
+          vendorName;
+      while (i--) {
+        vendorName = cssPrefixes[i] + capName;
+        if (vendorName in style) return vendorName;
+      }
+
+      return name;
+    }
+
+    function getStyleProp(name) {
+      name = camelCase(name);
+      return cssProps[name] || (cssProps[name] = getVendorProp(name));
+    }
+
+    function applyCss(element, prop, value) {
+      prop = getStyleProp(prop);
+      element.style[prop] = value;
+    }
+
+    return function(element, properties) {
+      var args = arguments,
+          prop, 
+          value;
+
+      if (args.length == 2) {
+        for (prop in properties) {
+          value = properties[prop];
+          if (value !== undefined && properties.hasOwnProperty(prop)) applyCss(element, prop, value);
+        }
+      } else {
+        applyCss(element, args[1], args[2]);
+      }
+    }
+  })();
+
+  /**
+   * (Internal) Determines if an element or space separated list of class names contains a class name.
+   */
+
+  function hasClass(element, name) {
+    var list = typeof element == 'string' ? element : classList(element);
+    return list.indexOf(' ' + name + ' ') >= 0;
+  }
+
+  /**
+   * (Internal) Adds a class to an element.
+   */
+
+  function addClass(element, name) {
+    var oldList = classList(element),
+        newList = oldList + name;
+
+    if (hasClass(oldList, name)) return; 
+
+    // Trim the opening space.
+    element.className = newList.substring(1);
+  }
+
+  /**
+   * (Internal) Removes a class from an element.
+   */
+
+  function removeClass(element, name) {
+    var oldList = classList(element),
+        newList;
+
+    if (!hasClass(element, name)) return;
+
+    // Replace the class name.
+    newList = oldList.replace(' ' + name + ' ', ' ');
+
+    // Trim the opening and closing spaces.
+    element.className = newList.substring(1, newList.length - 1);
+  }
+
+  /**
+   * (Internal) Gets a space separated list of the class names on the element. 
+   * The list is wrapped with a single space on each end to facilitate finding 
+   * matches within the list.
+   */
+
+  function classList(element) {
+    return (' ' + (element.className || '') + ' ').replace(/\s+/gi, ' ');
+  }
+
+  /**
+   * (Internal) Removes an element from the DOM.
+   */
+
+  function removeElement(element) {
+    element && element.parentNode && element.parentNode.removeChild(element);
+  }
+
+  return NProgress;
+});
+
 
 
 /***/ }),
@@ -2908,6 +3186,219 @@ webpackEmptyContext.id = "PJv+";
 "use strict";
 exports.__esModule=true;exports.isBlockedPage=isBlockedPage;exports.cleanAmpPath=cleanAmpPath;var _constants=__webpack_require__("w7wo");function isBlockedPage(pathname){return _constants.BLOCKED_PAGES.includes(pathname);}function cleanAmpPath(pathname){if(pathname.match(/\?amp=(y|yes|true|1)/)){pathname=pathname.replace(/\?amp=(y|yes|true|1)&?/,'?');}if(pathname.match(/&amp=(y|yes|true|1)/)){pathname=pathname.replace(/&amp=(y|yes|true|1)/,'');}pathname=pathname.replace(/\?$/,'');return pathname;}
 //# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ "RCH2":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticParams", function() { return unstable_getStaticParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticPaths", function() { return getStaticPaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticProps", function() { return unstable_getStaticProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticPaths", function() { return unstable_getStaticPaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getServerProps", function() { return unstable_getServerProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return _app; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony import */ var next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("GX0O");
+/* harmony import */ var next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KqAr");
+/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("fkL1");
+/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__);
+
+    
+    
+    
+
+    
+    const runtimeConfig = {}
+    const {parse} = __webpack_require__("bzos")
+    const {parse: parseQs} = __webpack_require__("8xkj")
+    const {renderToHTML} = __webpack_require__("/bjS");
+    const { tryGetPreviewData } = __webpack_require__("PCLx");
+    const {sendHTML} = __webpack_require__("LuNM");
+    const {sendPayload} = __webpack_require__("KyNf");
+    const buildManifest = __webpack_require__("LZ9C");
+    const reactLoadableManifest = __webpack_require__("67Bq");
+    const Document = __webpack_require__("Y7Z2").default;
+    const Error = __webpack_require__("/a9y").default;
+    const App = __webpack_require__("cha2").default;
+    
+    
+    const { rewrites } = __webpack_require__("Skye")
+    const { pathToRegexp, default: pathMatch } = __webpack_require__("uDRR")
+  
+
+    const ComponentInfo = __webpack_require__("/a9y")
+
+    const Component = ComponentInfo.default
+    /* harmony default export */ __webpack_exports__["default"] = (Component);
+    const unstable_getStaticParams = ComponentInfo['unstable_getStaticParam' + 's']
+    const getStaticProps = ComponentInfo['getStaticProp' + 's']
+    const getStaticPaths = ComponentInfo['getStaticPath' + 's']
+    const getServerSideProps = ComponentInfo['getServerSideProp' + 's']
+
+    // kept for detecting legacy exports
+    const unstable_getStaticProps = ComponentInfo['unstable_getStaticProp' + 's']
+    const unstable_getStaticPaths = ComponentInfo['unstable_getStaticPath' + 's']
+    const unstable_getServerProps = ComponentInfo['unstable_getServerProp' + 's']
+
+    
+    
+    const getCustomRouteMatcher = pathMatch(true)
+    const {prepareDestination} = __webpack_require__("dtb4")
+
+    function handleRewrites(parsedUrl) {
+      for (const rewrite of rewrites) {
+        const matcher = getCustomRouteMatcher(rewrite.source)
+        const params = matcher(parsedUrl.pathname)
+
+        if (params) {
+          const { parsedDestination } = prepareDestination(
+            rewrite.destination,
+            params,
+            parsedUrl.query
+          )
+          Object.assign(parsedUrl.query, parsedDestination.query, params)
+          delete parsedDestination.query
+
+          Object.assign(parsedUrl, parsedDestination)
+
+          if (parsedUrl.pathname === '/_error'){
+            break
+          }
+          
+        }
+      }
+
+      return parsedUrl
+    }
+  
+
+    const config = ComponentInfo['confi' + 'g'] || {}
+    const _app = App
+    async function renderReqToHTML(req, res, renderMode, _renderOpts, _params) {
+      const fromExport = renderMode === 'export' || renderMode === true;
+      
+      const options = {
+        App,
+        Document,
+        buildManifest,
+        getStaticProps,
+        getServerSideProps,
+        getStaticPaths,
+        reactLoadableManifest,
+        canonicalBase: "",
+        buildId: "QdOui8ewCg5dXxnnxfbvr",
+        assetPrefix: "",
+        runtimeConfig: runtimeConfig.publicRuntimeConfig || {},
+        previewProps: {previewModeId:"49ea878bf8d175e34c05c96582aac29a",previewModeSigningKey:"dfbaa49d2b2d8fec061185e389618f7dd720fa705289bb7f8a23905422723ae2",previewModeEncryptionKey:"61aab2b6e2f15ff6dc4cbed952842ac0fdf8cd9129ce44a29da808bbcbdc1eb5"},
+        env: process.env,
+        basePath: "",
+        ..._renderOpts
+      }
+      let _nextData = false
+      let parsedUrl
+
+      try {
+        parsedUrl = handleRewrites(parse(req.url, true))
+
+        if (parsedUrl.pathname.match(/_next\/data/)) {
+          _nextData = true
+          parsedUrl.pathname = parsedUrl.pathname
+            .replace(new RegExp('/_next/data/QdOui8ewCg5dXxnnxfbvr/'), '/')
+            .replace(/\.json$/, '')
+        }
+
+        const renderOpts = Object.assign(
+          {
+            Component,
+            pageConfig: config,
+            nextExport: fromExport
+          },
+          options,
+        )
+
+        
+          if (!res.statusCode) {
+            res.statusCode = 404
+          }
+        
+
+        const params = {};
+        const nowParams = null;
+        // make sure to set renderOpts to the correct params e.g. _params
+        // if provided from worker or params if we're parsing them here
+        renderOpts.params = _params || params
+
+        const isFallback = parsedUrl.query.__nextFallback
+
+        const previewData = tryGetPreviewData(req, res, options.previewProps)
+        const isPreviewMode = previewData !== false
+
+        let result = await renderToHTML(req, res, "/_error", Object.assign({}, getStaticProps ? { ...(parsedUrl.query.amp ? { amp: '1' } : {}) } : parsedUrl.query, nowParams ? nowParams : params, _params, isFallback ? { __nextFallback: 'true' } : {}), renderOpts)
+
+        if (!renderMode) {
+          if (_nextData || getStaticProps || getServerSideProps) {
+            sendPayload(res, _nextData ? JSON.stringify(renderOpts.pageData) : result, _nextData ? 'json' : 'html', {
+              private: isPreviewMode,
+              stateful: !!getServerSideProps,
+              revalidate: renderOpts.revalidate,
+            })
+            return null
+          }
+        } else if (isPreviewMode) {
+          res.setHeader(
+            'Cache-Control',
+            'private, no-cache, no-store, max-age=0, must-revalidate'
+          )
+        }
+
+        if (renderMode) return { html: result, renderOpts }
+        return result
+      } catch (err) {
+        if (!parsedUrl) {
+          parsedUrl = parse(req.url, true)
+        }
+
+        if (err.code === 'ENOENT') {
+          res.statusCode = 404
+        } else if (err.code === 'DECODE_FAILED') {
+          res.statusCode = 400
+        } else {
+          console.error(err)
+          res.statusCode = 500
+        }
+
+        const result = await renderToHTML(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
+          getStaticProps: undefined,
+          getStaticPaths: undefined,
+          getServerSideProps: undefined,
+          Component: Error,
+          err: res.statusCode === 404 ? undefined : err
+        }))
+        return result
+      }
+    }
+    async function render (req, res) {
+      try {
+        await Object(next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__["default"])()
+        const html = await renderReqToHTML(req, res)
+        if (html) {
+          sendHTML(req, res, html, {generateEtags: true})
+        }
+      } catch(err) {
+        await Object(next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__["default"])(err)
+        console.error(err)
+        res.statusCode = 500
+        res.end('Internal Server Error')
+      }
+    }
+  
 
 /***/ }),
 
@@ -6720,15 +7211,16 @@ var head_default = /*#__PURE__*/__webpack_require__.n(head);
 
 var __jsx = react_default.a.createElement;
 
-// interface Props {
-//   pathName: string;
-// }
 const Meta = () => __jsx(head_default.a, null, __jsx("meta", {
   name: "viewport",
   content: "width=device-width, initial-scale=1"
 }), __jsx("meta", {
   charSet: "utf-8"
 }), __jsx("title", null, "Carol and Arthur"));
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+
 // EXTERNAL MODULE: ./node_modules/react-icons/lib/cjs/index.js
 var cjs = __webpack_require__("2CCv");
 
@@ -10704,10 +11196,6 @@ var RiWindyLine = function (props) {
 };
 RiWindyLine.displayName = "RiWindyLine";
 
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__("YFqc");
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-
 // CONCATENATED MODULE: ./components/Nav.tsx
 
 var Nav_jsx = react_default.a.createElement;
@@ -10741,82 +11229,36 @@ const NavMobile = styled_components_cjs_default()('nav').withConfig({
 
 var Layout_jsx = react_default.a.createElement;
 
- // import { Header } from './Header';
 
- // import { Footer } from './Footer';
-// import { Subheader } from './Subheader';
-// import { withRouter } from 'next/router';
-// import { Contact } from './Contact';
 
 const Layout = ({
-  children // router: { pathname },
-
+  children
 }) => {
-  return (// <StyledLayout pathName={pathname}>
-    Layout_jsx(StyledLayout, null, Layout_jsx(Meta, null), Layout_jsx(Nav, null), children)
-  );
-}; // @ts-ignore
-// export default withRouter(Layout);
-// export default Layout;
-// const MobilePush = styled('div')`
-//   height: 60px;
-// `;
-
+  return Layout_jsx(StyledLayout, null, Layout_jsx(Meta, null), Layout_jsx(Nav, null), children);
+};
 const StyledLayout = styled_components_cjs_default()('main').withConfig({
   displayName: "Layout__StyledLayout",
   componentId: "sc-1y3411l-0"
 })(["background:white;color:", ";height:100%;@media (max-width:910px){position:relative;}"], ({
   theme
-}) => theme.black); // const Inner = styled('section')<{ pathName: string }>`
-//   margin: 0 auto;
-//   /* background-color: ${({ theme }) => theme.primary}; */
-//   max-width: ${(props) => {
-//     switch (props.pathName) {
-//       case '/':
-//         return '100%';
-//       case '/projects':
-//         return '100%';
-//       case '/_error':
-//         return '100%';
-//       case '/contact':
-//         return '100%';
-//       default:
-//         return props.theme.maxWidth;
-//     }
-//   }};
-//   padding: ${(props) => {
-//     switch (props.pathName) {
-//       case '/':
-//         return '';
-//       case '/projects':
-//         return '';
-//       case '/_error':
-//         return '';
-//       case '/contact':
-//         return '';
-//       default:
-//         return '2rem';
-//     }
-//   }};
-//   min-height: ${(props) => {
-//     switch (props.pathName) {
-//       case '/blog':
-//         return '700px';
-//       default:
-//         return '';
-//     }
-//   }};
-// `;
+}) => theme.black);
+// EXTERNAL MODULE: ./node_modules/nextjs-progressbar/index.js
+var nextjs_progressbar = __webpack_require__("dskp");
+var nextjs_progressbar_default = /*#__PURE__*/__webpack_require__.n(nextjs_progressbar);
+
 // CONCATENATED MODULE: ./pages/_app.tsx
 var _app_jsx = react_default.a.createElement;
 
 
  // import useSWR from 'swr';
-// import {App}
-// import NextNProgress from 'nextjs-progressbar';
-// import Router from 'next/router';
+
+ // import Router from 'next/router';
 // import withGA from 'next-ga';
 
+ // import '../components/util/slick.css';
+// import '../components/util/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 
 const theme = {
   primary: '#fff',
@@ -10851,7 +11293,15 @@ class _app_MyApp extends app_default.a {
     return (//@ts-ignore
       _app_jsx(styled_components_cjs["ThemeProvider"], {
         theme: theme
-      }, _app_jsx(GlobalStyle, null), _app_jsx(Layout, null, _app_jsx(Component, pageProps)))
+      }, _app_jsx(GlobalStyle, null), _app_jsx(Layout, null, _app_jsx(nextjs_progressbar_default.a, {
+        color: theme.yellow,
+        startPosition: 0,
+        stopDelayMs: 0,
+        height: "2",
+        style: {
+          zIndex: '5000'
+        }
+      }), _app_jsx(Component, pageProps)))
     );
   }
 
@@ -11105,6 +11555,13 @@ exports.NEXT_PROJECT_ROOT_DIST_SERVER=NEXT_PROJECT_ROOT_DIST_SERVER;const API_RO
 exports.API_ROUTE=API_ROUTE;const PAGES_DIR_ALIAS='private-next-pages';exports.PAGES_DIR_ALIAS=PAGES_DIR_ALIAS;const DOT_NEXT_ALIAS='private-dot-next';exports.DOT_NEXT_ALIAS=DOT_NEXT_ALIAS;const PUBLIC_DIR_MIDDLEWARE_CONFLICT=`You can not have a '_next' folder inside of your public folder. This conflicts with the internal '/_next' route. https://err.sh/zeit/next.js/public-next-folder-conflict`;exports.PUBLIC_DIR_MIDDLEWARE_CONFLICT=PUBLIC_DIR_MIDDLEWARE_CONFLICT;const SSG_GET_INITIAL_PROPS_CONFLICT=`You can not use getInitialProps with getStaticProps. To use SSG, please remove your getInitialProps`;exports.SSG_GET_INITIAL_PROPS_CONFLICT=SSG_GET_INITIAL_PROPS_CONFLICT;const SERVER_PROPS_GET_INIT_PROPS_CONFLICT=`You can not use getInitialProps with getServerSideProps. Please remove getInitialProps.`;exports.SERVER_PROPS_GET_INIT_PROPS_CONFLICT=SERVER_PROPS_GET_INIT_PROPS_CONFLICT;const SERVER_PROPS_SSG_CONFLICT=`You can not use getStaticProps with getServerSideProps. To use SSG, please remove getServerSideProps`;exports.SERVER_PROPS_SSG_CONFLICT=SERVER_PROPS_SSG_CONFLICT;const PAGES_404_GET_INITIAL_PROPS_ERROR=`\`pages/404\` can not have getInitialProps/getServerSideProps, https://err.sh/next.js/404-get-initial-props`;exports.PAGES_404_GET_INITIAL_PROPS_ERROR=PAGES_404_GET_INITIAL_PROPS_ERROR;const SERVER_PROPS_EXPORT_ERROR=`pages with \`getServerSideProps\` can not be exported. See more info here: https://err.sh/next.js/gssp-export`;exports.SERVER_PROPS_EXPORT_ERROR=SERVER_PROPS_EXPORT_ERROR;const UNSTABLE_REVALIDATE_RENAME_ERROR='The `revalidate` property is not yet available for general use.\n'+'To try the experimental implementation, please use `unstable_revalidate` instead.\n'+"We're excited for you to try this feature—please share all feedback on the RFC:\n"+'https://nextjs.link/issg';exports.UNSTABLE_REVALIDATE_RENAME_ERROR=UNSTABLE_REVALIDATE_RENAME_ERROR;const GSSP_COMPONENT_MEMBER_ERROR=`can not be attached to a page's component and must be exported from the page. See more info here: https://err.sh/next.js/gssp-component-member`;exports.GSSP_COMPONENT_MEMBER_ERROR=GSSP_COMPONENT_MEMBER_ERROR;const NON_STANDARD_NODE_ENV=`You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. https://err.sh/next.js/non-standard-node-env`;exports.NON_STANDARD_NODE_ENV=NON_STANDARD_NODE_ENV;const SSG_FALLBACK_EXPORT_ERROR=`Pages with \`fallback: true\` in \`getStaticPaths\` can not be exported. See more info here: https://err.sh/next.js/ssg-fallback-true-export`;exports.SSG_FALLBACK_EXPORT_ERROR=SSG_FALLBACK_EXPORT_ERROR;
 //# sourceMappingURL=constants.js.map
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
+
+/***/ }),
+
+/***/ "dskp":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("lu5P");
 
 /***/ }),
 
@@ -12082,6 +12539,15 @@ const LoadableContext = _react.default.createContext(null);
 exports.LoadableContext = LoadableContext;
 
 if (false) {}
+
+/***/ }),
+
+/***/ "lu5P":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=void 0;var _style=_interopRequireDefault(__webpack_require__("MX0m")),_react=_interopRequireDefault(__webpack_require__("q1tI")),_nprogress=_interopRequireDefault(__webpack_require__("Mj6V")),_router=_interopRequireDefault(__webpack_require__("nOHt")),_propTypes=_interopRequireDefault(__webpack_require__("17x9"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}function _typeof(a){"@babel/helpers - typeof";return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},_typeof(a)}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _defineProperties(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}function _createClass(a,b,c){return b&&_defineProperties(a.prototype,b),c&&_defineProperties(a,c),a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function");a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,writable:!0,configurable:!0}}),b&&_setPrototypeOf(a,b)}function _setPrototypeOf(a,b){return _setPrototypeOf=Object.setPrototypeOf||function(a,b){return a.__proto__=b,a},_setPrototypeOf(a,b)}function _createSuper(a){var b=_isNativeReflectConstruct();return function(){var c,d=_getPrototypeOf(a);if(b){var e=_getPrototypeOf(this).constructor;c=Reflect.construct(d,arguments,e)}else c=d.apply(this,arguments);return _possibleConstructorReturn(this,c)}}function _possibleConstructorReturn(a,b){return b&&("object"===_typeof(b)||"function"==typeof b)?b:_assertThisInitialized(a)}function _assertThisInitialized(a){if(void 0===a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return a}function _isNativeReflectConstruct(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(a){return!1}}function _getPrototypeOf(a){return _getPrototypeOf=Object.setPrototypeOf?Object.getPrototypeOf:function(a){return a.__proto__||Object.getPrototypeOf(a)},_getPrototypeOf(a)}function _defineProperty(a,b,c){return b in a?Object.defineProperty(a,b,{value:c,enumerable:!0,configurable:!0,writable:!0}):a[b]=c,a}// import styled from 'styled-components';
+/* eslint-disable react/prefer-stateless-function */var NextNProgress=/*#__PURE__*/function(a){function b(){var a;_classCallCheck(this,b);for(var d=arguments.length,e=Array(d),f=0;f<d;f++)e[f]=arguments[f];return a=c.call.apply(c,[this].concat(e)),_defineProperty(_assertThisInitialized(a),"timer",null),_defineProperty(_assertThisInitialized(a),"routeChangeStart",function(){_nprogress["default"].set(a.props.startPosition),_nprogress["default"].start()}),_defineProperty(_assertThisInitialized(a),"routeChangeEnd",function(){clearTimeout(a.timer),a.timer=setTimeout(function(){_nprogress["default"].done(!0)},a.props.stopDelayMs)}),a}_inherits(b,a);var c=_createSuper(b);return _createClass(b,[{key:"render",value:function render(){var a=this.props,b=a.color,c=a.height;return/*#__PURE__*/_react["default"].createElement(_style["default"],{id:"34466599",dynamic:[b,c,b,b,b,b]},"#nprogress{pointer-events:none;}#nprogress .bar{background:".concat(b,";position:fixed;z-index:9999;top:0;left:0;width:100%;height:").concat(c,"px;}#nprogress .peg{display:block;position:absolute;right:0px;width:100px;height:100%;box-shadow:0 0 10px ").concat(b,",0 0 5px ").concat(b,";opacity:1;-webkit-transform:rotate(3deg) translate(0px,-4px);-ms-transform:rotate(3deg) translate(0px,-4px);-webkit-transform:rotate(3deg) translate(0px,-4px);-ms-transform:rotate(3deg) translate(0px,-4px);transform:rotate(3deg) translate(0px,-4px);}#nprogress .spinner{display:\"block\";position:fixed;z-index:1031;top:15px;right:15px;}#nprogress .spinner-icon{width:18px;height:18px;box-sizing:border-box;border:solid 2px transparent;border-top-color:").concat(b,";border-left-color:").concat(b,";border-radius:50%;-webkit-animation:nprogresss-spinner 400ms linear infinite;-webkit-animation:nprogress-spinner 400ms linear infinite;animation:nprogress-spinner 400ms linear infinite;}.nprogress-custom-parent{overflow:hidden;position:relative;}.nprogress-custom-parent #nprogress .spinner,.nprogress-custom-parent #nprogress .bar{position:absolute;}@-webkit-keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);}}@-webkit-keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}@keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}}"))}},{key:"componentDidMount",value:function componentDidMount(){var a=this.props.options;a&&_nprogress["default"].configure(a),_router["default"].events.on("routeChangeStart",this.routeChangeStart),_router["default"].events.on("routeChangeComplete",this.routeChangeEnd),_router["default"].events.on("routeChangeError",this.routeChangeEnd)}}]),b}(_react["default"].Component);_defineProperty(NextNProgress,"defaultProps",{color:"#29D",startPosition:.3,stopDelayMs:200,height:3}),NextNProgress.propTypes={color:_propTypes["default"].string,startPosition:_propTypes["default"].number,stopDelayMs:_propTypes["default"].number,options:_propTypes["default"].object};var _default=NextNProgress;exports["default"]=_default;
 
 /***/ }),
 
