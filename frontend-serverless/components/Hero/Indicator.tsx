@@ -1,9 +1,20 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const Indicator: FC = (): ReactElement => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(true);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
+
   return (
-    <StyledIndicator>
+    <StyledIndicator className={`${scrolled ? "hidden" : ""}`}>
       <div className="mouse">
         <div className="mouse-icon">
           <span className="mouse-wheel"></span>
@@ -14,6 +25,10 @@ export const Indicator: FC = (): ReactElement => {
 };
 
 const StyledIndicator = styled("div")`
+  &.hidden {
+    transition: all 0.8s;
+    opacity: 0;
+  }
   .mouse {
     position: absolute;
     left: 0;
