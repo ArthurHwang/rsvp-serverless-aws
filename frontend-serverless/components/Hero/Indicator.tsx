@@ -6,6 +6,11 @@ export const Indicator: FC = (): ReactElement => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // if (window.scrollY === 0) {
+      //   setScrolled(false);
+      // } else {
+      //   setScrolled(true);
+      // }
       setScrolled(true);
     };
     window.addEventListener("scroll", handleScroll);
@@ -26,7 +31,7 @@ export const Indicator: FC = (): ReactElement => {
 
 const StyledIndicator = styled("div")`
   &.hidden {
-    transition: all 0.8s;
+    transition: opacity 0.5s;
     opacity: 0;
   }
   .mouse {

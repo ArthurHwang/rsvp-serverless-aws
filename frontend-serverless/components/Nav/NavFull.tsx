@@ -87,7 +87,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
         
     /* display: ${(props) =>
       props.path === "/" && props.scrolled === false ? "block" : "none"}; */
-      transition: opacity 0.3s;   
+      transition: opacity 0.5s;   
     opacity: ${(props) =>
       props.path === "/" && props.scrolled === false ? "1" : "0"};
         
