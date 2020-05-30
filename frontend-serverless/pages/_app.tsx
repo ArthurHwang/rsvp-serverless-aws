@@ -119,7 +119,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.black};
     text-transform: uppercase;
     margin: 0;
-    /* letter-spacing: -1px; */
   }
 
   h2 {
