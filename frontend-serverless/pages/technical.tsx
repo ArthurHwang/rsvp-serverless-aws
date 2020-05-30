@@ -6,14 +6,13 @@ const TechnicalPage: NextPage = () => (
     <div className="stack">
       <p className="title">About</p>
       <ul>
-        <li>This project is an end-to-end serverless full stack application</li>
-        <li>Dedicated to my wife Carol Lee circa 2020</li>
+        <li>Dedicated to my wife Carol Lee</li>
       </ul>
       <p className="title">Technologies used:</p>
-
       <ul>
         <li>Next.js</li>
-        {/* <p>Front end</p> */}
+        <li>React</li>
+        <li>TypeScript</li>
         <li>Styled Components</li>
         <li>Framer Motion</li>
         <li>Serverless IaaS framework</li>
@@ -34,23 +33,33 @@ export default TechnicalPage;
 
 const StyledTechnical = styled("div")`
   background-color: black;
+  padding: 6rem 1rem 1rem;
   height: 100%;
   color: ${({ theme }) => theme.primary};
   text-align: center;
+  overflow: scroll;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
 
   .stack {
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    padding-top: 6rem;
+    padding-top: 2rem;
     height: 100%;
-    /* margin-top: 6rem; */
     font-size: 2rem;
     font-weight: 700;
 
     .title {
       font-size: 3rem;
+      margin-bottom: 0;
+      margin: 0;
     }
   }
 `;

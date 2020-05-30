@@ -17,18 +17,7 @@ export const Card: FC = (): ReactElement => {
       <h2>I hope you do too</h2>
       <p className="friends">To our friends and family:</p>
       <p>Celebrate with us on August 28, 2020</p>
-      <p>
-        @ The Regents Hotel{" "}
-        {/* <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="/https://www.ihg.com/regent/hotels/us/en/taipei/tperg/hoteldetail"
-          className="link"
-        >
-          Regents Hotel
-        </a>{' '} */}
-        in Taipei, Taiwan{" "}
-      </p>
+      <p>@ The Regents Hotel in Taipei, Taiwan </p>
       {/* 
       //@ts-ignore */}
       <DateCountdown
@@ -56,15 +45,22 @@ const StyledCard = styled("div")`
   align-items: center;
   padding: 0 2rem;
 
-  h2:last-of-type {
-    margin-bottom: 2rem;
+  h2 {
+    line-height: 4.5rem;
+
+    &:last-of-type {
+      margin-bottom: 4rem;
+    }
   }
 
   p {
     font-size: 2rem;
     text-align: center;
     margin: 0;
-    /* height: 4rem; */
+
+    &.friends {
+      font-size: 3rem;
+    }
   }
 
   .odometer-block {
@@ -74,14 +70,14 @@ const StyledCard = styled("div")`
     span {
       font-size: 1.4rem;
       font-weight: 700;
+
+      &.sec > * {
+        color: red;
+      }
     }
 
     & > * {
       display: block;
-    }
-
-    span.sec > * {
-      color: red;
     }
   }
 
@@ -94,6 +90,10 @@ const StyledCard = styled("div")`
 
     h2 {
       font-size: 2.4rem;
+
+      &:last-of-type {
+        margin-bottom: 2rem;
+      }
     }
 
     p {
@@ -101,15 +101,10 @@ const StyledCard = styled("div")`
       height: initial;
       font-size: 1.4rem;
       text-align: left;
-    }
 
-    p.friends {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-
-    p.rsvp {
-      /* margin-top: 1rem; */
+      &.friends {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -117,11 +112,22 @@ const StyledCard = styled("div")`
     & {
       padding: 4rem 0rem;
     }
+
     h2 {
       font-size: 2.2rem;
     }
+
     p {
       font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p.friends {
+      font-size: 1.6rem;
     }
   }
 
