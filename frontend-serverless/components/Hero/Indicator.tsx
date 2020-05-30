@@ -49,7 +49,7 @@ const StyledIndicator = styled("div")`
     margin: 0;
     border: 2px solid white;
     border-radius: 15px;
-    cursor: pointer;
+    /* cursor: pointer; */
     position: relative;
     text-align: center;
   }

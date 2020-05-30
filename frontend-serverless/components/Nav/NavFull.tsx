@@ -9,7 +9,11 @@ type Props = {
 
 export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
   return (
-    <StyledNav scrolled={scrolled} path={path}>
+    <StyledNav
+      scrolled={scrolled}
+      path={path}
+      className={`${scrolled ? "hidden" : ""}`}
+    >
       <div className="title">
         <Link href="/">
           <a>
@@ -56,11 +60,9 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     text-shadow: ${({ theme }) => theme.black} 0px 0px 15px;
   }
   .title {
-
     span {
       display: block;
       padding-left: 4rem;
-
     }
 
     a {
@@ -69,7 +71,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
       font-style: italic;
       font-weight: 700;
       padding-left: 2rem;
-      color: ${({ theme }) => theme.primary};  
+      color: ${({ theme }) => theme.primary};
     }
   }
 
@@ -82,16 +84,13 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     width: min-content;
   }
 
-
   @media (max-width: 1445px) {
-        
-    /* display: ${(props) =>
-      props.path === "/" && props.scrolled === false ? "block" : "none"}; */
-      transition: opacity 0.5s;   
+    &.hidden {
+      z-index: -1;
+    }
+
+    transition: opacity 0.5s;
     opacity: ${(props) =>
       props.path === "/" && props.scrolled === false ? "1" : "0"};
-        
   }
-
-
 `;
