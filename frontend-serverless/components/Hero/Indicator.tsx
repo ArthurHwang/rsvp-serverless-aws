@@ -37,7 +37,7 @@ const StyledIndicator = styled("div")`
   .mouse {
     position: absolute;
     left: 0;
-    bottom: 2rem;
+    bottom: 6rem;
     right: 0;
     display: flex;
     justify-content: center;
@@ -66,7 +66,7 @@ const StyledIndicator = styled("div")`
     animation: 1.6s ease infinite wheel-up-down;
   }
 
-  @media (min-width: 1199px) {
+  @media (min-width: 1444px) {
     & {
       display: none;
     }

@@ -83,7 +83,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
   }
 
 
-  @media (max-width: 768px) {
+  @media (max-width: 1445px) {
         
     /* display: ${(props) =>
       props.path === "/" && props.scrolled === false ? "block" : "none"}; */

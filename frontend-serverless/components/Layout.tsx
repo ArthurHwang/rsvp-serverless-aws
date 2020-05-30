@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Meta } from "./Meta";
 import { Nav } from "./Nav/Nav";
+// import { Footer } from './Footer';
 
 import { ReactElement } from "react";
 
@@ -14,14 +15,15 @@ export const Layout: React.FC<Props> = ({ children }): ReactElement => {
       <Meta />
       <Nav />
       {children}
+      {/* <Footer /> */}
     </StyledLayout>
   );
 };
 
 const StyledLayout = styled("main")`
   height: 100%;
-
+  /* position: relative; */
   @media (max-width: 910px) {
-    position: relative;
+    /* position: relative; */
   }
 `;

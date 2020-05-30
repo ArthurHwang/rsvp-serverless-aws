@@ -3,6 +3,7 @@ import App, { AppProps } from "next/app";
 import { Layout } from "../components/Layout";
 // import useSWR from 'swr';
 import NextNProgress from "nextjs-progressbar";
+import { Footer } from "../components/Footer";
 // import withGA from 'next-ga';
 
 import { ThemeProvider, createGlobalStyle } from "styled-components";
@@ -49,6 +50,7 @@ class MyApp extends App<AppProps> {
             style={{ zIndex: "5000" }}
           />
           <Component {...pageProps} key={router.route} />
+          <Footer />
         </Layout>
       </ThemeProvider>
     );

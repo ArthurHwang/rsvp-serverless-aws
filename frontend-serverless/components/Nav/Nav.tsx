@@ -21,7 +21,7 @@ export const Nav: FC = (): ReactElement => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+  }, []);
 
   return (
     <>

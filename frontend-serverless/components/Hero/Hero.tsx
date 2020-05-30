@@ -19,7 +19,7 @@ const StyledHero = styled("div")`
   height: 100%;
   width: 100%;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1445px) {
     overflow: initial;
     display: block;
   }

@@ -17,7 +17,18 @@ export const Card: FC = (): ReactElement => {
       <h2>I hope you do too</h2>
       <p className="friends">To our friends and family:</p>
       <p>Celebrate with us on August 28, 2020</p>
-      <p>@ The Regents Hotel in Taipei, Taiwan </p>
+      <p>
+        @ The Regents Hotel{" "}
+        {/* <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/https://www.ihg.com/regent/hotels/us/en/taipei/tperg/hoteldetail"
+          className="link"
+        >
+          Regents Hotel
+        </a>{' '} */}
+        in Taipei, Taiwan{" "}
+      </p>
       {/* 
       //@ts-ignore */}
       <DateCountdown
@@ -30,8 +41,9 @@ export const Card: FC = (): ReactElement => {
         <Link href="/rsvp">
           <a className="link">RSVP</a>
         </Link>{" "}
-        to let us know your coming
+        to in advance
       </p>
+      <p className="rsvp">to let us know you are coming</p>
     </StyledCard>
   );
 };
@@ -51,12 +63,13 @@ const StyledCard = styled("div")`
   p {
     font-size: 2rem;
     text-align: center;
-    margin: 1rem;
-    height: 4rem;
+    margin: 0;
+    /* height: 4rem; */
   }
 
   .odometer-block {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 
     span {
       font-size: 1.4rem;
@@ -65,6 +78,10 @@ const StyledCard = styled("div")`
 
     & > * {
       display: block;
+    }
+
+    span.sec > * {
+      color: red;
     }
   }
 
@@ -87,12 +104,24 @@ const StyledCard = styled("div")`
     }
 
     p.friends {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 2rem;
     }
 
     p.rsvp {
-      margin-top: 2rem;
+      /* margin-top: 1rem; */
+    }
+  }
+
+  @media (max-width: 416px) {
+    & {
+      padding: 4rem 0rem;
+    }
+    h2 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
 
