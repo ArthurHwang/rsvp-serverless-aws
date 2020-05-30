@@ -159,7 +159,6 @@ const GlobalStyle = createGlobalStyle`
 
   li {
     color: ${theme.grey};
-    /* font-family: "SourceSansPro" */
   }
 
   strong {
