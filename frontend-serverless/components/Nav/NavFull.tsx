@@ -85,12 +85,13 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
   }
 
   @media (max-width: 1445px) {
+    transition: all 0.5s;
+    opacity: ${(props) => (props.path === "/" && !props.scrolled ? "1" : "0")};
+    display: ${(props) => (props.path !== "/" ? "none" : "block")};
+
     &.hidden {
       z-index: -1;
+      /* transform: translateY(-500px); */
     }
-
-    transition: opacity 0.5s;
-    opacity: ${(props) =>
-      props.path === "/" && props.scrolled === false ? "1" : "0"};
   }
 `;

@@ -60,6 +60,7 @@ const StyledCard = styled("div")`
 
     &.friends {
       font-size: 3rem;
+      margin-bottom: 2rem;
     }
   }
 
