@@ -3,7 +3,6 @@ import App, { AppProps } from "next/app";
 import { Layout } from "../components/Layout";
 // import useSWR from 'swr';
 import NextNProgress from "nextjs-progressbar";
-// import Router from 'next/router';
 // import withGA from 'next-ga';
 
 import { ThemeProvider, createGlobalStyle } from "styled-components";
