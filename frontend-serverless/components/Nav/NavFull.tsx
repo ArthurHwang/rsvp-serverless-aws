@@ -80,7 +80,6 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     height: 2.5rem;
     font-size: 1.5rem;
     width: min-content;
-    /* color: ${({ theme }) => theme.accent}; */
   }
 
 
