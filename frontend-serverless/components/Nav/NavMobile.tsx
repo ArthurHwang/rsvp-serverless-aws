@@ -22,6 +22,7 @@ const StyledNavMobile = styled("nav")<{ path: string; scrolled: boolean }>`
   z-index: 9999;
   color: ${({ theme }) => theme.primary};
   display: none;
+
   @media (max-width: 768px) {
     display: ${(props) =>
       props.path === "/" && props.scrolled === false ? "none" : "block"};
