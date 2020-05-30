@@ -154,11 +154,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    /* color: ${theme.grey}; */
-    /* max-height: 999999px; */
-    /* word-break: break-word; */
     font-weight: 700;
-    /* font-family: "SourceSansPro"; */
   }
 
   li {
