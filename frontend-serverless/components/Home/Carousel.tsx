@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { Indicator } from "./Indicator";
 
 const settings = {
-  dots: false,
+  dots: true,
   infinite: true,
-  speed: 6500,
+  speed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
@@ -52,10 +52,10 @@ const StyledCarousel = styled("div")`
   }
 
   .slick-dots {
-    bottom: 10px;
+    bottom: 3rem;
 
     & button:before {
-      color: yellow;
+      color: ${({ theme }) => theme.yellow};
       opacity: 1;
     }
   }
