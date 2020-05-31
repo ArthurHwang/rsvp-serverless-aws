@@ -22,8 +22,5 @@ export const Layout: React.FC<Props> = ({ children }): ReactElement => {
 
 const StyledLayout = styled("main")`
   height: 100%;
-  /* position: relative; */
-  @media (max-width: 910px) {
-    /* position: relative; */
-  }
+  /* overflow: hidden; */
 `;
