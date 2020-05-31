@@ -1,14 +1,13 @@
 import { FC, ReactElement } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { useRouter } from "next/router";
+
 type Props = {
   path: string;
   scrolled: boolean;
 };
 
 export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
-  const router = useRouter();
   return (
     <StyledNav
       scrolled={scrolled}
@@ -24,11 +23,9 @@ export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
       </div>
       <div className="subtitle">Covid-19 Survivors</div>
       <div className="subnav">
-        {router.pathname !== "/" && (
-          <Link href="/">
-            <a className="link">HOME</a>
-          </Link>
-        )}
+        <Link href="/">
+          <a className="link">HOME</a>
+        </Link>
         <Link href="/about">
           <a className="link">ABOUT</a>
         </Link>
@@ -88,6 +85,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     height: 2.5rem;
     font-size: 1.5rem;
     width: min-content;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 1445px) {
