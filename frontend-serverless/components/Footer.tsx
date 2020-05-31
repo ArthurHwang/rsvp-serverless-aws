@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { ReactElement } from "react";
-
 import { useRouter } from "next/router";
 
 export const Footer: React.FC = (): ReactElement => {

@@ -51,6 +51,7 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
               <a className="link">HOME</a>
             </Link>
           </div>
+
           <div>
             <Link href="/about">
               <a className="link">ABOUT</a>
