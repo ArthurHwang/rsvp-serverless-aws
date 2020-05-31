@@ -8,7 +8,7 @@ const TechnicalPage: NextPage = () => (
       <ul style={{ marginBottom: "2rem" }}>
         <li>Dedicated to my wife Carol Lee</li>
       </ul>
-      <p className="title">Technologies used:</p>
+      <p className="title">Technologies Used</p>
       <ul>
         <li>Next.js</li>
         <li>React</li>
