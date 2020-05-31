@@ -133,7 +133,7 @@ const StyledWindowContainer = styled("div")<WindowProps>`
   .overlay {
     position: absolute;
     background: black;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     left: 0;
     top: 0;
     z-index: -1;

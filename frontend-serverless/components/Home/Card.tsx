@@ -30,7 +30,7 @@ export const Card: FC = (): ReactElement => {
         <Link href="/rsvp">
           <a className="link">RSVP</a>
         </Link>{" "}
-        to in advance
+        in advance
       </p>
       <p className="rsvp">to let us know you are coming</p>
     </StyledCard>
@@ -43,7 +43,7 @@ const StyledCard = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem;
+  padding: 4rem 2rem;
 
   h2 {
     line-height: 4.5rem;
