@@ -91,7 +91,6 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
 
     &.hidden {
       z-index: -1;
-      /* transform: translateY(-500px); */
     }
   }
 `;

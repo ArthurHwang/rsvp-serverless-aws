@@ -6,12 +6,11 @@ export const Indicator: FC = (): ReactElement => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // if (window.scrollY === 0) {
-      //   setScrolled(false);
-      // } else {
-      //   setScrolled(true);
-      // }
-      setScrolled(true);
+      if (window.scrollY === 0) {
+        setScrolled(false);
+      } else {
+        setScrolled(true);
+      }
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -49,7 +48,6 @@ const StyledIndicator = styled("div")`
     margin: 0;
     border: 2px solid white;
     border-radius: 15px;
-    /* cursor: pointer; */
     position: relative;
     text-align: center;
   }

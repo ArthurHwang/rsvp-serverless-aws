@@ -1,7 +1,9 @@
 import { FC, ReactElement, useState, useEffect } from "react";
 import styled from "styled-components";
 import { RiMenu3Line } from "react-icons/ri";
-
+import Link from "next/link";
+import { NavMobileHeader } from "./NavMobileHeader";
+import { useRouter } from "next/router";
 type Props = {
   path: string;
   scrolled: boolean;
@@ -9,7 +11,7 @@ type Props = {
 
 export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
   const [clicked, setClicked] = useState(false);
-
+  const router = useRouter();
   const handleClick = () => {
     setClicked(!clicked);
   };
@@ -20,8 +22,12 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    router.events.on("routeChangeStart", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      router.events.off("routeChangeStart", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [clicked]);
 
   return (
@@ -35,7 +41,32 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
         <RiMenu3Line className="hamburger" style={{ fontSize: "3rem" }} />
       </StyledNavMobile>
       <StyledWindowContainer clicked={clicked}>
-        <StyledWindow>asdf</StyledWindow>
+        <div className="overlay"></div>
+        <StyledWindow>
+          <div className="mobile-nav-top">
+            <NavMobileHeader />
+          </div>
+          <div>
+            <Link href="/">
+              <a className="link">HOME</a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/about">
+              <a className="link">ABOUT</a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/where">
+              <a className="link">WHERE</a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/rsvp">
+              <a className="link">RSVP</a>
+            </Link>
+          </div>
+        </StyledWindow>
       </StyledWindowContainer>
     </>
   );
@@ -74,22 +105,43 @@ const StyledNavMobile = styled("nav")<StyledProps>`
 
 const StyledWindow = styled("div")`
   width: 100%;
-  background-color: black;
   height: 100%;
   color: white;
+  padding: 2rem;
+  z-index: 10;
+
+  div {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    &:last-of-type,
+    &:first-of-type {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const StyledWindowContainer = styled("div")<WindowProps>`
   width: 100%;
-  padding: 2rem;
-  top: 4rem;
+  top: 7rem;
   position: fixed;
-  height: 400px;
-  transition: z-index 0.5s;
-  transition: opacity 0.5s;
-  /* transform: ${(props) =>
-    props.clicked ? "translateX(0)" : "translateX(-500px)"}; */
-  /* transform: translateX(500px); */
+  transition: z-index 0.5s, opacity 0.5s;
   z-index: ${(props) => (props.clicked ? "9999" : "-1")};
   opacity: ${(props) => (props.clicked ? "1" : "0")};
+
+  .overlay {
+    position: absolute;
+    background: black;
+    background: rgba(0, 0, 0, 0.8);
+    left: 0;
+    top: 0;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -webkit-filter: blur(4px);
+  }
 `;

@@ -5,7 +5,7 @@ const TechnicalPage: NextPage = () => (
   <StyledTechnical>
     <div className="stack">
       <p className="title">About</p>
-      <ul>
+      <ul style={{ marginBottom: "2rem" }}>
         <li>Dedicated to my wife Carol Lee</li>
       </ul>
       <p className="title">Technologies used:</p>
@@ -25,6 +25,15 @@ const TechnicalPage: NextPage = () => (
         <li>AWS Route53</li>
         <li>AWS CodePipeline / CodeBuild</li>
       </ul>
+      <div className="source">
+        <a
+          target="_blank"
+          rel="noopener nofollow"
+          href="https://github.com/ArthurHwang/rsvp-serverless-aws"
+        >
+          SOURCE CODE
+        </a>
+      </div>
     </div>
   </StyledTechnical>
 );
@@ -32,7 +41,7 @@ const TechnicalPage: NextPage = () => (
 export default TechnicalPage;
 
 const StyledTechnical = styled("div")`
-  background-color: black;
+  background-color: #222;
   padding: 6rem 1rem 1rem;
   height: 100%;
   color: ${({ theme }) => theme.primary};
@@ -43,11 +52,16 @@ const StyledTechnical = styled("div")`
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
   }
 
   li {
     font-size: 1.4rem;
     margin-bottom: 0;
+    width: 250px;
   }
 
   .stack {
@@ -55,6 +69,10 @@ const StyledTechnical = styled("div")`
     height: 100%;
     font-size: 2rem;
     font-weight: 700;
+
+    .source {
+      margin-top: 2rem;
+    }
 
     .title {
       font-size: 3rem;

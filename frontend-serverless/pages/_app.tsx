@@ -1,12 +1,10 @@
 import React from "react";
 import App, { AppProps } from "next/app";
 import { Layout } from "../components/Layout";
-// import useSWR from 'swr';
 import NextNProgress from "nextjs-progressbar";
 import { Footer } from "../components/Footer";
-// import withGA from 'next-ga';
-
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+// import useSWR from 'swr';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -57,7 +55,6 @@ class MyApp extends App<AppProps> {
   }
 }
 
-// export default withGA('UA-150992172-1', Router)(MyApp);
 export default MyApp;
 
 const GlobalStyle = createGlobalStyle`
@@ -105,8 +102,6 @@ const GlobalStyle = createGlobalStyle`
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
   }
-
-
 
   h1, h2, h3 {
     font-weight: bold;
@@ -175,29 +170,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* a.invert {
-    color: ${theme.font.white};
-
-    &:hover {
-      color: ${theme.accent};
-    }
-  } */
-
   a.link {
     text-decoration: none;
-    /* font-weight: 600;
-    background-image: linear-gradient(to right,#37bc9b,#37bc9b 50%,${theme.blue} 50%);
-    background-position: 100%;
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* color: ${theme.accent}; */
     transition: all .4s;
 
     &:hover {
       background-position: 0%;
-
-      /* color: ${theme.primary}; */
     } 
   }
 

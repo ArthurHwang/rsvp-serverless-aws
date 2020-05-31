@@ -1,6 +1,4 @@
 import styled from "styled-components";
-// import { Meta } from './Meta';
-// import { Nav } from './Nav/Nav';
 import Link from "next/link";
 import { ReactElement } from "react";
 
@@ -25,9 +23,6 @@ export const Footer: React.FC = (): ReactElement => {
 };
 
 const StyledFooter = styled("footer")`
-  /* position: absolute;
-  bottom: 0; */
-
   .tech {
     border-radius: 9px 9px 0 0;
     opacity: 0.5;
