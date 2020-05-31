@@ -6,7 +6,9 @@ export const Rsvp: FC = (): ReactElement => {
     <StyledHero>
       <LayoutGrid>
         <div className="left">
-          <h2>PHOTO</h2>
+          <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-GB&market=GB&currency=GBP"></iframe>
+
+          <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD"></iframe>
         </div>
         <div className="right">
           <h2>DESCRIPTORY</h2>
@@ -34,7 +36,14 @@ const LayoutGrid = styled("div")`
   }
 
   .left {
-    background-color: blue;
+    background-color: white;
+
+    iframe {
+      height: 400px;
+      border: none;
+      padding: 2rem;
+      width: 100%;
+    }
   }
 
   .right {
