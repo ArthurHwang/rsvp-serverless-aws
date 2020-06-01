@@ -53,7 +53,7 @@ const StyledRSVP = styled("div")`
     width: auto;
     height: 100%;
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 55% 45%;
 
     @media (max-width: 1445px) {
       height: auto;
