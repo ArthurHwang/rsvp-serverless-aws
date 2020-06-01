@@ -6,12 +6,11 @@ export const Indicator: FC = (): ReactElement => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // if (window.scrollY === 0) {
-      //   setScrolled(false);
-      // } else {
-      //   setScrolled(true);
-      // }
-      setScrolled(true);
+      if (window.scrollY === 0) {
+        setScrolled(false);
+      } else {
+        setScrolled(true);
+      }
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -37,7 +36,7 @@ const StyledIndicator = styled("div")`
   .mouse {
     position: absolute;
     left: 0;
-    bottom: 2rem;
+    bottom: 6rem;
     right: 0;
     display: flex;
     justify-content: center;
@@ -49,7 +48,6 @@ const StyledIndicator = styled("div")`
     margin: 0;
     border: 2px solid white;
     border-radius: 15px;
-    cursor: pointer;
     position: relative;
     text-align: center;
   }
@@ -66,7 +64,7 @@ const StyledIndicator = styled("div")`
     animation: 1.6s ease infinite wheel-up-down;
   }
 
-  @media (min-width: 1199px) {
+  @media (min-width: 1444px) {
     & {
       display: none;
     }

@@ -30,8 +30,9 @@ export const Card: FC = (): ReactElement => {
         <Link href="/rsvp">
           <a className="link">RSVP</a>
         </Link>{" "}
-        to let us know your coming
+        in advance
       </p>
+      <p className="rsvp">to let us know you are coming</p>
     </StyledCard>
   );
 };
@@ -42,25 +43,38 @@ const StyledCard = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem;
+  padding: 4rem 2rem;
 
-  h2:last-of-type {
-    margin-bottom: 2rem;
+  h2 {
+    line-height: 4.5rem;
+
+    &:last-of-type {
+      margin-bottom: 4rem;
+    }
   }
 
   p {
     font-size: 2rem;
     text-align: center;
-    margin: 1rem;
-    height: 4rem;
+    margin: 0;
+
+    &.friends {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
   }
 
   .odometer-block {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 
     span {
       font-size: 1.4rem;
       font-weight: 700;
+
+      &.sec > * {
+        color: red;
+      }
     }
 
     & > * {
@@ -77,6 +91,10 @@ const StyledCard = styled("div")`
 
     h2 {
       font-size: 2.4rem;
+
+      &:last-of-type {
+        margin-bottom: 2rem;
+      }
     }
 
     p {
@@ -84,15 +102,33 @@ const StyledCard = styled("div")`
       height: initial;
       font-size: 1.4rem;
       text-align: left;
+
+      &.friends {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 416px) {
+    & {
+      padding: 4rem 0rem;
     }
 
-    p.friends {
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    h2 {
       font-size: 2rem;
-      margin-bottom: 2rem;
     }
-
-    p.rsvp {
-      margin-top: 2rem;
+    p.friends {
+      font-size: 1.6rem;
     }
   }
 

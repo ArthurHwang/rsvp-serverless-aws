@@ -1,10 +1,8 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Link from "next/link";
-// import Particles from 'react-particles-js';
 import { NextPage } from "next";
 import { Fragment } from "react";
-// import ParticlesConfig from '../lib/particlesConfig_error';
 
 const ErrorPage: NextPage<any> = () => {
   return (
@@ -18,7 +16,6 @@ const ErrorPage: NextPage<any> = () => {
       <ContentWrap>
         {/* 
         //@ts-ignore */}
-        {/* <Particles className="particles" params={ParticlesConfig} />; */}
         <div className="container">
           <div className="text">
             <h1> ERROR 404 </h1>

@@ -1,6 +1,4 @@
-// import styled from 'styled-components';
 import { ReactElement, FC, useState, useEffect } from "react";
-// import { RiMenu3Line } from 'react-icons/ri';
 import { NavFull } from "./NavFull";
 import { NavMobile } from "./NavMobile";
 import { useRouter } from "next/router";

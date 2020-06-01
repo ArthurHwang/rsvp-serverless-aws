@@ -20,8 +20,4 @@ export const Layout: React.FC<Props> = ({ children }): ReactElement => {
 
 const StyledLayout = styled("main")`
   height: 100%;
-
-  @media (max-width: 910px) {
-    position: relative;
-  }
 `;
