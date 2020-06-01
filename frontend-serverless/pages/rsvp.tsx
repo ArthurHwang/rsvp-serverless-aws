@@ -53,7 +53,14 @@ const StyledRSVP = styled("div")`
     width: auto;
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+
+    @media (max-width: 1445px) {
+      height: auto;
+      overflow: initial;
+      display: block;
+      /* padding-bottom: 2rem; */
+    }
   }
 
   @media (max-width: 1445px) {

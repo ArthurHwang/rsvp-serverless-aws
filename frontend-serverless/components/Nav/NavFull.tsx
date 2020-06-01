@@ -88,6 +88,10 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     margin-bottom: 0.5rem;
   }
 
+  @media (max-width: 1860px) {
+    display: none;
+  }
+
   @media (max-width: 1445px) {
     transition: all 0.5s;
     opacity: ${(props) => (props.path === "/" && !props.scrolled ? "1" : "0")};

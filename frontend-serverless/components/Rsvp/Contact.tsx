@@ -166,8 +166,8 @@ export const Contact: FC = (): ReactElement => {
                 </div>
 
                 <h3>Plus One Information</h3>
-                <p style={{ textAlign: "left", marginBottom: "28px" }}>
-                  Provide guest details if you are bringing one
+                <p style={{ textAlign: "left", marginBottom: "25px" }}>
+                  Provide guest details if bringing one
                 </p>
                 <div className="first-last">
                   <div
@@ -204,7 +204,7 @@ export const Contact: FC = (): ReactElement => {
                   </div>
                 </div>
                 <h3>Special Requests</h3>
-                <p style={{ textAlign: "left", marginBottom: "2rem" }}>
+                <p style={{ textAlign: "left", marginBottom: "25px" }}>
                   Let us know your special requests / concerns
                 </p>
                 <div style={{ marginBottom: "14px" }} className="input-row">
@@ -235,6 +235,15 @@ export const Contact: FC = (): ReactElement => {
 const StyledContact = styled("div")`
   max-width: 600px;
   margin: 0 auto;
+
+  @media (max-width: 1980px) {
+    margin: 0 20% 0 auto;
+  }
+
+  @media (max-width: 1860px) {
+    margin: 0 auto;
+  }
+
   .textarea-fix {
     position: relative;
     bottom: 7px;
@@ -362,7 +371,7 @@ const ContentWrap = styled("section")`
     margin-top: 2rem;
   }
   @media (max-width: 768px) {
-    padding: 6rem 2rem 2rem;
+    padding: 6rem 2rem 4rem;
     margin-bottom: 0;
   }
   .valid {
