@@ -4,7 +4,7 @@ import { ReactElement, FC } from "react";
 export const VenueLocation: FC = (): ReactElement => {
   return (
     <StyledVenue>
-      <h2>Venue Location......</h2>
+      <h2>HAHA</h2>
     </StyledVenue>
   );
 };

@@ -9,7 +9,11 @@ type Props = {
 
 export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
   return (
-    <StyledNav scrolled={scrolled} path={path}>
+    <StyledNav
+      scrolled={scrolled}
+      path={path}
+      className={`${scrolled ? "hidden" : ""}`}
+    >
       <div className="title">
         <Link href="/">
           <a>
@@ -19,6 +23,9 @@ export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
       </div>
       <div className="subtitle">Covid-19 Survivors</div>
       <div className="subnav">
+        <Link href="/">
+          <a className="link">HOME</a>
+        </Link>
         <Link href="/about">
           <a className="link">ABOUT</a>
         </Link>
@@ -56,11 +63,9 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     text-shadow: ${({ theme }) => theme.black} 0px 0px 15px;
   }
   .title {
-
     span {
       display: block;
       padding-left: 4rem;
-
     }
 
     a {
@@ -69,7 +74,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
       font-style: italic;
       font-weight: 700;
       padding-left: 2rem;
-      color: ${({ theme }) => theme.primary};  
+      color: ${({ theme }) => theme.primary};
     }
   }
 
@@ -80,18 +85,16 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     height: 2.5rem;
     font-size: 1.5rem;
     width: min-content;
+    margin-bottom: 0.5rem;
   }
 
+  @media (max-width: 1445px) {
+    transition: all 0.5s;
+    opacity: ${(props) => (props.path === "/" && !props.scrolled ? "1" : "0")};
+    display: ${(props) => (props.path !== "/" ? "none" : "block")};
 
-  @media (max-width: 768px) {
-        
-    /* display: ${(props) =>
-      props.path === "/" && props.scrolled === false ? "block" : "none"}; */
-      transition: opacity 0.5s;   
-    opacity: ${(props) =>
-      props.path === "/" && props.scrolled === false ? "1" : "0"};
-        
+    &.hidden {
+      z-index: -1;
+    }
   }
-
-
 `;

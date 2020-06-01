@@ -11,3 +11,4 @@ declare module "react-syntax-highlighter";
 declare module "react-syntax-highlighter/dist/cjs/styles/prism";
 declare module "use-typed";
 declare module "react-date-countdown-timer";
+declare module "react-helmet";
