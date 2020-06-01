@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "formik": "^2.1.4",
     "framer-motion": "^1.11.0",
     "google-map-react": "^1.1.7",
     "husky": "^4.2.5",
@@ -34,7 +35,8 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "url-loader": "^4.1.0",
-    "webp-loader": "^0.6.0"
+    "webp-loader": "^0.6.0",
+    "yup": "^0.29.1"
   },
   "husky": {
     "hooks": {
