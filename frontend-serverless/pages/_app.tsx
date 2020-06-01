@@ -1,38 +1,16 @@
 import React from "react";
 import App, { AppProps } from "next/app";
-import { Layout } from "../components/Layout";
 import NextNProgress from "nextjs-progressbar";
+import { Layout } from "../components/Layout";
 import { Footer } from "../components/Footer";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { GlobalStyle, theme } from "../Global";
+import { ThemeProvider } from "styled-components";
+import { PageTransition } from "next-page-transitions";
+
 // import useSWR from 'swr';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const theme = {
-  primary: "#fff",
-  secondary: "#333",
-  accent: "#0ff",
-  red: "#FF0039",
-  yellow: "#faa916",
-  purple: "#6610F2",
-  blue: "#3B68B5",
-  lightgrey: "#f6f6f6",
-  grey: "#525252",
-  black: "#1e1e1e",
-  maxWidth: "1200px",
-  font: {
-    white: "#F6F5F3",
-    aqua: "#2E9E82",
-    darkAqua: "#37bc9b",
-  },
-  bg: {
-    white: "#f9f8fd",
-    black: "#222",
-    aqua: "#37bc9b",
-    grey: "rgba(0,0,0,.1)",
-  },
-};
 
 class MyApp extends App<AppProps> {
   render() {
@@ -40,154 +18,23 @@ class MyApp extends App<AppProps> {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Layout>
-          <NextNProgress
-            color={theme.yellow}
-            startPosition={0}
-            stopDelayMs={0}
-            height="2"
-            style={{ zIndex: "5000" }}
-          />
-          <Component {...pageProps} key={router.route} />
-          <Footer />
-        </Layout>
+        <NextNProgress
+          color={theme.yellow}
+          startPosition={0}
+          stopDelayMs={0}
+          height="2"
+          style={{ zIndex: "5000" }}
+        />
+        <PageTransition timeout={300} classNames="page-transition">
+          <Layout>
+            <Component {...pageProps} key={router.route} />
+            <style jsx global>{``}</style>
+            <Footer />
+          </Layout>
+        </PageTransition>
       </ThemeProvider>
     );
   }
 }
 
 export default MyApp;
-
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Berthold';
-    font-weight: 400;
-    font-style: normal;
-    src: url('/fonts/Berthold-light-extended.otf') format('truetype');
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
-  #__next {
-    height: 100%;
-  }
-
-  html, body {
-    height: 100%
-  }
-
-  html {
-    box-sizing: border-box;
-    font-size: 10px;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-    font-size: 1.6rem;
-    font-family:  "Berthold","-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", "Segoe UI", "lato", "Arial", "Open Sans", "sans-serif";
-    font-weight: 400;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    line-height: 1.8;
-    letter-spacing: 0px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    animation: fadeInAnimation ease 1.5s ;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
-  }
-
-  h1, h2, h3 {
-    font-weight: bold;
-    color: ${theme.black};
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  h2 {
-    font-size: 3.8rem;
-  }
-
-  h3 {
-    font-size: 2.4rem;
-  }
-
-  h4 {
-    font-size: 1.8rem;
-  }
-
-  ul, ol {
-    padding-left: 2rem;
-  }
-
-  @media(max-width:490px) {
-    h2 {
-      font-size: 3rem; 
-    }
-    h3 {
-      font-size: 2.2rem;
-    }
-    h4 {
-      font-size: 1.6rem;
-    }
-    p, li {
-      font-size: 1.4rem;
-    }
-  }
-
-  p {
-    font-weight: 700;
-  }
-
-  li {
-    color: ${theme.grey};
-  }
-
-  strong {
-    font-weight: 800;
-    color: ${theme.black};
-  }
-
-  code {
-    color: ${theme.red};
-    background: 1px solid #ebeaeb;
-    padding: 0 6px;
-  }
-
-  a {
-    text-decoration: none;
-    color: ${theme.accent};
-    font-weight: 600;
-
-    &:hover {
-      color: ${theme.primary};
-    }
-  }
-
-  a.link {
-    text-decoration: none;
-    transition: all .4s;
-
-    &:hover {
-      background-position: 0%;
-    } 
-  }
-
-  @keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-      } 
-  }
-
-
-`;
