@@ -11,7 +11,7 @@ export const Rsvp: FC = (): ReactElement => {
           <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD"></iframe>
         </div>
         <div className="right">
-          <h2>DESCRIPTORY</h2>
+          <h2>Your mother is a whore</h2>
         </div>
       </LayoutGrid>
     </StyledHero>
@@ -36,11 +36,12 @@ const LayoutGrid = styled("div")`
   }
 
   .left {
-    background-color: white;
+    background-color: grey;
 
     iframe {
       height: 400px;
-      border: none;
+      /* border: none; */
+      border: 1px solid black;
       padding: 2rem;
       width: 100%;
     }
