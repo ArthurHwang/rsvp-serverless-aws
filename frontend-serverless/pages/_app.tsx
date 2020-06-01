@@ -14,7 +14,7 @@ const theme = {
   primary: "#fff",
   secondary: "#333",
   accent: "#0ff",
-  secondaryAccent: "#FF0039",
+  red: "#FF0039",
   yellow: "#faa916",
   blue: "#3B68B5",
   lightgrey: "#f6f6f6",
@@ -158,7 +158,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    color: ${theme.secondaryAccent};
+    color: ${theme.red};
     background: 1px solid #ebeaeb;
     padding: 0 6px;
   }

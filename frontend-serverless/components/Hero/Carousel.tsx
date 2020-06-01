@@ -55,13 +55,13 @@ const StyledCarousel = styled("div")`
     bottom: 10px;
 
     & button:before {
-      color: yellow;
+      color: ${({ theme }) => theme.yellow};
       opacity: 1;
     }
   }
 
   .slick-active button:before {
-    color: red !important;
+    color: ${({ theme }) => theme.red} !important;
     opacity: 1 !important;
   }
 
