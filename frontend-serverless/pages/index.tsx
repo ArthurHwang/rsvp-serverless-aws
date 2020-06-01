@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { Carousel } from "../components/Home/Carousel";
 import { Card } from "../components/Home/Card";
 import { NextPage } from "next";
+// import { motion } from 'framer-motion';
 
 const HomePage: NextPage = () => {
   return (
     <StyledHome>
       <Carousel />
+
       <Card />
     </StyledHome>
   );
