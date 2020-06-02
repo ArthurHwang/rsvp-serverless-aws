@@ -56,22 +56,22 @@
         }
       }
     },
-    "AddDashuserLogGroup": {
+    "AddDashguestLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-add-user"
+        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-add-guest"
       }
     },
-    "GetDashuserLogGroup": {
+    "GetDashguestLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-get-user"
+        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-get-guest"
       }
     },
-    "GetDashusersLogGroup": {
+    "GetDashguestsLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-get-users"
+        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-get-guests"
       }
     },
     "IamRoleLambdaExecution": {
@@ -144,115 +144,115 @@
         }
       }
     },
-    "AddDashuserLambdaFunction": {
+    "AddDashguestLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591126252882-2020-06-02T19:30:52.882Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591133398404-2020-06-02T21:29:58.404Z/rsvp-serverless-backend.zip"
         },
-        "FunctionName": "rsvp-serverless-backend-prod-add-user",
-        "Handler": "api/add-user.handler",
+        "FunctionName": "rsvp-serverless-backend-prod-add-guest",
+        "Handler": "api/add-guest.handler",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
         },
         "Runtime": "nodejs12.x",
         "Timeout": 5,
-        "Description": "POST /user",
+        "Description": "POST /guest",
         "Environment": {
           "Variables": {
             "GUESTS_TABLE": "rsvp-serverless-backend-prod"
           }
         }
       },
-      "DependsOn": ["AddDashuserLogGroup"]
+      "DependsOn": ["AddDashguestLogGroup"]
     },
-    "AddDashuserLambdaVersionvt8YqG5GCzngBzY7ZsCAVTbJcQdSY0b7Uy9J54KTI": {
+    "AddDashguestLambdaVersiont8eN2D8d7fsjHzd40Mvjn2VxlPUIpGvO1cNrltLU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "AddDashuserLambdaFunction"
+          "Ref": "AddDashguestLambdaFunction"
         },
-        "CodeSha256": "IS0H8vEZZmnP1ZP2JK+S1S2Y3iH4n9dI2auVVtRYIPU=",
-        "Description": "POST /user"
+        "CodeSha256": "dQ+RZ0v57GEnYUU0W7Qs8cohtGE6ReLHYFv9NjZzut8=",
+        "Description": "POST /guest"
       }
     },
-    "GetDashuserLambdaFunction": {
+    "GetDashguestLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591126252882-2020-06-02T19:30:52.882Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591133398404-2020-06-02T21:29:58.404Z/rsvp-serverless-backend.zip"
         },
-        "FunctionName": "rsvp-serverless-backend-prod-get-user",
-        "Handler": "api/get-user.handler",
+        "FunctionName": "rsvp-serverless-backend-prod-get-guest",
+        "Handler": "api/get-guest.handler",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
         },
         "Runtime": "nodejs12.x",
         "Timeout": 5,
-        "Description": "GET /user/u/{user_id}",
+        "Description": "GET /guest/{email}",
         "Environment": {
           "Variables": {
             "GUESTS_TABLE": "rsvp-serverless-backend-prod"
           }
         }
       },
-      "DependsOn": ["GetDashuserLogGroup"]
+      "DependsOn": ["GetDashguestLogGroup"]
     },
-    "GetDashuserLambdaVersionmMXFcZcfF0nQx0kNiaO4ZZhaU6jPcL0p1kdtOiNw": {
+    "GetDashguestLambdaVersionCKXxWZcaeXIAaszWsstK0Q3Gqj5LZEyJX7VLZjW4I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "GetDashuserLambdaFunction"
+          "Ref": "GetDashguestLambdaFunction"
         },
-        "CodeSha256": "IS0H8vEZZmnP1ZP2JK+S1S2Y3iH4n9dI2auVVtRYIPU=",
-        "Description": "GET /user/u/{user_id}"
+        "CodeSha256": "dQ+RZ0v57GEnYUU0W7Qs8cohtGE6ReLHYFv9NjZzut8=",
+        "Description": "GET /guest/{email}"
       }
     },
-    "GetDashusersLambdaFunction": {
+    "GetDashguestsLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591126252882-2020-06-02T19:30:52.882Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591133398404-2020-06-02T21:29:58.404Z/rsvp-serverless-backend.zip"
         },
-        "FunctionName": "rsvp-serverless-backend-prod-get-users",
-        "Handler": "api/get-users.handler",
+        "FunctionName": "rsvp-serverless-backend-prod-get-guests",
+        "Handler": "api/get-guests.handler",
         "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
         },
         "Runtime": "nodejs12.x",
         "Timeout": 5,
-        "Description": "GET /users",
+        "Description": "GET /guests",
         "Environment": {
           "Variables": {
             "GUESTS_TABLE": "rsvp-serverless-backend-prod"
           }
         }
       },
-      "DependsOn": ["GetDashusersLogGroup"]
+      "DependsOn": ["GetDashguestsLogGroup"]
     },
-    "GetDashusersLambdaVersionvqePfTabrCPfWSEfBHzWREe6zxgTgPZ0EhOmgeLNdI": {
+    "GetDashguestsLambdaVersionG1uS56tdYDVYCI8fl7mcFvTQBL1PkVrHHGxyCY1k": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "GetDashusersLambdaFunction"
+          "Ref": "GetDashguestsLambdaFunction"
         },
-        "CodeSha256": "IS0H8vEZZmnP1ZP2JK+S1S2Y3iH4n9dI2auVVtRYIPU=",
-        "Description": "GET /users"
+        "CodeSha256": "dQ+RZ0v57GEnYUU0W7Qs8cohtGE6ReLHYFv9NjZzut8=",
+        "Description": "GET /guests"
       }
     },
     "ApiGatewayRestApi": {
@@ -265,55 +265,43 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceUser": {
+    "ApiGatewayResourceGuest": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
           "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
         },
-        "PathPart": "user",
+        "PathPart": "guest",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayResourceUserU": {
+    "ApiGatewayResourceGuestEmailVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceUser"
+          "Ref": "ApiGatewayResourceGuest"
         },
-        "PathPart": "u",
+        "PathPart": "{email}",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayResourceUserUUseridVar": {
-      "Type": "AWS::ApiGateway::Resource",
-      "Properties": {
-        "ParentId": {
-          "Ref": "ApiGatewayResourceUserU"
-        },
-        "PathPart": "{user_id}",
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        }
-      }
-    },
-    "ApiGatewayResourceUsers": {
+    "ApiGatewayResourceGuests": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
           "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
         },
-        "PathPart": "users",
+        "PathPart": "guests",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodUserOptions": {
+    "ApiGatewayMethodGuestOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -341,24 +329,24 @@
               "StatusCode": "200",
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
-                "method.response.header.Access-Control-Allow-Headers": "'Accept,Content-Type,Content-Length,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": ""
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUser"
+          "Ref": "ApiGatewayResourceGuest"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodUserUUseridVarOptions": {
+    "ApiGatewayMethodGuestEmailVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -386,24 +374,24 @@
               "StatusCode": "200",
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
-                "method.response.header.Access-Control-Allow-Headers": "'Accept,Content-Type,Content-Length,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": ""
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUserUUseridVar"
+          "Ref": "ApiGatewayResourceGuestEmailVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodUsersOptions": {
+    "ApiGatewayMethodGuestsOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -431,30 +419,30 @@
               "StatusCode": "200",
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
-                "method.response.header.Access-Control-Allow-Headers": "'Accept,Content-Type,Content-Length,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": ""
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUsers"
+          "Ref": "ApiGatewayResourceGuests"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodUserPost": {
+    "ApiGatewayMethodGuestPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUser"
+          "Ref": "ApiGatewayResourceGuest"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -478,7 +466,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Fn::GetAtt": ["AddDashuserLambdaFunction", "Arn"]
+                  "Fn::GetAtt": ["AddDashguestLambdaFunction", "Arn"]
                 },
                 "/invocations"
               ]
@@ -488,13 +476,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodUserUUseridVarGet": {
+    "ApiGatewayMethodGuestEmailVarGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUserUUseridVar"
+          "Ref": "ApiGatewayResourceGuestEmailVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -518,7 +506,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Fn::GetAtt": ["GetDashuserLambdaFunction", "Arn"]
+                  "Fn::GetAtt": ["GetDashguestLambdaFunction", "Arn"]
                 },
                 "/invocations"
               ]
@@ -528,13 +516,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodUsersGet": {
+    "ApiGatewayMethodGuestsGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceUsers"
+          "Ref": "ApiGatewayResourceGuests"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -558,7 +546,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Fn::GetAtt": ["GetDashusersLambdaFunction", "Arn"]
+                  "Fn::GetAtt": ["GetDashguestsLambdaFunction", "Arn"]
                 },
                 "/invocations"
               ]
@@ -568,7 +556,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1591126199426": {
+    "ApiGatewayDeployment1591133342903": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -577,19 +565,19 @@
         "StageName": "prod"
       },
       "DependsOn": [
-        "ApiGatewayMethodUserOptions",
-        "ApiGatewayMethodUserUUseridVarOptions",
-        "ApiGatewayMethodUsersOptions",
-        "ApiGatewayMethodUserPost",
-        "ApiGatewayMethodUserUUseridVarGet",
-        "ApiGatewayMethodUsersGet"
+        "ApiGatewayMethodGuestOptions",
+        "ApiGatewayMethodGuestEmailVarOptions",
+        "ApiGatewayMethodGuestsOptions",
+        "ApiGatewayMethodGuestPost",
+        "ApiGatewayMethodGuestEmailVarGet",
+        "ApiGatewayMethodGuestsGet"
       ]
     },
-    "AddDashuserLambdaPermissionApiGateway": {
+    "AddDashguestLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
-          "Fn::GetAtt": ["AddDashuserLambdaFunction", "Arn"]
+          "Fn::GetAtt": ["AddDashguestLambdaFunction", "Arn"]
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "apigateway.amazonaws.com",
@@ -619,11 +607,11 @@
         }
       }
     },
-    "GetDashuserLambdaPermissionApiGateway": {
+    "GetDashguestLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
-          "Fn::GetAtt": ["GetDashuserLambdaFunction", "Arn"]
+          "Fn::GetAtt": ["GetDashguestLambdaFunction", "Arn"]
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "apigateway.amazonaws.com",
@@ -653,11 +641,11 @@
         }
       }
     },
-    "GetDashusersLambdaPermissionApiGateway": {
+    "GetDashguestsLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
-          "Fn::GetAtt": ["GetDashusersLambdaFunction", "Arn"]
+          "Fn::GetAtt": ["GetDashguestsLambdaFunction", "Arn"]
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "apigateway.amazonaws.com",
@@ -689,6 +677,7 @@
     },
     "GuestsTable": {
       "Type": "AWS::DynamoDB::Table",
+      "DeletionPolicy": "Retain",
       "Properties": {
         "TableName": "rsvp-serverless-backend-prod",
         "AttributeDefinitions": [
@@ -742,22 +731,22 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
-    "AddDashuserLambdaFunctionQualifiedArn": {
+    "AddDashguestLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AddDashuserLambdaVersionvt8YqG5GCzngBzY7ZsCAVTbJcQdSY0b7Uy9J54KTI"
+        "Ref": "AddDashguestLambdaVersiont8eN2D8d7fsjHzd40Mvjn2VxlPUIpGvO1cNrltLU"
       }
     },
-    "GetDashuserLambdaFunctionQualifiedArn": {
+    "GetDashguestLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashuserLambdaVersionmMXFcZcfF0nQx0kNiaO4ZZhaU6jPcL0p1kdtOiNw"
+        "Ref": "GetDashguestLambdaVersionCKXxWZcaeXIAaszWsstK0Q3Gqj5LZEyJX7VLZjW4I"
       }
     },
-    "GetDashusersLambdaFunctionQualifiedArn": {
+    "GetDashguestsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashusersLambdaVersionvqePfTabrCPfWSEfBHzWREe6zxgTgPZ0EhOmgeLNdI"
+        "Ref": "GetDashguestsLambdaVersionG1uS56tdYDVYCI8fl7mcFvTQBL1PkVrHHGxyCY1k"
       }
     },
     "ServiceEndpoint": {

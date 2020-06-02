@@ -1,9 +1,12 @@
 import { FC, ReactElement } from "react";
 import styled from "styled-components";
 
-export const Loading: FC = (): ReactElement => {
+type Props = {
+  className?: string;
+};
+export const Loading: FC<Props> = ({ className }): ReactElement => {
   return (
-    <StyledLoading>
+    <StyledLoading className={className}>
       <div className="sk-circle1 sk-child"></div>
       <div className="sk-circle2 sk-child"></div>
       <div className="sk-circle3 sk-child"></div>
@@ -25,6 +28,10 @@ const StyledLoading = styled("div")`
   width: 40px;
   height: 40px;
   position: relative;
+
+  &.in-place {
+    margin: 0 auto;
+  }
 
   & .sk-child {
     width: 100%;

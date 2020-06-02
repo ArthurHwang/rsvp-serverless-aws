@@ -3,9 +3,13 @@ import { validationSchema } from "../util/validationSchema";
 import { Formik } from "formik";
 import { Error } from "./Error";
 import { ReactElement, FC, useState } from "react";
+import { Loading } from "../Loading";
 
 export const Contact: FC = (): ReactElement => {
   const [alert, setAlert] = useState("");
+  const [submitInvoke, setSubmitInvoke] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   return (
     <ContentWrap id="contact">
       <StyledContact>
@@ -28,28 +32,37 @@ export const Contact: FC = (): ReactElement => {
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting, resetForm, setStatus }) => {
-            console.log(values);
+            setSubmitInvoke(true);
             setSubmitting(true);
             setStatus(undefined);
-            const response = await fetch("http://localhost:3000/prod/user", {
-              method: "POST",
-              body: JSON.stringify(values),
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-            });
+            const response = await fetch(
+              `${process.env.NEXT_PUBLIC_AWS_INVOKE_BASE}`,
+              // 'http://localhost:3000/prod/guest',
+              {
+                method: "POST",
+                body: JSON.stringify(values),
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+              }
+            );
 
             const json = await response.json();
 
             if (response.status === 200) {
               setStatus(json);
-              setAlert("Message sent, thank you");
+              setAlert("Submission Successful, see you in Taiwan");
               resetForm();
+              setSubmitInvoke(false);
               setSubmitting(false);
+              setSuccess(true);
             } else {
               setStatus(json);
-              setAlert("Message failed to send, please try again");
+              setSuccess(false);
+              // setSubmitInvoke(false);
+              setSubmitting(false);
+              setAlert("You broke something, I am coming to find you");
               console.log("serverError");
             }
           }}
@@ -61,7 +74,7 @@ export const Contact: FC = (): ReactElement => {
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting,
+            // isSubmitting,
             setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
@@ -211,10 +224,21 @@ export const Contact: FC = (): ReactElement => {
                 </div>
               </div>
               <div className="submit">
-                <Button color="green" disabled={isSubmitting} type="submit">
-                  Submit
-                </Button>
-                {alert && <div className="alert">Message Sent! Thank you</div>}
+                {submitInvoke ? (
+                  <Loading className="in-place" />
+                ) : (
+                  <Button color="green" disabled={success} type="submit">
+                    Submit
+                  </Button>
+                )}
+                {alert && (
+                  <div
+                    style={{ fontWeight: 700, color: "#faa916" }}
+                    className="alert"
+                  >
+                    {alert}
+                  </div>
+                )}
               </div>
             </form>
           )}
@@ -274,7 +298,7 @@ const StyledContact = styled("div")`
       height: 160px;
       resize: none;
       padding: 1.5rem;
-      font-weight: 700;
+      font-weight: 400;
       font-family: "Berthold";
       ::-webkit-input-placeholder {
         color: rgba(0, 0, 0, 0.4);

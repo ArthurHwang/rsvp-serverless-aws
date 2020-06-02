@@ -1,1 +1,27 @@
-{"pages":{"ssr":{"dynamic":{},"nonDynamic":{"/_error":"pages/_error.js","/_document":"pages/_document.js","/_app":"pages/_app.js"}},"html":{"dynamic":{},"nonDynamic":{"/404":"pages/404.html","/about":"pages/about.html","/index":"pages/index.html","/rsvp":"pages/rsvp.html","/where":"pages/where.html","/":"pages/index.html"}}},"publicFiles":{}}
+{
+  "pages": {
+    "ssr": {
+      "dynamic": {},
+      "nonDynamic": {
+        "/_error": "pages/_error.js",
+        "/_document": "pages/_document.js",
+        "/_app": "pages/_app.js"
+      }
+    },
+    "html": {
+      "dynamic": {},
+      "nonDynamic": {
+        "/404": "pages/404.html",
+        "/about": "pages/about.html",
+        "/index": "pages/index.html",
+        "/rsvp": "pages/rsvp.html",
+        "/technical": "pages/technical.html",
+        "/where": "pages/where.html",
+        "/": "pages/index.html"
+      }
+    }
+  },
+  "publicFiles": {
+    "/fonts/Berthold-light-extended.otf": "fonts/Berthold-light-extended.otf"
+  }
+}

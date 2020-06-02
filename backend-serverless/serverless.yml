@@ -14,8 +14,6 @@ custom:
     - X-Api-Key
     - X-Amz-Security-Token
     - X-Amz-User-Agent
-    # - app_user_id
-    # - app_user_name
 
 provider:
   name: aws
@@ -36,69 +34,54 @@ provider:
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
 
 functions:
-  add-user:
-    handler: api/add-user.handler
-    description: POST /user
+  add-guest:
+    handler: api/add-guest.handler
+    description: POST /guest
     events:
       - http:
-          path: user
+          path: guest
           method: post
           cors:
-            origin: "*"
-            headers: ${self:custom.allowedHeaders}
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
 
-  get-user:
-    handler: api/get-user.handler
-    description: GET /user/u/{user_id}
+  get-guest:
+    handler: api/get-guest.handler
+    description: GET /guest/{email}
     events:
       - http:
-          path: user/u/{user_id}
+          path: guest/{email}
           method: get
           cors:
-            origin: "*"
-            headers: ${self:custom.allowedHeaders}
-  get-users:
-    handler: api/get-users.handler
-    description: GET /users
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
+  get-guests:
+    handler: api/get-guests.handler
+    description: GET /guests
     events:
       - http:
-          path: users
+          path: guests
           method: get
           cors:
-            origin: "*"
-            headers: ${self:custom.allowedHeaders}
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
 
 resources:
   Resources:
     GuestsTable:
       Type: AWS::DynamoDB::Table
-      # DeletionPolicy: Retain
+      DeletionPolicy: Retain
       Properties:
         TableName: ${self:provider.environment.GUESTS_TABLE}
         AttributeDefinitions:
-          # - AttributeName: user_id
-          #   AttributeType: S
-          # - AttributeName: guest_id
-          #   AttributeType: S
           - AttributeName: email
             AttributeType: S
           - AttributeName: timestamp
             AttributeType: N
-          # - AttributeName: first_name
-          #   AttributeType: S
-          # - AttributeName: last_name
-          #   AttributeType: S
-          # - AttributeName: guest_first
-          #   AttributeType: S
-          # - AttributeName: guest_last
-          #   AttributeType: S
-          # - AttributeName: coming
-          #   AttributeType: S
-          # - AttributeName: special_requests
-          #   AttributeType: S
         KeySchema:
-          # - AttributeName: user_id
-          #   KeyType: HASH
           - AttributeName: email
             KeyType: HASH
           - AttributeName: timestamp
