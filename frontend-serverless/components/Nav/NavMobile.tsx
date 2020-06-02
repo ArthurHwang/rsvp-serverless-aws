@@ -97,6 +97,10 @@ const StyledNavMobile = styled("nav")<StyledProps>`
     transform: ${(props) => (props.clicked ? "rotate(270deg)" : "")};
   }
 
+  @media (max-width: 1860px) {
+    display: block;
+  }
+
   @media (max-width: 1445px) {
     display: ${(props) =>
       props.path === "/" && props.scrolled === false ? "none" : "block"};

@@ -14,8 +14,6 @@ custom:
     - X-Api-Key
     - X-Amz-Security-Token
     - X-Amz-User-Agent
-    - app_user_id
-    - app_user_name
 
 provider:
   name: aws
@@ -26,64 +24,65 @@ provider:
   timeout: 5
   endpointType: regional
   environment:
-    USERS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}'
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
 
 functions:
-  add-user:
-    handler: api/add-user.handler
-    description: POST /user
+  add-guest:
+    handler: api/add-guest.handler
+    description: POST /guest
     events:
       - http:
-          path: user
+          path: guest
           method: post
           cors:
-            origin: '*'
-            headers: ${self:custom.allowedHeaders}
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
 
-  get-user:
-    handler: api/get-user.handler
-    description: GET /user/u/{user_id}
+  get-guest:
+    handler: api/get-guest.handler
+    description: GET /guest/{email}
     events:
       - http:
-          path: user/u/{user_id}
+          path: guest/{email}
           method: get
           cors:
-            origin: '*'
-            headers: ${self:custom.allowedHeaders}
-  get-users:
-    handler: api/get-users.handler
-    description: GET /users
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
+  get-guests:
+    handler: api/get-guests.handler
+    description: GET /guests
     events:
       - http:
-          path: users
+          path: guests
           method: get
           cors:
-            origin: '*'
-            headers: ${self:custom.allowedHeaders}
+            true
+            # origin: '*'
+            # headers: ${self:custom.allowedHeaders}
 
 resources:
   Resources:
-    UsersTable:
+    GuestsTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
-        TableName: ${self:provider.environment.USERS_TABLE}
+        TableName: ${self:provider.environment.GUESTS_TABLE}
         AttributeDefinitions:
-          - AttributeName: user_id
+          - AttributeName: email
             AttributeType: S
           - AttributeName: timestamp
             AttributeType: N
-          - AttributeName: user_email
-            AttributeType: S
         KeySchema:
-          - AttributeName: user_id
+          - AttributeName: email
             KeyType: HASH
           - AttributeName: timestamp
             KeyType: RANGE
@@ -91,9 +90,9 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         GlobalSecondaryIndexes:
-          - IndexName: user_email-index
+          - IndexName: email-index
             KeySchema:
-              - AttributeName: user_email
+              - AttributeName: email
                 KeyType: HASH
             Projection:
               ProjectionType: ALL

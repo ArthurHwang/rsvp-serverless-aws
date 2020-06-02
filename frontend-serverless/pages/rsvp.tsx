@@ -1,7 +1,8 @@
-import { Rsvp } from "../components/Rsvp";
 import { NextPage } from "next";
+import { Contact } from "../components/Rsvp/Contact";
+import { Flights } from "../components/Rsvp/Flights";
+import { Hotels } from "../components/Rsvp/Hotels";
 import Head from "next/head";
-// import { Helmet } from 'react-helmet';
 import styled from "styled-components";
 
 const RsvpPage: NextPage = () => {
@@ -12,7 +13,15 @@ const RsvpPage: NextPage = () => {
         <meta content="Carol and Arthur - RSVP" />
         <link rel="canonical" href="https://carolandarthur.com/rsvp" />
       </Head>
-      <Rsvp />
+
+      <div className="left">
+        <Contact />
+      </div>
+
+      <div className="right">
+        <Flights />
+        <Hotels />
+      </div>
     </StyledRSVP>
   );
 };
@@ -21,14 +30,36 @@ export default RsvpPage;
 
 const StyledRSVP = styled("div")`
   height: 100%;
-  /* overflow: hidden;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 60% 40%;
   height: 100%;
   width: 100%;
 
+  .left {
+    height: 100%;
+    overflow-y: scroll;
+    background-color: ${({ theme }) => theme.black};
+
+    @media (max-width: 1445px) {
+      height: auto;
+    }
+  }
+
+  .right {
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 55% 45%;
+
+    @media (max-width: 1445px) {
+      height: auto;
+      display: block;
+    }
+  }
+
   @media (max-width: 1445px) {
     overflow: initial;
     display: block;
-  } */
+  }
 `;

@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { GlobalStyle, theme } from "../Global";
 import { ThemeProvider } from "styled-components";
 import { PageTransition } from "next-page-transitions";
+// import { Loading } from '../components/Loading';
 
 // import useSWR from 'swr';
 
@@ -25,7 +26,11 @@ class MyApp extends App<AppProps> {
           height="2"
           style={{ zIndex: "5000" }}
         />
-        <PageTransition timeout={300} classNames="page-transition">
+        <PageTransition
+          timeout={300}
+          classNames="page-transition"
+          loadingClassNames="loading-indicator"
+        >
           <Layout>
             <Component {...pageProps} key={router.route} />
             <style jsx global>{``}</style>
