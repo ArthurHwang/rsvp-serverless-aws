@@ -26,14 +26,14 @@ provider:
   timeout: 5
   endpointType: regional
   environment:
-    USERS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}"
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
 
 functions:
   add-user:
@@ -70,36 +70,36 @@ functions:
 
 resources:
   Resources:
-    UsersTable:
+    GuestsTable:
       Type: AWS::DynamoDB::Table
       # DeletionPolicy: Retain
       Properties:
-        TableName: ${self:provider.environment.USERS_TABLE}
+        TableName: ${self:provider.environment.GUESTS_TABLE}
         AttributeDefinitions:
           # - AttributeName: user_id
           #   AttributeType: S
           # - AttributeName: guest_id
           #   AttributeType: S
-          - AttributeName: user_email
+          - AttributeName: email
             AttributeType: S
           - AttributeName: timestamp
             AttributeType: N
-          - AttributeName: first_name
-            AttributeType: S
-          - AttributeName: last_name
-            AttributeType: S
-          - AttributeName: guest_first
-            AttributeType: S
-          - AttributeName: guest_last
-            AttributeType: S
-          - AttributeName: coming
-            AttributeType: S
-          - AttributeName: special_requests
-            AttributeType: S
+          # - AttributeName: first_name
+          #   AttributeType: S
+          # - AttributeName: last_name
+          #   AttributeType: S
+          # - AttributeName: guest_first
+          #   AttributeType: S
+          # - AttributeName: guest_last
+          #   AttributeType: S
+          # - AttributeName: coming
+          #   AttributeType: S
+          # - AttributeName: special_requests
+          #   AttributeType: S
         KeySchema:
           # - AttributeName: user_id
           #   KeyType: HASH
-          - AttributeName: user_email
+          - AttributeName: email
             KeyType: HASH
           - AttributeName: timestamp
             KeyType: RANGE
@@ -107,9 +107,9 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         GlobalSecondaryIndexes:
-          - IndexName: user_email-index
+          - IndexName: email-index
             KeySchema:
-              - AttributeName: user_email
+              - AttributeName: email
                 KeyType: HASH
             Projection:
               ProjectionType: ALL

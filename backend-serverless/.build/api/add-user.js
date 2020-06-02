@@ -139,60 +139,58 @@ var _this = this;
 var AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-1" });
 var moment = require("moment");
-var uuidv4 = require("uuid/v4");
-var util = require("./util");
+// const uuidv4 = require('uuid/v4');
+// const util = require('./util');
 var dynamodb = new AWS.DynamoDB.DocumentClient();
-var tableName = process.env.USERS_TABLE;
+var tableName = process.env.GUESTS_TABLE;
 exports.handler = function (event) {
   return __awaiter(_this, void 0, void 0, function () {
-    var item, data, err_1;
+    var req, data, err_1;
     return __generator(this, function (_a) {
       switch (_a.label) {
         case 0:
-          console.log(event);
-          _a.label = 1;
-        case 1:
-          _a.trys.push([1, 3, , 4]);
-          item = JSON.parse(event.body).Item;
-          // item.user_id = util.getUserId(event.headers);
-          // item.user_name = util.getUserName(event.headers);
-          // item.node_id = item.user_id + ':' + uuidv4();
-          item.guest_id = uuidv4();
-          item.timestamp = moment().unix();
+          _a.trys.push([0, 2, , 3]);
+          req = JSON.parse(event.body);
+          req.timestamp = moment().unix();
           return [
             4 /*yield*/,
             dynamodb
               .put({
                 TableName: tableName,
-                Item: item,
+                Item: req,
               })
               .promise(),
           ];
-        case 2:
+        case 1:
           data = _a.sent();
           return [
             2 /*return*/,
             {
               statusCode: 200,
-              headers: util.getResponseHeaders(),
-              body: JSON.stringify(item),
+              // headers: util.getResponseHeaders(),
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+              },
+              body: JSON.stringify(req),
             },
           ];
-        case 3:
+        case 2:
           err_1 = _a.sent();
           console.log("Error", err_1);
           return [
             2 /*return*/,
             {
               statusCode: err_1.statusCode ? err_1.statusCode : 500,
-              headers: util.getResponseHeaders(),
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+              },
               body: JSON.stringify({
                 error: err_1.name ? err_1.name : "Exception",
                 message: err_1.message ? err_1.message : "Unknown Error",
               }),
             },
           ];
-        case 4:
+        case 3:
           return [2 /*return*/];
       }
     });

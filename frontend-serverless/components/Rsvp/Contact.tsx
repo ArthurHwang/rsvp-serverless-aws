@@ -21,8 +21,8 @@ export const Contact: FC = (): ReactElement => {
         </p>
         <Formik
           initialValues={{
-            firstName: "",
-            lastName: "",
+            first: "",
+            last: "",
             email: "",
             coming: "yes",
           }}
@@ -78,43 +78,35 @@ export const Contact: FC = (): ReactElement => {
                     <input
                       aria-label="First Name"
                       type="text"
-                      name="firstName"
-                      id="firstName"
+                      name="first"
+                      id="first"
                       placeholder="First Name"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.firstName}
+                      value={values.first}
                       // @ts-ignore
                       className={
-                        touched.firstName && errors.firstName
-                          ? "has-error"
-                          : null
+                        touched.first && errors.first ? "has-error" : null
                       }
                     />
-                    <Error
-                      touched={touched.firstName}
-                      message={errors.firstName}
-                    />
+                    <Error touched={touched.first} message={errors.first} />
                   </div>
                   <div className="input-row">
                     <input
                       aria-label="Last Name"
                       type="text"
-                      name="lastName"
-                      id="lastName"
+                      name="last"
+                      id="last"
                       placeholder="Last Name"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.lastName}
+                      value={values.last}
                       // @ts-ignore
                       className={
-                        touched.lastName && errors.lastName ? "has-error" : null
+                        touched.last && errors.last ? "has-error" : null
                       }
                     />
-                    <Error
-                      touched={touched.lastName}
-                      message={errors.lastName}
-                    />
+                    <Error touched={touched.last} message={errors.last} />
                   </div>
                 </div>
                 <div className="input-row">
@@ -177,11 +169,11 @@ export const Contact: FC = (): ReactElement => {
                     className="input-row"
                   >
                     <input
-                      aria-label="First Name"
+                      aria-label="Guest First Name"
                       type="text"
-                      name="guestFirstName"
-                      id="guestFirstName"
-                      placeholder="First Name"
+                      name="guestFirst"
+                      id="guestFirst"
+                      placeholder="Guest First Name"
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -193,11 +185,11 @@ export const Contact: FC = (): ReactElement => {
                     className="input-row"
                   >
                     <input
-                      aria-label="Last Name"
+                      aria-label="Guest Last Name"
                       type="text"
-                      name="guestLastName"
-                      id="guestLastName"
-                      placeholder="Last Name"
+                      name="guestLast"
+                      id="guestLast"
+                      placeholder="Guest Last Name"
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -209,7 +201,7 @@ export const Contact: FC = (): ReactElement => {
                 </p>
                 <div style={{ marginBottom: "14px" }} className="input-row">
                   <textarea
-                    aria-label="Requests"
+                    aria-label="Special Requests"
                     name="requests"
                     id="requests"
                     placeholder="Special Requests"
