@@ -12,7 +12,7 @@ export const Flights: FC = (): ReactElement => {
   useEffect(() => {
     const frameTimer = setTimeout(() => {
       hideSpinner();
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(frameTimer);
   }, []);
@@ -26,7 +26,6 @@ export const Flights: FC = (): ReactElement => {
           <Loading />
         ) : (
           <iframe
-            onLoad={hideSpinner}
             frameBorder="0"
             src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"
           ></iframe>

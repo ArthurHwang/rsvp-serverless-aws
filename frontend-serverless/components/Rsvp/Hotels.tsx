@@ -12,7 +12,7 @@ export const Hotels: FC = (): ReactElement => {
   useEffect(() => {
     const frameTimer = setTimeout(() => {
       hideSpinner();
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(frameTimer);
   }, []);
