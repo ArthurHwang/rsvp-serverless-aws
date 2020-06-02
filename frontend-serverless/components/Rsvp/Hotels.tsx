@@ -1,12 +1,31 @@
 import styled from "styled-components";
-import { ReactElement, FC } from "react";
+import { ReactElement, FC, useState, useEffect } from "react";
+import { Loading } from "../Loading";
 
 export const Hotels: FC = (): ReactElement => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const hideSpinner = () => {
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    const frameTimer = setTimeout(() => {
+      hideSpinner();
+    }, 1000);
+
+    return () => clearTimeout(frameTimer);
+  }, []);
+
   return (
     <StyledHotels>
       <h2>Check Hotel Prices</h2>
       <div className="iframe-cont">
-        <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&poweredBySize=0"></iframe>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&poweredBySize=0"></iframe>
+        )}
       </div>
     </StyledHotels>
   );
@@ -15,7 +34,7 @@ export const Hotels: FC = (): ReactElement => {
 const StyledHotels = styled("div")`
   height: 100%;
   background-color: ${({ theme }) => theme.lightgrey};
-  overflow: scroll;
+  overflow-y: scroll;
   display: grid;
   grid-template-rows: auto 1fr;
 

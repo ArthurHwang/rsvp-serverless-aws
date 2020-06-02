@@ -1,12 +1,36 @@
 import styled from "styled-components";
-import { ReactElement, FC } from "react";
+import { ReactElement, FC, useState, useEffect } from "react";
+import { Loading } from "../Loading";
 
 export const Flights: FC = (): ReactElement => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const hideSpinner = () => {
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    const frameTimer = setTimeout(() => {
+      hideSpinner();
+    }, 1000);
+
+    return () => clearTimeout(frameTimer);
+  }, []);
+
   return (
     <StyledFlights>
       <h2>Check Flight Prices</h2>
+
       <div className="iframe-cont">
-        <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"></iframe>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <iframe
+            onLoad={hideSpinner}
+            frameBorder="0"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"
+          ></iframe>
+        )}
       </div>
     </StyledFlights>
   );
@@ -15,7 +39,7 @@ export const Flights: FC = (): ReactElement => {
 const StyledFlights = styled("div")`
   height: 100%;
   background-color: ${({ theme }) => theme.blue};
-  overflow: scroll;
+  overflow-y: scroll;
   display: grid;
   grid-template-rows: auto 1fr;
 
@@ -39,6 +63,10 @@ const StyledFlights = styled("div")`
 
   @media (max-width: 465px) {
     height: 540px;
+  }
+
+  @media (max-width: 390px) {
+    height: 570px;
   }
 
   h2 {

@@ -1,10 +1,8 @@
-// import { Rsvp } from "../components/Rsvp";
 import { NextPage } from "next";
 import { Contact } from "../components/Rsvp/Contact";
 import { Flights } from "../components/Rsvp/Flights";
 import { Hotels } from "../components/Rsvp/Hotels";
 import Head from "next/head";
-// import { Helmet } from 'react-helmet';
 import styled from "styled-components";
 
 const RsvpPage: NextPage = () => {
@@ -24,7 +22,6 @@ const RsvpPage: NextPage = () => {
         <Flights />
         <Hotels />
       </div>
-      {/* <Rsvp /> */}
     </StyledRSVP>
   );
 };
@@ -41,7 +38,7 @@ const StyledRSVP = styled("div")`
 
   .left {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: ${({ theme }) => theme.black};
 
     @media (max-width: 1445px) {
@@ -57,9 +54,7 @@ const StyledRSVP = styled("div")`
 
     @media (max-width: 1445px) {
       height: auto;
-      overflow: initial;
       display: block;
-      /* padding-bottom: 2rem; */
     }
   }
 
