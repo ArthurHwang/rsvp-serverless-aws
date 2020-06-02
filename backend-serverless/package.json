@@ -9,16 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.684.0",
+    "aws-sdk": "^2.687.0",
     "moment": "^2.26.0",
     "typescript": "^3.9.3",
     "uuid": "7.0.3"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.51",
+    "@types/aws-lambda": "^8.10.52",
     "@types/aws-sdk": "^2.7.0",
-    "@types/node": "^14.0.5",
-    "serverless-offline": "^6.1.7",
+    "@types/node": "^14.0.9",
+    "serverless-offline": "^6.3.0",
     "serverless-plugin-typescript": "^1.1.9"
   }
 }

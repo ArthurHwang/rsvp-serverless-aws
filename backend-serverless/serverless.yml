@@ -14,8 +14,8 @@ custom:
     - X-Api-Key
     - X-Amz-Security-Token
     - X-Amz-User-Agent
-    - app_user_id
-    - app_user_name
+    # - app_user_id
+    # - app_user_name
 
 provider:
   name: aws
@@ -33,7 +33,7 @@ provider:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}'
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}"
 
 functions:
   add-user:
@@ -44,7 +44,7 @@ functions:
           path: user
           method: post
           cors:
-            origin: '*'
+            origin: "*"
             headers: ${self:custom.allowedHeaders}
 
   get-user:
@@ -55,7 +55,7 @@ functions:
           path: user/u/{user_id}
           method: get
           cors:
-            origin: '*'
+            origin: "*"
             headers: ${self:custom.allowedHeaders}
   get-users:
     handler: api/get-users.handler
@@ -65,25 +65,41 @@ functions:
           path: users
           method: get
           cors:
-            origin: '*'
+            origin: "*"
             headers: ${self:custom.allowedHeaders}
 
 resources:
   Resources:
     UsersTable:
       Type: AWS::DynamoDB::Table
-      DeletionPolicy: Retain
+      # DeletionPolicy: Retain
       Properties:
         TableName: ${self:provider.environment.USERS_TABLE}
         AttributeDefinitions:
-          - AttributeName: user_id
+          # - AttributeName: user_id
+          #   AttributeType: S
+          # - AttributeName: guest_id
+          #   AttributeType: S
+          - AttributeName: user_email
             AttributeType: S
           - AttributeName: timestamp
             AttributeType: N
-          - AttributeName: user_email
+          - AttributeName: first_name
+            AttributeType: S
+          - AttributeName: last_name
+            AttributeType: S
+          - AttributeName: guest_first
+            AttributeType: S
+          - AttributeName: guest_last
+            AttributeType: S
+          - AttributeName: coming
+            AttributeType: S
+          - AttributeName: special_requests
             AttributeType: S
         KeySchema:
-          - AttributeName: user_id
+          # - AttributeName: user_id
+          #   KeyType: HASH
+          - AttributeName: user_email
             KeyType: HASH
           - AttributeName: timestamp
             KeyType: RANGE
