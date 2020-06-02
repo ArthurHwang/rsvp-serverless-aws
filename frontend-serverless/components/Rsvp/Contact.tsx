@@ -31,7 +31,7 @@ export const Contact: FC = (): ReactElement => {
             console.log(values);
             setSubmitting(true);
             setStatus(undefined);
-            const response = await fetch("/api/contact", {
+            const response = await fetch("http://localhost:3000/prod/user", {
               method: "POST",
               body: JSON.stringify(values),
               headers: {

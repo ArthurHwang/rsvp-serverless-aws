@@ -34,7 +34,7 @@ export const Hotels: FC = (): ReactElement => {
 const StyledHotels = styled("div")`
   height: 100%;
   background-color: ${({ theme }) => theme.lightgrey};
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   display: grid;
   grid-template-rows: auto 1fr;
 

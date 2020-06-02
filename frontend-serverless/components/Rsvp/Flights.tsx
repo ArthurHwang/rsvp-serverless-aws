@@ -39,12 +39,12 @@ export const Flights: FC = (): ReactElement => {
 const StyledFlights = styled("div")`
   height: 100%;
   background-color: ${({ theme }) => theme.blue};
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   display: grid;
   grid-template-rows: auto 1fr;
 
   .iframe-cont {
-    height: 410px;
+    height: 100%;
   }
 
   @media (max-width: 1445px) {
