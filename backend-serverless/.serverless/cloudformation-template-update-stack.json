@@ -56,6 +56,12 @@
         }
       }
     },
+    "TriggerDashstreamLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-trigger-stream"
+      }
+    },
     "AddDashguestLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
@@ -120,9 +126,24 @@
                   "Action": [
                     "dynamodb:Query",
                     "dynamodb:PutItem",
-                    "dynamodb:DeleteItem"
+                    "dynamodb:DeleteItem",
+                    "dynamodb:ListStreams"
                   ],
                   "Resource": "arn:aws:dynamodb:us-east-1:*:table/rsvp-serverless-backend-prod"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:GetRecords",
+                    "dynamodb:GetShardIterator",
+                    "dynamodb:DescribeStream",
+                    "dynamodb:ListStreams"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::GetAtt": ["GuestsTable", "StreamArn"]
+                    }
+                  ]
                 }
               ]
             }
@@ -144,6 +165,41 @@
         }
       }
     },
+    "TriggerDashstreamLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591216557843-2020-06-03T20:35:57.843Z/rsvp-serverless-backend.zip"
+        },
+        "FunctionName": "rsvp-serverless-backend-prod-trigger-stream",
+        "Handler": "stream-trigger.handler",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 5,
+        "Environment": {
+          "Variables": {
+            "GUESTS_TABLE": "rsvp-serverless-backend-prod"
+          }
+        }
+      },
+      "DependsOn": ["TriggerDashstreamLogGroup"]
+    },
+    "TriggerDashstreamLambdaVersionij4vzGRto79TwR9xn2AdTEizQZ2l48LEYUaHMt5s": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "TriggerDashstreamLambdaFunction"
+        },
+        "CodeSha256": "FE96GmLiHhBirwP9LbIFoi1aZWiAk07H5yDcCK9T0Qc="
+      }
+    },
     "AddDashguestLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -151,7 +207,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591203251712-2020-06-03T16:54:11.712Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591216557843-2020-06-03T20:35:57.843Z/rsvp-serverless-backend.zip"
         },
         "FunctionName": "rsvp-serverless-backend-prod-add-guest",
         "Handler": "api/add-guest.handler",
@@ -170,14 +226,14 @@
       },
       "DependsOn": ["AddDashguestLogGroup"]
     },
-    "AddDashguestLambdaVersionxsC8TP59Duv5xJe1FjEkF06i5bWCDck1NRTZGIiDfY": {
+    "AddDashguestLambdaVersionG08zJ2Va5QFOHxSHsw6b7H650bKWUtrChF51WcP0QPo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AddDashguestLambdaFunction"
         },
-        "CodeSha256": "g30vOBi8uj3Zusu8Lj2ZRMB9LJiz3p/jE8ZQTSg9Lyk=",
+        "CodeSha256": "FE96GmLiHhBirwP9LbIFoi1aZWiAk07H5yDcCK9T0Qc=",
         "Description": "POST /guest"
       }
     },
@@ -188,7 +244,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591203251712-2020-06-03T16:54:11.712Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591216557843-2020-06-03T20:35:57.843Z/rsvp-serverless-backend.zip"
         },
         "FunctionName": "rsvp-serverless-backend-prod-get-guest",
         "Handler": "api/get-guest.handler",
@@ -207,14 +263,14 @@
       },
       "DependsOn": ["GetDashguestLogGroup"]
     },
-    "GetDashguestLambdaVersionab8eIJmzi4yY3w09DbCyrCEwp3cMXqMIgO1FxFtTpZk": {
+    "GetDashguestLambdaVersionOa8QObBI5Uwf6iCLG9OJ5C6I167UgfEyz8ZZAQV6VDg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashguestLambdaFunction"
         },
-        "CodeSha256": "g30vOBi8uj3Zusu8Lj2ZRMB9LJiz3p/jE8ZQTSg9Lyk=",
+        "CodeSha256": "FE96GmLiHhBirwP9LbIFoi1aZWiAk07H5yDcCK9T0Qc=",
         "Description": "GET /guest/{email}"
       }
     },
@@ -225,7 +281,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rsvp-serverless-backend/prod/1591203251712-2020-06-03T16:54:11.712Z/rsvp-serverless-backend.zip"
+          "S3Key": "serverless/rsvp-serverless-backend/prod/1591216557843-2020-06-03T20:35:57.843Z/rsvp-serverless-backend.zip"
         },
         "FunctionName": "rsvp-serverless-backend-prod-get-guests",
         "Handler": "api/get-guests.handler",
@@ -244,14 +300,14 @@
       },
       "DependsOn": ["GetDashguestsLogGroup"]
     },
-    "GetDashguestsLambdaVersionZ0R8qMtISQCaQV3UkyNpavfiNwLPPknArlwtrttKMOU": {
+    "GetDashguestsLambdaVersion86KdsPhdBS2RZxt6VbbZDN1xjjiQAYVFXNwJwluWW8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashguestsLambdaFunction"
         },
-        "CodeSha256": "g30vOBi8uj3Zusu8Lj2ZRMB9LJiz3p/jE8ZQTSg9Lyk=",
+        "CodeSha256": "FE96GmLiHhBirwP9LbIFoi1aZWiAk07H5yDcCK9T0Qc=",
         "Description": "GET /guests"
       }
     },
@@ -556,7 +612,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1591203237978": {
+    "ApiGatewayDeployment1591216544872": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -675,11 +731,29 @@
         }
       }
     },
+    "TriggerDashstreamEventSourceMappingDynamodbGuestsTable": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": "IamRoleLambdaExecution",
+      "Properties": {
+        "BatchSize": 1,
+        "EventSourceArn": {
+          "Fn::GetAtt": ["GuestsTable", "StreamArn"]
+        },
+        "FunctionName": {
+          "Fn::GetAtt": ["TriggerDashstreamLambdaFunction", "Arn"]
+        },
+        "StartingPosition": "LATEST",
+        "Enabled": true
+      }
+    },
     "GuestsTable": {
       "Type": "AWS::DynamoDB::Table",
       "DeletionPolicy": "Retain",
       "Properties": {
         "TableName": "rsvp-serverless-backend-prod",
+        "StreamSpecification": {
+          "StreamViewType": "NEW_IMAGE"
+        },
         "AttributeDefinitions": [
           {
             "AttributeName": "email",
@@ -731,22 +805,28 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
+    "TriggerDashstreamLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "TriggerDashstreamLambdaVersionij4vzGRto79TwR9xn2AdTEizQZ2l48LEYUaHMt5s"
+      }
+    },
     "AddDashguestLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AddDashguestLambdaVersionxsC8TP59Duv5xJe1FjEkF06i5bWCDck1NRTZGIiDfY"
+        "Ref": "AddDashguestLambdaVersionG08zJ2Va5QFOHxSHsw6b7H650bKWUtrChF51WcP0QPo"
       }
     },
     "GetDashguestLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashguestLambdaVersionab8eIJmzi4yY3w09DbCyrCEwp3cMXqMIgO1FxFtTpZk"
+        "Ref": "GetDashguestLambdaVersionOa8QObBI5Uwf6iCLG9OJ5C6I167UgfEyz8ZZAQV6VDg"
       }
     },
     "GetDashguestsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashguestsLambdaVersionZ0R8qMtISQCaQV3UkyNpavfiNwLPPknArlwtrttKMOU"
+        "Ref": "GetDashguestsLambdaVersion86KdsPhdBS2RZxt6VbbZDN1xjjiQAYVFXNwJwluWW8"
       }
     },
     "ServiceEndpoint": {

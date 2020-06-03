@@ -38,9 +38,21 @@ provider:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:DeleteItem
+        - dynamodb:ListStreams
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
 
 functions:
+  trigger-stream:
+    handler: stream-trigger.handler
+    events:
+      - stream:
+          type: dynamodb
+          batchSize: 1
+          startingPosition: LATEST
+          arn:
+            Fn::GetAtt:
+              - GuestsTable
+              - StreamArn
   add-guest:
     handler: api/add-guest.handler
     description: POST /guest
@@ -48,11 +60,7 @@ functions:
       - http:
           path: guest
           method: post
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
-
+          cors: true
   get-guest:
     handler: api/get-guest.handler
     description: GET /guest/{email}
@@ -60,10 +68,7 @@ functions:
       - http:
           path: guest/{email}
           method: get
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
+          cors: true
   get-guests:
     handler: api/get-guests.handler
     description: GET /guests
@@ -71,10 +76,7 @@ functions:
       - http:
           path: guests
           method: get
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
+          cors: true
 
 resources:
   Resources:
@@ -83,6 +85,8 @@ resources:
       DeletionPolicy: Retain
       Properties:
         TableName: ${self:provider.environment.GUESTS_TABLE}
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
         AttributeDefinitions:
           - AttributeName: email
             AttributeType: S
