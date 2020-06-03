@@ -53,7 +53,7 @@ export const Contact: FC = (): ReactElement => {
 
             if (response.status === 200) {
               setStatus(json);
-              setAlert("Submission Successful, see you in Taiwan");
+              setAlert("Submission Successful, see you in Taiwan!");
               resetForm();
               setSubmitInvoke(false);
               setSubmitting(false);
@@ -234,7 +234,11 @@ export const Contact: FC = (): ReactElement => {
                 )}
                 {alert && (
                   <div
-                    style={{ fontWeight: 700, color: "#faa916" }}
+                    style={{
+                      fontWeight: 700,
+                      color: "green",
+                      fontSize: "1.2rem",
+                    }}
                     className="alert"
                   >
                     {alert}
