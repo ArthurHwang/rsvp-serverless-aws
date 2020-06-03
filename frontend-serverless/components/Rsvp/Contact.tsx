@@ -36,7 +36,8 @@ export const Contact: FC = (): ReactElement => {
             setSubmitting(true);
             setStatus(undefined);
             const response = await fetch(
-              `${process.env.NEXT_PUBLIC_AWS_INVOKE_BASE}/guest`,
+              `https://api.carolandarthur.com/v1/guest`,
+              // `${process.env.NEXT_PUBLIC_AWS_INVOKE_BASE}/guest`,
               // 'http://localhost:3000/prod/guest',
               {
                 method: "POST",
