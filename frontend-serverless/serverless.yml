@@ -2,4 +2,5 @@
 myApp:
   component: serverless-next.js
   inputs:
+    domain: "carolandarthur.com"
     memory: 128

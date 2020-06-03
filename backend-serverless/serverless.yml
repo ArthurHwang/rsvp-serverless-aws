@@ -3,6 +3,7 @@ service: rsvp-serverless-backend
 plugins:
   - serverless-offline
   - serverless-plugin-typescript
+  - serverless-domain-manager
 
 custom:
   allowedHeaders:
@@ -14,6 +15,12 @@ custom:
     - X-Api-Key
     - X-Amz-Security-Token
     - X-Amz-User-Agent
+  customDomain:
+    domainName: api.carolandarthur.com
+    basePath: "v1"
+    stage: ${self:provider.stage}
+    certificateName: carolandarthur.com
+    createRoute53Record: true
 
 provider:
   name: aws
