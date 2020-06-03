@@ -11,11 +11,7 @@ const ErrorPage: NextPage<any> = () => {
         <title>Error Boundary</title>
         <meta name="description" content="error page, oh noes" />
       </Head>
-      {/* 
-        //@ts-ignore */}
       <ContentWrap>
-        {/* 
-        //@ts-ignore */}
         <div className="container">
           <div className="text">
             <h1> ERROR 404 </h1>
@@ -38,8 +34,9 @@ const ErrorPage: NextPage<any> = () => {
 
 const ContentWrap = styled("div")`
   .container {
+    background-color: red;
     width: 100%;
-    height: 96vh;
+    height: 100vh;
     overflow: hidden !important;
   }
 
@@ -102,31 +99,6 @@ const ContentWrap = styled("div")`
     transform: translateY(-50%) !important;
     z-index: 3;
     display: block;
-  }
-
-  /* ---- reset ---- */
-
-  body {
-    margin: 0;
-    font: normal 75% Arial, Helvetica, sans-serif;
-  }
-
-  canvas {
-    display: block;
-    vertical-align: bottom;
-  }
-
-  /* ---- particles.js container ---- */
-
-  .particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #b61924;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
   }
 `;
 
