@@ -119,7 +119,7 @@ module.exports = /******/ (function (modules) {
   /******/
   /******/
   /******/ /******/ return __webpack_require__(
-    (__webpack_require__.s = "3ood")
+    (__webpack_require__.s = "4+W1")
   );
   /******/
 })(
@@ -2318,7 +2318,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
       /***/
     },
 
-    /***/ "3ood": /***/ function (
+    /***/ "4+W1": /***/ function (
       module,
       __webpack_exports__,
       __webpack_require__
@@ -2420,7 +2420,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
         {
           path: ".env",
           contents:
-            "AWS_ACCESS_KEY_ID=AKIAUO7DKNBJBNGUAZHE\r\nAWS_SECRET_ACCESS_KEY=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\r\nNEXT_PUBLIC_AWS_INVOKE_BASE='https://owocdxo0dc.execute-api.us-east-1.amazonaws.com/prod/guest'",
+            "AWS_ACCESS_KEY_ID=AKIAUO7DKNBJBNGUAZHE\r\nAWS_SECRET_ACCESS_KEY=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",
         },
       ]);
 
@@ -2506,15 +2506,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
           getStaticPaths,
           reactLoadableManifest,
           canonicalBase: "",
-          buildId: "tUVOBHE5v0nXqZK9ZBYQu",
+          buildId: "ppmlZnfze4P5Bcxr7F1zu",
           assetPrefix: "",
           runtimeConfig: runtimeConfig.publicRuntimeConfig || {},
           previewProps: {
-            previewModeId: "c4cf633c768c55697a2693c28b330838",
+            previewModeId: "309fe75449290681e3a103b3bb0e231c",
             previewModeSigningKey:
-              "a00dd77d136796f56d1b7d81c1f4639a3818909689f318bafcd0b7a2a4a6596a",
+              "5b711a4b2597301cc748f41cdfa9db116d1d46c70630b40f0fa43e506eff8813",
             previewModeEncryptionKey:
-              "3b67a317e65bf3103d599ecb81dec6002cde80e5f75a5c5261fbc0489a7fffc0",
+              "cbe766818f7c677fff478ba7b84668c350a834344f636c9bfece39be9f02fd4b",
           },
           env: process.env,
           basePath: "",
@@ -2529,7 +2529,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
           if (parsedUrl.pathname.match(/_next\/data/)) {
             _nextData = true;
             parsedUrl.pathname = parsedUrl.pathname
-              .replace(new RegExp("/_next/data/tUVOBHE5v0nXqZK9ZBYQu/"), "/")
+              .replace(new RegExp("/_next/data/ppmlZnfze4P5Bcxr7F1zu/"), "/")
               .replace(/\.json$/, "");
           }
 
@@ -16947,7 +16947,7 @@ Also adds support for deduplicated `key` properties
 
     /***/ LZ9C: /***/ function (module) {
       module.exports = JSON.parse(
-        '{"devFiles":[],"lowPriorityFiles":["static/tUVOBHE5v0nXqZK9ZBYQu/_buildManifest.js","static/tUVOBHE5v0nXqZK9ZBYQu/_ssgManifest.js"],"pages":{"/":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/chunks/485d572532f3b191b85c0c94c437cbd2ea482836.6bbf4e7a1c513e9511b1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/404":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/chunks/485d572532f3b191b85c0c94c437cbd2ea482836.6bbf4e7a1c513e9511b1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_app":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/78e521c3.875104486ab47acbdcbe.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/chunks/485d572532f3b191b85c0c94c437cbd2ea482836.6bbf4e7a1c513e9511b1.js","static/css/215b1ae9f9d3b256cff6.css","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_error":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/chunks/485d572532f3b191b85c0c94c437cbd2ea482836.6bbf4e7a1c513e9511b1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_polyfills":["static/runtime/polyfills-f1a72475392243fcf9b5.js"],"/about":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/index":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/chunks/485d572532f3b191b85c0c94c437cbd2ea482836.6bbf4e7a1c513e9511b1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/rsvp":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/1bfc9850.bc512c59d02a73b9687b.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/ff8ab84cd4e8893bc77d25d3a9b2d817d2b19518.485755c6bbc54e7bfb1e.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/technical":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/where":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"]}}'
+        '{"devFiles":[],"lowPriorityFiles":["static/ppmlZnfze4P5Bcxr7F1zu/_buildManifest.js","static/ppmlZnfze4P5Bcxr7F1zu/_ssgManifest.js"],"pages":{"/":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/chunks/f926577ca2b608bbb19607eb73c31d291abca7e6.6cf5cd9162a9c30f01c1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/404":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/chunks/f926577ca2b608bbb19607eb73c31d291abca7e6.6cf5cd9162a9c30f01c1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_app":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/78e521c3.875104486ab47acbdcbe.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/chunks/f926577ca2b608bbb19607eb73c31d291abca7e6.6cf5cd9162a9c30f01c1.js","static/css/bfc2d93566ea5d168d63.css","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_error":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/chunks/f926577ca2b608bbb19607eb73c31d291abca7e6.6cf5cd9162a9c30f01c1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/_polyfills":["static/runtime/polyfills-f1a72475392243fcf9b5.js"],"/about":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/index":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/chunks/f926577ca2b608bbb19607eb73c31d291abca7e6.6cf5cd9162a9c30f01c1.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/rsvp":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/1bfc9850.bc512c59d02a73b9687b.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/chunks/a90605d9abce3e88733e10d7b84caeb8616b4e4c.485755c6bbc54e7bfb1e.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/technical":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"],"/where":["static/runtime/webpack-a4e6c683deda6c5cae4c.js","static/chunks/framework.7dfd02d307191d63a37e.js","static/chunks/commons.808f190b8fdc51f365d3.js","static/runtime/main-22d1d7b952bf6974c5e6.js"]}}'
       );
 
       /***/

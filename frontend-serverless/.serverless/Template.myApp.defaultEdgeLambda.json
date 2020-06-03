@@ -1,10 +1,10 @@
 {
   "name": "yys397-3ugy3c4",
-  "hash": "BFrDaD3ldfwWRaL/nSuhhPVi9JORnIoJ+8reLntk5XU=",
+  "hash": "SRLAa2QAxXDmjfYl7xM5ZgNGS52hyoQM+izWwEg1RAw=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
   "memory": 128,
   "timeout": 10,
-  "code": "C:\\rsvp-serverless-aws\\frontend-serverless\\.serverless_nextjs\\default-lambda",
+  "code": "C:\\Users\\illitirit\\rsvp-serverless-aws\\frontend-serverless\\.serverless_nextjs\\default-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs10.x",

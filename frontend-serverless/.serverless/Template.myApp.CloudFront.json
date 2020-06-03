@@ -25,7 +25,7 @@
     },
     "allowedHttpMethods": ["HEAD", "GET"],
     "lambda@edge": {
-      "origin-request": "arn:aws:lambda:us-east-1:307030026322:function:yys397-3ugy3c4:68"
+      "origin-request": "arn:aws:lambda:us-east-1:307030026322:function:yys397-3ugy3c4:74"
     }
   }
 }
