@@ -37,7 +37,7 @@ export const Flights: FC = (): ReactElement => {
 
 const StyledFlights = styled("div")`
   height: 100%;
-  background-color: ${({ theme }) => theme.blue};
+  background-color: ${({ theme }) => theme.bg.grey};
   /* overflow-y: scroll; */
   display: grid;
   grid-template-rows: auto 1fr;

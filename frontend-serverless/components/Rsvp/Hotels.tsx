@@ -24,7 +24,10 @@ export const Hotels: FC = (): ReactElement => {
         {isLoading ? (
           <Loading />
         ) : (
-          <iframe src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&poweredBySize=0"></iframe>
+          <iframe
+            frameBorder="0"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&poweredBySize=0"
+          ></iframe>
         )}
       </div>
     </StyledHotels>

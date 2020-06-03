@@ -1,8 +1,13 @@
 import { NextPage } from "next";
 import styled from "styled-components";
-
+import Head from "next/head";
 const TechnicalPage: NextPage = () => (
   <StyledTechnical>
+    <Head>
+      <title>Arthur and Carol - Technical Information</title>
+      <meta name="description" content="Carol and Arthur - Technical" />
+      <link rel="canonical" href="https://carolandarthur.com/technical" />
+    </Head>
     <div className="stack">
       <p className="title">About</p>
       <ul style={{ marginBottom: "2rem" }}>

@@ -7,7 +7,7 @@ export const Meta: FC = (): ReactElement => (
     <meta charSet="utf-8" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Carol and Arthur</title>
-    <meta content="Carol and Arthur - Wedding" />
+    <meta name="description" content="Carol and Arthur - RSVP Wedding" />
     <link rel="canonical" href="https://carolandarthur.com" />
   </Head>
 );

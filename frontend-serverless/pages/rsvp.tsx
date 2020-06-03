@@ -10,14 +10,12 @@ const RsvpPage: NextPage = () => {
     <StyledRSVP>
       <Head>
         <title>Arthur and Carol - RSVP</title>
-        <meta content="Carol and Arthur - RSVP" />
+        <meta name="description" content="Carol and Arthur - RSVP" />
         <link rel="canonical" href="https://carolandarthur.com/rsvp" />
       </Head>
-
       <div className="left">
         <Contact />
       </div>
-
       <div className="right">
         <Flights />
         <Hotels />

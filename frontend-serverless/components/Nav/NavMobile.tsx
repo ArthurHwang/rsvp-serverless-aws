@@ -93,7 +93,7 @@ const StyledNavMobile = styled("nav")<StyledProps>`
 
   .hamburger {
     transition: transform 0.5s;
-    color: ${(props) => (props.clicked ? props.theme.red : props.theme.yellow)};
+    color: ${(props) => (props.clicked ? props.theme.red : props.theme.accent)};
     transform: ${(props) => (props.clicked ? "rotate(270deg)" : "")};
   }
 
