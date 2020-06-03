@@ -37,31 +37,58 @@ function generateEmailParams(data) {
   const email = data.email.S;
   const coming = data.coming.S;
 
+  let params;
+
   if (!(email && first && last && coming)) {
     throw new Error(
       "Missing parameters! Make sure to add parameters 'email', 'first', 'last', 'coming."
     );
   }
 
-  const params = {
-    Source: myEmail,
-    Destination: { ToAddresses: [myEmail] },
-    ReplyToAddresses: [email],
-    Message: {
-      Body: {
-        Text: {
+  if (coming === "yes") {
+    params = {
+      Source: myEmail,
+      Destination: { ToAddresses: [email] },
+      ReplyToAddresses: [myEmail],
+      Message: {
+        Body: {
+          Text: {
+            Charset: "UTF-8",
+            Data: `Dear ${first} ${last},\n
+                   Thank you for taking the time to RSVP.  We both value your time.  \n
+                   You will be reminded 1 month prior to the target date.
+                   
+                    `,
+          },
+        },
+        Subject: {
           Charset: "UTF-8",
-          Data: `Message sent from email ${email} by ${first} ${last} \nContent: hihiihihihi`,
+          Data: `You received a message from Arthur and Carol - Thank you for the RSVP!`,
         },
       },
-      Subject: {
-        Charset: "UTF-8",
-        Data: `You received a message from Arthur and Carol`,
+    };
+  } else {
+    params = {
+      Source: myEmail,
+      Destination: { ToAddresses: [email] },
+      ReplyToAddresses: [email],
+      Message: {
+        Body: {
+          Text: {
+            Charset: "UTF-8",
+            Data: `Message sent from email ${myEmail} by ${first} ${last} \nContent: hihiihihihi`,
+          },
+        },
+        Subject: {
+          Charset: "UTF-8",
+          Data: `You received a message from Arthur and Carol`,
+        },
       },
-    },
-  };
-  console.log("---------generate function----------");
-  console.log(params);
+    };
+  }
+
+  // console.log('---------generate function----------');
+  // console.log(params);
 
   return params;
 }
