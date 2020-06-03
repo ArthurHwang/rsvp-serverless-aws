@@ -1,9 +1,86 @@
-exports.handler = (event, context, callback) => {
+export {}; //fix for ts(2451)
+const AWS = require("aws-sdk");
+const ses = new AWS.SES();
+const myEmail = process.env.EMAIL;
+const myDomain = process.env.DOMAIN;
+
+AWS.config.update({ region: "us-east-1" });
+
+function generateResponse(code, payload) {
+  return {
+    statusCode: code,
+    headers: {
+      "Access-Control-Allow-Origin": myDomain,
+      "Access-Control-Allow-Headers": "x-requested-with",
+      "Access-Control-Allow-Credentials": true,
+    },
+    body: JSON.stringify(payload),
+  };
+}
+
+function generateError(code, err) {
+  console.log(err);
+  return {
+    statusCode: code,
+    headers: {
+      "Access-Control-Allow-Origin": myDomain,
+      "Access-Control-Allow-Headers": "x-requested-with",
+      "Access-Control-Allow-Credentials": true,
+    },
+    body: JSON.stringify(err.message),
+  };
+}
+
+function generateEmailParams(data) {
+  const first = data.first.S;
+  const last = data.last.S;
+  const email = data.email.S;
+  const coming = data.coming.S;
+
+  if (!(email && first && last && coming)) {
+    throw new Error(
+      "Missing parameters! Make sure to add parameters 'email', 'first', 'last', 'coming."
+    );
+  }
+
+  const params = {
+    Source: myEmail,
+    Destination: { ToAddresses: [myEmail] },
+    ReplyToAddresses: [email],
+    Message: {
+      Body: {
+        Text: {
+          Charset: "UTF-8",
+          Data: `Message sent from email ${email} by ${first} ${last} \nContent: hihiihihihi`,
+        },
+      },
+      Subject: {
+        Charset: "UTF-8",
+        Data: `You received a message from Arthur and Carol`,
+      },
+    },
+  };
+  console.log("---------generate function----------");
+  console.log(params);
+
+  return params;
+}
+
+exports.handler = async (event) => {
   console.log("trigger stream was called");
 
-  const eventData = event.Records[0];
+  const eventData = event.Records[0].dynamodb.NewImage;
 
-  console.log(eventData);
+  // console.log(JSON.parse(eventData));
+  // console.log(JSON.stringify(eventData));
 
-  callback(null, null);
+  try {
+    const emailParams = generateEmailParams(eventData);
+    console.log("---------try catch----------");
+    console.log(emailParams);
+    const data = await ses.sendEmail(emailParams).promise();
+    return generateResponse(200, data);
+  } catch (err) {
+    return generateError(500, err);
+  }
 };

@@ -6,6 +6,7 @@ plugins:
   - serverless-domain-manager
 
 custom:
+  secrets: ${file(secrets.json)}
   allowedHeaders:
     - Accept
     - Content-Type
@@ -32,6 +33,8 @@ provider:
   endpointType: regional
   environment:
     GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    EMAIL: ${self:custom.secrets.EMAIL}
+    DOMAIN: ${self:custom.secrets.DOMAIN}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -40,6 +43,10 @@ provider:
         - dynamodb:DeleteItem
         - dynamodb:ListStreams
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
+    - Effect: "Allow"
+      Action:
+        - ses:SendEmail
+      Resource: "*"
 
 functions:
   trigger-stream:
