@@ -14,15 +14,13 @@ const auth = {
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 function sendResponseEmail(guestEvent) {
-  console.log("FUNCTION BODY");
   const first = guestEvent.first.S;
   const last = guestEvent.last.S;
   const email = guestEvent.email.S;
   const coming = guestEvent.coming.S;
-  const guestFirst = guestEvent.guestFirst ? guestEvent.guestFirst.S : null;
-  const guestLast = guestEvent.guestLast ? guestEvent.guestLast.S : null;
-  const specialRequests = guestEvent.requests ? guestEvent.requests.S : null;
-
+  const guestFirst = guestEvent.guestFirst ? guestEvent.guestFirst.S : "";
+  const guestLast = guestEvent.guestLast ? guestEvent.guestLast.S : "";
+  const specialRequests = guestEvent.requests ? guestEvent.requests.S : "";
   const guestFullName = `${guestFirst} ${guestLast}`;
 
   function generateCustomFields(text: string, field: string) {
@@ -41,7 +39,6 @@ function sendResponseEmail(guestEvent) {
   }
 
   if (coming === "yes") {
-    console.log("YES BLOCK");
     nodemailerMailgun.sendMail(
       {
         from: `mail@${myDomain}`,
@@ -51,9 +48,13 @@ function sendResponseEmail(guestEvent) {
         html: `<b>Dear ${first} ${last},</br>
                <br />    
                <p>Carol and I would like to thank you for taking time out of your day to register for our wedding</p>          
-               <p>This is a confirmation message to let you know that you have been stored in our database to be processed for the wedding</p>
-               <b>If you have any additional questions about anything, please reply to this email to start a chat with me.</b>  
+               <p>This is a confirmation message to let you know that you have been stored in our database to be processed for the wedding.</p>          
+               
+               <p>If you have any questions or concerns about ANYTHING, simply reply to this email to start a chat thread.  Carol or I will get back to you ASAP.</p>
 
+               <p>You can also reach me at (714)280-6188.  Call or text me anytime.</p>
+
+               <br />
                ${generateCustomFields(guestFullName, "guest")}
                <br />
                ${generateCustomFields(specialRequests, "requests")}
@@ -68,16 +69,26 @@ function sendResponseEmail(guestEvent) {
       }
     );
   } else {
-    console.log("NO BLOCK");
     nodemailerMailgun.sendMail(
       {
         from: `mail@${myDomain}`,
         to: [`${email}`],
         cc: `mail@${myDomain}`,
         subject: "We are sad you cannot come - Carol and Arthur",
-        html: `<b>Dear ${first} ${last},</br>
+        html: `<b>Dear ${first} ${last},</b>
                <br />    
-               <p>SO SAD NIGGA</b>       
+               <p>Carol and I are saddened that you cannot come to our wedding.</p>    
+               <p>We are now going to cancel the wedding because you cannot make it...</p> 
+               <br />
+               <p>Just Kidding!!</p>  
+               <p>If you have a change of heart, please fill out the online form again</p>
+               <a href="https://carolandarthur.com/rsvp">RSVP form</a>
+
+               <br />
+
+               <p>If you have ANY questions or concerns, simply reply to this email to start a chat thread.  Carol or I will get back to you ASAP</p>
+
+               <p>You can also reach me at (714)280-6188.  Call or text me anytime.</p>
                `,
       },
       (err: any, info: any) => {
@@ -109,6 +120,5 @@ exports.handler = (event, context, callback) => {
       statusCode: 500,
       body: JSON.stringify(err),
     });
-    // console.log(err);
   }
 };

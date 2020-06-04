@@ -2,9 +2,7 @@ const aws = require("aws-sdk");
 const axios = require("axios");
 
 const BaseURL = "https://api.github.com/repos";
-
 const codepipeline = new aws.CodePipeline();
-
 const Password = process.env.GH_ACCESS_TOKEN;
 
 exports.handler = async (event) => {

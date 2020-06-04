@@ -9,7 +9,6 @@ export const Contact: FC = (): ReactElement => {
   const [alert, setAlert] = useState("");
   const [submitInvoke, setSubmitInvoke] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [showExtras, setShowExtras] = useState(true);
 
   return (
     <ContentWrap id="contact">
@@ -39,8 +38,6 @@ export const Contact: FC = (): ReactElement => {
             setStatus(undefined);
             const response = await fetch(
               `https://api.carolandarthur.com/v1/guest`,
-              // `${process.env.NEXT_PUBLIC_AWS_INVOKE_BASE}/guest`,
-              // 'http://localhost:3000/prod/guest',
               {
                 method: "POST",
                 body: JSON.stringify(values),
