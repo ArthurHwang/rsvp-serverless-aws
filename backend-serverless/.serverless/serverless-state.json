@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-stream-trigger",
               "Handler": "lambda/stream-trigger.handler",
@@ -265,7 +265,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-post-gitstatus",
               "Handler": "lambda/post-gitstatus.handler",
@@ -305,7 +305,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-add-guest",
               "Handler": "api/add-guest.handler",
@@ -347,7 +347,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-get-guest",
               "Handler": "api/get-guest.handler",
@@ -389,7 +389,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-get-guests",
               "Handler": "api/get-guests.handler",
@@ -725,7 +725,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1591303590004": {
+          "ApiGatewayDeployment1591304281252": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1351,7 +1351,7 @@
     "artifact": "C:\\rsvp-serverless-aws\\backend-serverless\\.build\\.serverless\\rsvp-serverless-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/rsvp-serverless-backend/prod/1591303654130-2020-06-04T20:47:34.130Z",
+    "artifactDirectoryName": "serverless/rsvp-serverless-backend/prod/1591304346259-2020-06-04T20:59:06.259Z",
     "artifact": "rsvp-serverless-backend.zip"
   }
 }

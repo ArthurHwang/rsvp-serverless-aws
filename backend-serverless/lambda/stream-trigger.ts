@@ -21,7 +21,8 @@ function sendResponseEmail(guestEvent) {
   const guestFirst = guestEvent.guestFirst ? guestEvent.guestFirst.S : "";
   const guestLast = guestEvent.guestLast ? guestEvent.guestLast.S : "";
   const specialRequests = guestEvent.requests ? guestEvent.requests.S : "";
-  const guestFullName = `${guestFirst} ${guestLast}`;
+  const guestFullName =
+    guestFirst && guestLast ? `${guestFirst} ${guestLast}` : "";
 
   function generateCustomFields(text: string, field: string) {
     if (!text) return null;
@@ -29,10 +30,11 @@ function sendResponseEmail(guestEvent) {
       case "guest":
         return `
                 <br />
-                <b>Your Plus One's information:</br>         
+                <b>Your Plus One's information:</b>         
                 <p>${text}</p>`;
       case "requests":
         return `
+                <br />
                 <b>Your Special Requests:</b>          
                 <p>${text}</p>`;
     }
@@ -47,12 +49,14 @@ function sendResponseEmail(guestEvent) {
         subject: "Thank you for registering - Carol and Arthur",
         html: `<b>Dear ${first} ${last},</br>
                <br />    
-               <p>Carol and I would like to thank you for taking time out of your day to register for our wedding</p>          
+               <p>Carol and I would like to thank you for taking time out of your day to register for our wedding.</p>          
+               <p>We are thrilled that you are coming.</p>
+               <img src="https://sayingimages.com/wp-content/uploads/super-happy-memes.jpg" />
                <p>This is a confirmation message to let you know that you have been stored in our database to be processed for the wedding.</p>          
                
                <p>If you have any questions or concerns about ANYTHING, simply reply to this email to start a chat thread.  Carol or I will get back to you ASAP.</p>
 
-               <p>You can also reach me at (714)280-6188.  Call or text me anytime.</p>
+               <p>You can also reach me at (714) 280-6188.  Call or text me anytime.</p>
 
                <br />
                ${generateCustomFields(guestFullName, "guest")}
@@ -78,6 +82,8 @@ function sendResponseEmail(guestEvent) {
         html: `<b>Dear ${first} ${last},</b>
                <br />    
                <p>Carol and I are saddened that you cannot come to our wedding.</p>    
+
+               <img src="https://i.pinimg.com/236x/30/3f/02/303f027d32f2eeeeb596ef77be4e10f0.jpg" />
                <p>We are now going to cancel the wedding because you cannot make it...</p> 
                <br />
                <p>Just Kidding!!</p>  
@@ -88,7 +94,7 @@ function sendResponseEmail(guestEvent) {
 
                <p>If you have ANY questions or concerns, simply reply to this email to start a chat thread.  Carol or I will get back to you ASAP</p>
 
-               <p>You can also reach me at (714)280-6188.  Call or text me anytime.</p>
+               <p>You can also reach me at (714) 280-6188.  Call or text me anytime.</p>
                `,
       },
       (err: any, info: any) => {
