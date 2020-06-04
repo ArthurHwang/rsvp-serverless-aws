@@ -25,7 +25,7 @@ function sendResponseEmail(guestEvent) {
     guestFirst && guestLast ? `${guestFirst} ${guestLast}` : "";
 
   function generateCustomFields(text: string, field: string) {
-    if (!text) return null;
+    if (!text) return "";
     switch (field) {
       case "guest":
         return `

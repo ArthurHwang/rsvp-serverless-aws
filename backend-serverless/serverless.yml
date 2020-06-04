@@ -7,7 +7,6 @@ plugins:
   - serverless-dotenv-plugin
 
 custom:
-  # secrets: ${file(secrets.json)}
   allowedHeaders:
     - Accept
     - Content-Type
@@ -34,11 +33,6 @@ provider:
   endpointType: regional
   environment:
     GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-    # EMAIL: ${self:custom.secrets.EMAIL}
-    # DOMAIN: ${self:custom.secrets.DOMAIN}
-    # GH_ACCESS_TOKEN: ${self:custom.secrets.GH_ACCESS_TOKEN}
-    # GH_USERNAME: ${self:custom.secrets.GH_USERNAME}
-    # MAILGUN_APIKEY: ${self:custom.secrets.MAILGUN_APIKEY}
     EMAIL: ${env:EMAIL}
     DOMAIN: ${env:DOMAIN}
     GH_ACCESS_TOKEN: ${env:GH_ACCESS_TOKEN}
