@@ -1,113 +1,114 @@
-export {}; //fix for ts(2451)
-const AWS = require("aws-sdk");
-const ses = new AWS.SES();
+const nodemailer = require("nodemailer");
+const mg = require("nodemailer-mailgun-transport");
+
 const myEmail = process.env.EMAIL;
 const myDomain = process.env.DOMAIN;
 
-AWS.config.update({ region: "us-east-1" });
+const auth = {
+  auth: {
+    api_key: process.env.MAILGUN_APIKEY,
+    domain: myDomain,
+  },
+};
 
-function generateResponse(code, payload) {
-  return {
-    statusCode: code,
-    headers: {
-      "Access-Control-Allow-Origin": myDomain,
-      "Access-Control-Allow-Headers": "x-requested-with",
-      "Access-Control-Allow-Credentials": true,
-    },
-    body: JSON.stringify(payload),
-  };
-}
+const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-function generateError(code, err) {
-  console.log(err);
-  return {
-    statusCode: code,
-    headers: {
-      "Access-Control-Allow-Origin": myDomain,
-      "Access-Control-Allow-Headers": "x-requested-with",
-      "Access-Control-Allow-Credentials": true,
-    },
-    body: JSON.stringify(err.message),
-  };
-}
+function sendResponseEmail(guestEvent) {
+  console.log("FUNCTION BODY");
+  const first = guestEvent.first.S;
+  const last = guestEvent.last.S;
+  const email = guestEvent.email.S;
+  const coming = guestEvent.coming.S;
+  const guestFirst = guestEvent.guestFirst ? guestEvent.guestFirst.S : null;
+  const guestLast = guestEvent.guestLast ? guestEvent.guestLast.S : null;
+  const specialRequests = guestEvent.requests ? guestEvent.requests.S : null;
 
-function generateEmailParams(data) {
-  const first = data.first.S;
-  const last = data.last.S;
-  const email = data.email.S;
-  const coming = data.coming.S;
+  const guestFullName = `${guestFirst} ${guestLast}`;
 
-  let params;
-
-  if (!(email && first && last && coming)) {
-    throw new Error(
-      "Missing parameters! Make sure to add parameters 'email', 'first', 'last', 'coming."
-    );
+  function generateCustomFields(text: string, field: string) {
+    if (!text) return null;
+    switch (field) {
+      case "guest":
+        return `
+                <br />
+                <b>Your Plus One's information:</br>         
+                <p>${text}</p>`;
+      case "requests":
+        return `
+                <b>Your Special Requests:</b>          
+                <p>${text}</p>`;
+    }
   }
 
   if (coming === "yes") {
-    params = {
-      Source: myEmail,
-      Destination: { ToAddresses: [email] },
-      ReplyToAddresses: [myEmail],
-      Message: {
-        Body: {
-          Text: {
-            Charset: "UTF-8",
-            Data: `Dear ${first} ${last},\n
-                   Thank you for taking the time to RSVP.  We both value your time.  \n
-                   You will be reminded 1 month prior to the target date.
-                   
-                    `,
-          },
-        },
-        Subject: {
-          Charset: "UTF-8",
-          Data: `You received a message from Arthur and Carol - Thank you for the RSVP!`,
-        },
+    console.log("YES BLOCK");
+    nodemailerMailgun.sendMail(
+      {
+        from: `mail@${myDomain}`,
+        to: [`${email}`],
+        cc: `mail@${myDomain}`,
+        subject: "Thank you for registering - Carol and Arthur",
+        html: `<b>Dear ${first} ${last},</br>
+               <br />    
+               <p>Carol and I would like to thank you for taking time out of your day to register for our wedding</p>          
+               <p>This is a confirmation message to let you know that you have been stored in our database to be processed for the wedding</p>
+               <b>If you have any additional questions about anything, please reply to this email to start a chat with me.</b>  
+
+               ${generateCustomFields(guestFullName, "guest")}
+               <br />
+               ${generateCustomFields(specialRequests, "requests")}
+               `,
       },
-    };
+      (err: any, info: any) => {
+        if (err) {
+          throw new Error(err);
+        } else {
+          console.log("Email Sent");
+        }
+      }
+    );
   } else {
-    params = {
-      Source: myEmail,
-      Destination: { ToAddresses: [email] },
-      ReplyToAddresses: [email],
-      Message: {
-        Body: {
-          Text: {
-            Charset: "UTF-8",
-            Data: `Message sent from email ${myEmail} by ${first} ${last} \nContent: hihiihihihi`,
-          },
-        },
-        Subject: {
-          Charset: "UTF-8",
-          Data: `You received a message from Arthur and Carol`,
-        },
+    console.log("NO BLOCK");
+    nodemailerMailgun.sendMail(
+      {
+        from: `mail@${myDomain}`,
+        to: [`${email}`],
+        cc: `mail@${myDomain}`,
+        subject: "We are sad you cannot come - Carol and Arthur",
+        html: `<b>Dear ${first} ${last},</br>
+               <br />    
+               <p>SO SAD NIGGA</b>       
+               `,
       },
-    };
+      (err: any, info: any) => {
+        if (err) {
+          throw new Error(err);
+        } else {
+          console.log("Email Sent");
+        }
+      }
+    );
   }
-
-  // console.log('---------generate function----------');
-  // console.log(params);
-
-  return params;
 }
 
-exports.handler = async (event) => {
+exports.handler = (event, context, callback) => {
   console.log("trigger stream was called");
 
   const eventData = event.Records[0].dynamodb.NewImage;
 
-  // console.log(JSON.parse(eventData));
-  // console.log(JSON.stringify(eventData));
+  console.log(eventData);
 
   try {
-    const emailParams = generateEmailParams(eventData);
-    console.log("---------try catch----------");
-    console.log(emailParams);
-    const data = await ses.sendEmail(emailParams).promise();
-    return generateResponse(200, data);
+    sendResponseEmail(eventData);
+    callback(null, {
+      statusCode: 200,
+      body: "Email Successfully Sent",
+    });
   } catch (err) {
-    return generateError(500, err);
+    callback(null, {
+      statusCode: 500,
+      body: JSON.stringify(err),
+    });
+    // console.log(err);
   }
 };

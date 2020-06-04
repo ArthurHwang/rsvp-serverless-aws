@@ -37,6 +37,7 @@ provider:
     DOMAIN: ${self:custom.secrets.DOMAIN}
     GH_ACCESS_TOKEN: ${self:custom.secrets.GH_ACCESS_TOKEN}
     GH_USERNAME: ${self:custom.secrets.GH_USERNAME}
+    MAILGUN_APIKEY: ${self:custom.secrets.MAILGUN_APIKEY}
   iamRoleStatements:
     - Effect: Allow
       Action:

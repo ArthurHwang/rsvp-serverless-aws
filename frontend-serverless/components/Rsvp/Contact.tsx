@@ -9,6 +9,7 @@ export const Contact: FC = (): ReactElement => {
   const [alert, setAlert] = useState("");
   const [submitInvoke, setSubmitInvoke] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showExtras, setShowExtras] = useState(true);
 
   return (
     <ContentWrap id="contact">
@@ -33,6 +34,7 @@ export const Contact: FC = (): ReactElement => {
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting, resetForm, setStatus }) => {
             setSubmitInvoke(true);
+            console.log(values);
             setSubmitting(true);
             setStatus(undefined);
             const response = await fetch(
@@ -171,58 +173,62 @@ export const Contact: FC = (): ReactElement => {
                   </div>
                 </div>
 
-                <h3>Plus One Information</h3>
-                <p style={{ textAlign: "left", marginBottom: "25px" }}>
-                  Provide guest details if bringing one
-                </p>
-                <div className="first-last">
-                  <div
-                    style={{
-                      marginBottom: "28px",
-                    }}
-                    className="input-row"
-                  >
-                    <input
-                      aria-label="Guest First Name"
-                      type="text"
-                      name="guestFirst"
-                      id="guestFirst"
-                      placeholder="Guest First Name"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      marginBottom: "2rem",
-                    }}
-                    className="input-row"
-                  >
-                    <input
-                      aria-label="Guest Last Name"
-                      type="text"
-                      name="guestLast"
-                      id="guestLast"
-                      placeholder="Guest Last Name"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </div>
-                </div>
-                <h3>Special Requests</h3>
-                <p style={{ textAlign: "left", marginBottom: "25px" }}>
-                  Let us know your special requests / concerns
-                </p>
-                <div style={{ marginBottom: "14px" }} className="input-row">
-                  <textarea
-                    aria-label="Special Requests"
-                    name="requests"
-                    id="requests"
-                    placeholder="Special Requests"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                </div>
+                {values.coming === "yes" && (
+                  <>
+                    <h3>Plus One Information</h3>
+                    <p style={{ textAlign: "left", marginBottom: "25px" }}>
+                      Provide guest details if bringing one
+                    </p>
+                    <div className="first-last">
+                      <div
+                        style={{
+                          marginBottom: "28px",
+                        }}
+                        className="input-row"
+                      >
+                        <input
+                          aria-label="Guest First Name"
+                          type="text"
+                          name="guestFirst"
+                          id="guestFirst"
+                          placeholder="Guest First Name"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          marginBottom: "2rem",
+                        }}
+                        className="input-row"
+                      >
+                        <input
+                          aria-label="Guest Last Name"
+                          type="text"
+                          name="guestLast"
+                          id="guestLast"
+                          placeholder="Guest Last Name"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </div>
+                    </div>
+                    <h3>Special Requests</h3>
+                    <p style={{ textAlign: "left", marginBottom: "25px" }}>
+                      Let us know your special requests / concerns
+                    </p>
+                    <div style={{ marginBottom: "14px" }} className="input-row">
+                      <textarea
+                        aria-label="Special Requests"
+                        name="requests"
+                        id="requests"
+                        placeholder="Special Requests"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
               <div className="submit">
                 {submitInvoke ? (
