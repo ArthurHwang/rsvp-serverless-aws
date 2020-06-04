@@ -16,7 +16,9 @@
       "environment": {
         "GUESTS_TABLE": "rsvp-serverless-backend-prod",
         "EMAIL": "ahwang55@gmail.com",
-        "DOMAIN": "*"
+        "DOMAIN": "carolandarthur.com",
+        "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+        "GH_USERNAME": "ArthurHwang"
       },
       "iamRoleStatements": [
         {
@@ -95,10 +97,16 @@
               }
             }
           },
-          "TriggerDashstreamLogGroup": {
+          "StreamDashtriggerLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-trigger-stream"
+              "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-stream-trigger"
+            }
+          },
+          "PostDashgitstatusLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/rsvp-serverless-backend-prod-post-gitstatus"
             }
           },
           "AddDashguestLogGroup": {
@@ -206,41 +214,84 @@
               }
             }
           },
-          "TriggerDashstreamLambdaFunction": {
+          "StreamDashtriggerLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591224453338-2020-06-03T22:47:33.338Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z/rsvp-serverless-backend.zip"
               },
-              "FunctionName": "rsvp-serverless-backend-prod-trigger-stream",
-              "Handler": "stream-trigger.handler",
+              "FunctionName": "rsvp-serverless-backend-prod-stream-trigger",
+              "Handler": "lambda/stream-trigger.handler",
               "MemorySize": 128,
               "Role": {
                 "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
               },
               "Runtime": "nodejs12.x",
               "Timeout": 5,
+              "Description": "DynamoDB Stream SES Trigger",
               "Environment": {
                 "Variables": {
                   "GUESTS_TABLE": "rsvp-serverless-backend-prod",
                   "EMAIL": "ahwang55@gmail.com",
-                  "DOMAIN": "*"
+                  "DOMAIN": "carolandarthur.com",
+                  "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+                  "GH_USERNAME": "ArthurHwang"
                 }
               }
             },
-            "DependsOn": ["TriggerDashstreamLogGroup"]
+            "DependsOn": ["StreamDashtriggerLogGroup"]
           },
-          "TriggerDashstreamLambdaVersionDJIPdGWcT7frrOWxYZfm5gb6qVuame2hNmnUkpGsMsY": {
+          "StreamDashtriggerLambdaVersionDjvYYWsAUQbehxGXj2INBWpTIc7IUD8RqbYnVEtQ8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "TriggerDashstreamLambdaFunction"
+                "Ref": "StreamDashtriggerLambdaFunction"
               },
-              "CodeSha256": "8ZOrq/QBpKe72O8UdywIWX+vQRZ/EwlQb0cdGKw76tw="
+              "CodeSha256": "xV6V2kd2JQg5Vhy77vcQNIz5sS/x5zb0ob/Y0UkTHXg=",
+              "Description": "DynamoDB Stream SES Trigger"
+            }
+          },
+          "PostDashgitstatusLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z/rsvp-serverless-backend.zip"
+              },
+              "FunctionName": "rsvp-serverless-backend-prod-post-gitstatus",
+              "Handler": "lambda/post-gitstatus.handler",
+              "MemorySize": 128,
+              "Role": "arn:aws:iam::307030026322:role/service-role/git-commit-status-role-l9oj1grx",
+              "Runtime": "nodejs12.x",
+              "Timeout": 5,
+              "Description": "Post pipeline execution state to GitHub",
+              "Environment": {
+                "Variables": {
+                  "GUESTS_TABLE": "rsvp-serverless-backend-prod",
+                  "EMAIL": "ahwang55@gmail.com",
+                  "DOMAIN": "carolandarthur.com",
+                  "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+                  "GH_USERNAME": "ArthurHwang"
+                }
+              }
+            },
+            "DependsOn": ["PostDashgitstatusLogGroup"]
+          },
+          "PostDashgitstatusLambdaVersionNYDuHtzwiLGhq9rbjVs6W2KnTs1UyUW0LSavxY08G4": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PostDashgitstatusLambdaFunction"
+              },
+              "CodeSha256": "xV6V2kd2JQg5Vhy77vcQNIz5sS/x5zb0ob/Y0UkTHXg=",
+              "Description": "Post pipeline execution state to GitHub"
             }
           },
           "AddDashguestLambdaFunction": {
@@ -250,7 +301,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591224453338-2020-06-03T22:47:33.338Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-add-guest",
               "Handler": "api/add-guest.handler",
@@ -265,20 +316,22 @@
                 "Variables": {
                   "GUESTS_TABLE": "rsvp-serverless-backend-prod",
                   "EMAIL": "ahwang55@gmail.com",
-                  "DOMAIN": "*"
+                  "DOMAIN": "carolandarthur.com",
+                  "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+                  "GH_USERNAME": "ArthurHwang"
                 }
               }
             },
             "DependsOn": ["AddDashguestLogGroup"]
           },
-          "AddDashguestLambdaVersionkil5UIYMzGA1YhUQrNBxNxRFkiqfB923KqNyiq0rY": {
+          "AddDashguestLambdaVersion0NUuBPQzTPy5NvO616TpZonuVQFBnJlUeCYAk5UyLI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddDashguestLambdaFunction"
               },
-              "CodeSha256": "8ZOrq/QBpKe72O8UdywIWX+vQRZ/EwlQb0cdGKw76tw=",
+              "CodeSha256": "xV6V2kd2JQg5Vhy77vcQNIz5sS/x5zb0ob/Y0UkTHXg=",
               "Description": "POST /guest"
             }
           },
@@ -289,7 +342,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591224453338-2020-06-03T22:47:33.338Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-get-guest",
               "Handler": "api/get-guest.handler",
@@ -304,20 +357,22 @@
                 "Variables": {
                   "GUESTS_TABLE": "rsvp-serverless-backend-prod",
                   "EMAIL": "ahwang55@gmail.com",
-                  "DOMAIN": "*"
+                  "DOMAIN": "carolandarthur.com",
+                  "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+                  "GH_USERNAME": "ArthurHwang"
                 }
               }
             },
             "DependsOn": ["GetDashguestLogGroup"]
           },
-          "GetDashguestLambdaVersionu6l4RxEQNTLtyboQyYIeyo2mP1oMJMxLyIzhyJROE0": {
+          "GetDashguestLambdaVersion1WXxDUR9vJ7TeEj0Ytah51GJFckzAqzp3NafFFKzk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashguestLambdaFunction"
               },
-              "CodeSha256": "8ZOrq/QBpKe72O8UdywIWX+vQRZ/EwlQb0cdGKw76tw=",
+              "CodeSha256": "xV6V2kd2JQg5Vhy77vcQNIz5sS/x5zb0ob/Y0UkTHXg=",
               "Description": "GET /guest/{email}"
             }
           },
@@ -328,7 +383,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rsvp-serverless-backend/prod/1591224453338-2020-06-03T22:47:33.338Z/rsvp-serverless-backend.zip"
+                "S3Key": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z/rsvp-serverless-backend.zip"
               },
               "FunctionName": "rsvp-serverless-backend-prod-get-guests",
               "Handler": "api/get-guests.handler",
@@ -343,20 +398,22 @@
                 "Variables": {
                   "GUESTS_TABLE": "rsvp-serverless-backend-prod",
                   "EMAIL": "ahwang55@gmail.com",
-                  "DOMAIN": "*"
+                  "DOMAIN": "carolandarthur.com",
+                  "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+                  "GH_USERNAME": "ArthurHwang"
                 }
               }
             },
             "DependsOn": ["GetDashguestsLogGroup"]
           },
-          "GetDashguestsLambdaVersionxqeFdlMvRhtGY0iygSH6LHf0HMUXY3EK094Jz2JnAfs": {
+          "GetDashguestsLambdaVersionY6yEAQlWYMV1OneM76tqBK2SvaBaTThUlzLfQgt90": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashguestsLambdaFunction"
               },
-              "CodeSha256": "8ZOrq/QBpKe72O8UdywIWX+vQRZ/EwlQb0cdGKw76tw=",
+              "CodeSha256": "xV6V2kd2JQg5Vhy77vcQNIz5sS/x5zb0ob/Y0UkTHXg=",
               "Description": "GET /guests"
             }
           },
@@ -661,7 +718,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1591224440325": {
+          "ApiGatewayDeployment1591286219417": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -780,7 +837,7 @@
               }
             }
           },
-          "TriggerDashstreamEventSourceMappingDynamodbGuestsTable": {
+          "StreamDashtriggerEventSourceMappingDynamodbGuestsTable": {
             "Type": "AWS::Lambda::EventSourceMapping",
             "DependsOn": "IamRoleLambdaExecution",
             "Properties": {
@@ -789,10 +846,54 @@
                 "Fn::GetAtt": ["GuestsTable", "StreamArn"]
               },
               "FunctionName": {
-                "Fn::GetAtt": ["TriggerDashstreamLambdaFunction", "Arn"]
+                "Fn::GetAtt": ["StreamDashtriggerLambdaFunction", "Arn"]
               },
               "StartingPosition": "LATEST",
               "Enabled": true
+            }
+          },
+          "PostDashgitstatusEventsRuleCloudWatchEvent1": {
+            "Type": "AWS::Events::Rule",
+            "Properties": {
+              "EventPattern": {
+                "source": ["aws.codepipeline"],
+                "detail-type": ["CodePipeline Stage Execution State Change"],
+                "detail": {
+                  "state": [
+                    "FAILED",
+                    "RESUMED",
+                    "SUCCEEDED",
+                    "CANCELED",
+                    "STARTED"
+                  ]
+                }
+              },
+              "State": "ENABLED",
+              "Description": "Codepipeline event feeds state into lambda to post status to GitHub for commit status badge",
+              "Targets": [
+                {
+                  "Arn": {
+                    "Fn::GetAtt": ["PostDashgitstatusLambdaFunction", "Arn"]
+                  },
+                  "Id": "post-gitstatusCloudWatchEvent"
+                }
+              ]
+            }
+          },
+          "PostDashgitstatusLambdaPermissionEventsRuleCloudWatchEvent1": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": ["PostDashgitstatusLambdaFunction", "Arn"]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "events.amazonaws.com",
+              "SourceArn": {
+                "Fn::GetAtt": [
+                  "PostDashgitstatusEventsRuleCloudWatchEvent1",
+                  "Arn"
+                ]
+              }
             }
           },
           "GuestsTable": {
@@ -854,28 +955,34 @@
               "Ref": "ServerlessDeploymentBucket"
             }
           },
-          "TriggerDashstreamLambdaFunctionQualifiedArn": {
+          "StreamDashtriggerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TriggerDashstreamLambdaVersionDJIPdGWcT7frrOWxYZfm5gb6qVuame2hNmnUkpGsMsY"
+              "Ref": "StreamDashtriggerLambdaVersionDjvYYWsAUQbehxGXj2INBWpTIc7IUD8RqbYnVEtQ8"
+            }
+          },
+          "PostDashgitstatusLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PostDashgitstatusLambdaVersionNYDuHtzwiLGhq9rbjVs6W2KnTs1UyUW0LSavxY08G4"
             }
           },
           "AddDashguestLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddDashguestLambdaVersionkil5UIYMzGA1YhUQrNBxNxRFkiqfB923KqNyiq0rY"
+              "Ref": "AddDashguestLambdaVersion0NUuBPQzTPy5NvO616TpZonuVQFBnJlUeCYAk5UyLI"
             }
           },
           "GetDashguestLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashguestLambdaVersionu6l4RxEQNTLtyboQyYIeyo2mP1oMJMxLyIzhyJROE0"
+              "Ref": "GetDashguestLambdaVersion1WXxDUR9vJ7TeEj0Ytah51GJFckzAqzp3NafFFKzk"
             }
           },
           "GetDashguestsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashguestsLambdaVersionxqeFdlMvRhtGY0iygSH6LHf0HMUXY3EK094Jz2JnAfs"
+              "Ref": "GetDashguestsLambdaVersionY6yEAQlWYMV1OneM76tqBK2SvaBaTThUlzLfQgt90"
             }
           },
           "ServiceEndpoint": {
@@ -975,7 +1082,9 @@
     "custom": {
       "secrets": {
         "EMAIL": "ahwang55@gmail.com",
-        "DOMAIN": "*"
+        "DOMAIN": "carolandarthur.com",
+        "GH_ACCESS_TOKEN": "cdf68d5884c3cbe2a2f2fbf4c8917458dee8c059",
+        "GH_USERNAME": "ArthurHwang"
       },
       "allowedHeaders": [
         "Accept",
@@ -1002,8 +1111,9 @@
     ],
     "pluginsData": {},
     "functions": {
-      "trigger-stream": {
-        "handler": "stream-trigger.handler",
+      "stream-trigger": {
+        "handler": "lambda/stream-trigger.handler",
+        "description": "DynamoDB Stream SES Trigger",
         "events": [
           {
             "stream": {
@@ -1016,7 +1126,7 @@
             }
           }
         ],
-        "name": "rsvp-serverless-backend-prod-trigger-stream",
+        "name": "rsvp-serverless-backend-prod-stream-trigger",
         "package": {
           "exclude": ["node_modules/serverless-plugin-typescript"],
           "include": []
@@ -1025,7 +1135,42 @@
         "timeout": 5,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "TriggerDashstreamLambdaVersionDJIPdGWcT7frrOWxYZfm5gb6qVuame2hNmnUkpGsMsY"
+        "versionLogicalId": "StreamDashtriggerLambdaVersionDjvYYWsAUQbehxGXj2INBWpTIc7IUD8RqbYnVEtQ8"
+      },
+      "post-gitstatus": {
+        "handler": "lambda/post-gitstatus.handler",
+        "description": "Post pipeline execution state to GitHub",
+        "role": "arn:aws:iam::307030026322:role/service-role/git-commit-status-role-l9oj1grx",
+        "events": [
+          {
+            "cloudwatchEvent": {
+              "description": "Codepipeline event feeds state into lambda to post status to GitHub for commit status badge",
+              "event": {
+                "source": ["aws.codepipeline"],
+                "detail-type": ["CodePipeline Stage Execution State Change"],
+                "detail": {
+                  "state": [
+                    "FAILED",
+                    "RESUMED",
+                    "SUCCEEDED",
+                    "CANCELED",
+                    "STARTED"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "name": "rsvp-serverless-backend-prod-post-gitstatus",
+        "package": {
+          "exclude": ["node_modules/serverless-plugin-typescript"],
+          "include": []
+        },
+        "memory": 128,
+        "timeout": 5,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "PostDashgitstatusLambdaVersionNYDuHtzwiLGhq9rbjVs6W2KnTs1UyUW0LSavxY08G4"
       },
       "add-guest": {
         "handler": "api/add-guest.handler",
@@ -1062,7 +1207,7 @@
         "timeout": 5,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AddDashguestLambdaVersionkil5UIYMzGA1YhUQrNBxNxRFkiqfB923KqNyiq0rY"
+        "versionLogicalId": "AddDashguestLambdaVersion0NUuBPQzTPy5NvO616TpZonuVQFBnJlUeCYAk5UyLI"
       },
       "get-guest": {
         "handler": "api/get-guest.handler",
@@ -1099,7 +1244,7 @@
         "timeout": 5,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashguestLambdaVersionu6l4RxEQNTLtyboQyYIeyo2mP1oMJMxLyIzhyJROE0"
+        "versionLogicalId": "GetDashguestLambdaVersion1WXxDUR9vJ7TeEj0Ytah51GJFckzAqzp3NafFFKzk"
       },
       "get-guests": {
         "handler": "api/get-guests.handler",
@@ -1136,7 +1281,7 @@
         "timeout": 5,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashguestsLambdaVersionxqeFdlMvRhtGY0iygSH6LHf0HMUXY3EK094Jz2JnAfs"
+        "versionLogicalId": "GetDashguestsLambdaVersionY6yEAQlWYMV1OneM76tqBK2SvaBaTThUlzLfQgt90"
       }
     },
     "resources": {
@@ -1199,10 +1344,10 @@
     "serviceFilename": "serverless.yml",
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "C:\\Users\\illitirit\\rsvp-serverless-aws\\backend-serverless\\.build\\.serverless\\rsvp-serverless-backend.zip"
+    "artifact": "C:\\rsvp-serverless-aws\\backend-serverless\\.build\\.serverless\\rsvp-serverless-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/rsvp-serverless-backend/prod/1591224453338-2020-06-03T22:47:33.338Z",
+    "artifactDirectoryName": "serverless/rsvp-serverless-backend/prod/1591286276290-2020-06-04T15:57:56.290Z",
     "artifact": "rsvp-serverless-backend.zip"
   }
 }

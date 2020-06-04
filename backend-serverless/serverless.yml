@@ -35,22 +35,26 @@ provider:
     GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
     EMAIL: ${self:custom.secrets.EMAIL}
     DOMAIN: ${self:custom.secrets.DOMAIN}
+    GH_ACCESS_TOKEN: ${self:custom.secrets.GH_ACCESS_TOKEN}
+    GH_USERNAME: ${self:custom.secrets.GH_USERNAME}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:Query
+        - dynamodb:Scan
         - dynamodb:PutItem
         - dynamodb:DeleteItem
         - dynamodb:ListStreams
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
-    - Effect: "Allow"
+    - Effect: Allow
       Action:
         - ses:SendEmail
       Resource: "*"
 
 functions:
-  trigger-stream:
-    handler: stream-trigger.handler
+  stream-trigger:
+    handler: lambda/stream-trigger.handler
+    description: DynamoDB Stream SES Trigger
     events:
       - stream:
           type: dynamodb
@@ -60,6 +64,27 @@ functions:
             Fn::GetAtt:
               - GuestsTable
               - StreamArn
+  post-gitstatus:
+    handler: lambda/post-gitstatus.handler
+    description: Post pipeline execution state to GitHub
+    role: arn:aws:iam::307030026322:role/service-role/git-commit-status-role-l9oj1grx
+    events:
+      - cloudwatchEvent:
+          name: git-codepipeline-event-rule
+          description: Codepipeline event feeds state into lambda to post status to GitHub for commit status badge
+          event:
+            source:
+              - aws.codepipeline
+            detail-type:
+              - CodePipeline Stage Execution State Change
+            detail:
+              state:
+                - FAILED
+                - RESUMED
+                - SUCCEEDED
+                - CANCELED
+                - STARTED
+
   add-guest:
     handler: api/add-guest.handler
     description: POST /guest
