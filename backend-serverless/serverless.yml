@@ -6,6 +6,7 @@ plugins:
   - serverless-domain-manager
 
 custom:
+  secrets: ${file(secrets.json)}
   allowedHeaders:
     - Accept
     - Content-Type
@@ -32,15 +33,59 @@ provider:
   endpointType: regional
   environment:
     GUESTS_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    EMAIL: ${self:custom.secrets.EMAIL}
+    DOMAIN: ${self:custom.secrets.DOMAIN}
+    GH_ACCESS_TOKEN: ${self:custom.secrets.GH_ACCESS_TOKEN}
+    GH_USERNAME: ${self:custom.secrets.GH_USERNAME}
+    MAILGUN_APIKEY: ${self:custom.secrets.MAILGUN_APIKEY}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:Query
+        - dynamodb:Scan
         - dynamodb:PutItem
         - dynamodb:DeleteItem
+        - dynamodb:ListStreams
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.GUESTS_TABLE}"
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+      Resource: "*"
 
 functions:
+  stream-trigger:
+    handler: lambda/stream-trigger.handler
+    description: DynamoDB Stream SES Trigger
+    events:
+      - stream:
+          type: dynamodb
+          batchSize: 1
+          startingPosition: LATEST
+          arn:
+            Fn::GetAtt:
+              - GuestsTable
+              - StreamArn
+  post-gitstatus:
+    handler: lambda/post-gitstatus.handler
+    description: Post pipeline execution state to GitHub
+    role: arn:aws:iam::307030026322:role/service-role/git-commit-status-role-l9oj1grx
+    events:
+      - cloudwatchEvent:
+          name: git-codepipeline-event-rule
+          description: Codepipeline event feeds state into lambda to post status to GitHub for commit status badge
+          event:
+            source:
+              - aws.codepipeline
+            detail-type:
+              - CodePipeline Stage Execution State Change
+            detail:
+              state:
+                - FAILED
+                - RESUMED
+                - SUCCEEDED
+                - CANCELED
+                - STARTED
+
   add-guest:
     handler: api/add-guest.handler
     description: POST /guest
@@ -48,11 +93,7 @@ functions:
       - http:
           path: guest
           method: post
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
-
+          cors: true
   get-guest:
     handler: api/get-guest.handler
     description: GET /guest/{email}
@@ -60,10 +101,7 @@ functions:
       - http:
           path: guest/{email}
           method: get
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
+          cors: true
   get-guests:
     handler: api/get-guests.handler
     description: GET /guests
@@ -71,10 +109,7 @@ functions:
       - http:
           path: guests
           method: get
-          cors:
-            true
-            # origin: '*'
-            # headers: ${self:custom.allowedHeaders}
+          cors: true
 
 resources:
   Resources:
@@ -83,6 +118,8 @@ resources:
       DeletionPolicy: Retain
       Properties:
         TableName: ${self:provider.environment.GUESTS_TABLE}
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
         AttributeDefinitions:
           - AttributeName: email
             AttributeType: S
