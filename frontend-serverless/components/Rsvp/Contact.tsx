@@ -175,7 +175,7 @@ export const Contact: FC = (): ReactElement => {
                   </div>
                 </div>
 
-                {values.coming === "yes" && (
+                {values.coming === "yes" && !success && (
                   <>
                     <h3>Plus One Information</h3>
                     <p style={{ textAlign: "left", marginBottom: "25px" }}>
