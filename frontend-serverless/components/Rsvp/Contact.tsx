@@ -52,7 +52,12 @@ export const Contact: FC = (): ReactElement => {
 
             if (response.status === 200) {
               setStatus(json);
-              setAlert("Submission Successful, see you in Taiwan!");
+
+              if (values.coming === "yes") {
+                setAlert("Submission Successful, see you in Taiwan!");
+              } else {
+                setAlert("Submission Successful, Sorry you cant make it!");
+              }
               resetForm();
               setSubmitInvoke(false);
               setSubmitting(false);
