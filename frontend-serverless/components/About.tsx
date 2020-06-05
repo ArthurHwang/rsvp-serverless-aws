@@ -6,10 +6,10 @@ export const About: FC = (): ReactElement => {
     <StyledAbout>
       <LayoutGrid>
         <div className="left">
-          <h2>PHOTO</h2>
+          <h2>UNDER DEVELOPMENT...</h2>
         </div>
         <div className="right">
-          <h2>DESCRIPTORY</h2>
+          <h2>UNDER DEVELOPMENT...</h2>
         </div>
       </LayoutGrid>
     </StyledAbout>
