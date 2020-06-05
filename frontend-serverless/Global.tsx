@@ -66,9 +66,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* animation: fadeInAnimation ease 1.5s ;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;  */
   }
 
   h1, h2, h3 {
@@ -172,15 +169,4 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0;
     transition: opacity 300ms;
   }
-
-  /* @keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-      } 
-  } */
-
-
 `;

@@ -33,7 +33,6 @@ export const Contact: FC = (): ReactElement => {
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting, resetForm, setStatus }) => {
             setSubmitInvoke(true);
-            console.log(values);
             setSubmitting(true);
             setStatus(undefined);
             const response = await fetch(
@@ -65,7 +64,6 @@ export const Contact: FC = (): ReactElement => {
             } else {
               setStatus(json);
               setSuccess(false);
-              // setSubmitInvoke(false);
               setSubmitting(false);
               setAlert("You broke something, I am coming to find you");
               console.log("serverError");
@@ -149,7 +147,7 @@ export const Contact: FC = (): ReactElement => {
                   <div>Can you make it?</div>
                   <div className="radio-container">
                     <div className="label-container">
-                      <span>yes</span>
+                      <span>YES</span>
                       <label>
                         <input
                           type="radio"
@@ -161,7 +159,7 @@ export const Contact: FC = (): ReactElement => {
                       </label>
                     </div>
                     <div className="label-container">
-                      <span>no</span>
+                      <span>NO</span>
                       <label>
                         <input
                           type="radio"
