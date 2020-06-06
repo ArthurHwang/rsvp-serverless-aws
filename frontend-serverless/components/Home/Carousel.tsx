@@ -28,14 +28,26 @@ export const Carousel: FC = (): ReactElement => {
         <img
           src={require("./images/IMG_4889_vignette.jpg?webp")}
           alt="carol and arthur"
+          onError={(e: any) => {
+            e.target.onerror = null;
+            e.target.src = "./images/IMG_4889_vignette.jpg";
+          }}
         />
         <img
           src={require("./images/IMG_4985_vignette.jpg?webp")}
           alt="carol and arthur"
+          onError={(e: any) => {
+            e.target.onerror = null;
+            e.target.src = "./images/IMG_4985_vignette.jpg";
+          }}
         />
         <img
           src={require("./images/IMG_5123_vignette.jpg?webp")}
           alt="carol and arthur"
+          onError={(e: any) => {
+            e.target.onerror = null;
+            e.target.src = "./images/IMG_5123_vignette.jpg";
+          }}
         />
       </Slider>
       <Indicator />

@@ -34,14 +34,26 @@ export const VenueAbout: FC = (): ReactElement => {
       <img
         src={require("./images/taipei-hero.jpg?webp")}
         alt="carol and arthur"
+        onError={(e: any) => {
+          e.target.onerror = null;
+          e.target.src = "./images/IMG_4889_vignette.jpg";
+        }}
       />
       <img
         src={require("./images/gallery-10-1920x1080.jpg?webp")}
         alt="carol and arthur"
+        onError={(e: any) => {
+          e.target.onerror = null;
+          e.target.src = "./images/IMG_4889_vignette.jpg";
+        }}
       />
       <img
         src={require("./images/gallery-10-1920x1080.jpg?webp")}
         alt="carol and arthur"
+        onError={(e: any) => {
+          e.target.onerror = null;
+          e.target.src = "./images/IMG_4889_vignette.jpg";
+        }}
       />
 
       <h2>Food</h2>
