@@ -39,6 +39,8 @@ export const VenueLocation: FC = (): ReactElement => {
         defaultZoom={6}
         options={options}
       >
+        {/* 
+        //@ts-ignore */}
         <MapsMarker lat={center.lat} lng={center.lng} />
       </GoogleMapReact>
     </StyledVenueLocation>
