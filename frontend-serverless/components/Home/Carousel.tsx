@@ -1,7 +1,8 @@
 import { FC, ReactElement } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import { Indicator } from "./Indicator";
+import { Indicator } from "../Indicator";
+import { Image } from "../Image";
 
 const settings = {
   dots: true,
@@ -25,30 +26,15 @@ export const Carousel: FC = (): ReactElement => {
       {/* 
       //@ts-ignore */}
       <Slider {...settings}>
-        <img
-          src={require("./images/IMG_4889_vignette.jpg?webp")}
-          alt="carol and arthur"
-          onError={(e: any) => {
-            e.target.onerror = null;
-            e.target.src = "./images/IMG_4889_vignette.jpg";
-          }}
+        <Image
+          path="home/IMG_4889_vignette.jpg"
+          alt="Carol and Arthur on a boat"
         />
-        <img
-          src={require("./images/IMG_4985_vignette.jpg?webp")}
-          alt="carol and arthur"
-          onError={(e: any) => {
-            e.target.onerror = null;
-            e.target.src = "./images/IMG_4985_vignette.jpg";
-          }}
+        <Image
+          path="home/IMG_4985_vignette.jpg"
+          alt="Carol and Arthur engagement ring"
         />
-        <img
-          src={require("./images/IMG_5123_vignette.jpg?webp")}
-          alt="carol and arthur"
-          onError={(e: any) => {
-            e.target.onerror = null;
-            e.target.src = "./images/IMG_5123_vignette.jpg";
-          }}
-        />
+        <Image path="home/IMG_5123_vignette.jpg" alt="Carol and Arthur ring" />
       </Slider>
       <Indicator />
     </StyledCarousel>
@@ -60,6 +46,7 @@ const StyledCarousel = styled("div")`
 
   img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 

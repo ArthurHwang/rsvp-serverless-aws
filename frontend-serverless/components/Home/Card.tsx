@@ -108,7 +108,7 @@ const StyledCard = styled("div")`
   line-height: 1.4;
 
   h2 {
-    line-height: 4.5rem;
+    line-height: 7rem;
 
     &:last-of-type {
       margin-bottom: 4rem;
@@ -128,7 +128,7 @@ const StyledCard = styled("div")`
 
   .odometer-block {
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     span {
       font-size: 1.8rem;
@@ -148,7 +148,7 @@ const StyledCard = styled("div")`
     padding: 4rem 2rem;
 
     .odometer-block {
-      margin-top: 2rem;
+      margin-top: 1rem;
 
       span {
         font-size: 1.4rem;
@@ -157,6 +157,7 @@ const StyledCard = styled("div")`
 
     h2 {
       font-size: 2.4rem;
+      line-height: 4rem;
 
       &:last-of-type {
         margin-bottom: 2rem;

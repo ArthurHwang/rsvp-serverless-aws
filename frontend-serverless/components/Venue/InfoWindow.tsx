@@ -29,6 +29,7 @@ const StyledInfoWindow = styled("div")`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
   border-radius: 2px;
+  /* z-index: 5000; */
   line-height: 1.2;
 
   p.location {

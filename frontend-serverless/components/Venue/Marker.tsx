@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { ReactElement, FC } from "react";
 
-export const MapsMarker: FC = (): ReactElement => {
+type Props = {
+  onClick: () => void;
+};
+
+export const Marker: FC<Props> = ({ onClick }): ReactElement => {
   return (
-    <StyledMarker>
+    <StyledMarker onClick={onClick}>
       <div className="pin"></div>
       <div className="pulse"></div>
     </StyledMarker>
@@ -12,6 +16,7 @@ export const MapsMarker: FC = (): ReactElement => {
 
 const StyledMarker = styled("div")`
   .pin {
+    pointer-events: initial;
     width: 30px;
     height: 30px;
     border-radius: 50% 50% 50% 0;

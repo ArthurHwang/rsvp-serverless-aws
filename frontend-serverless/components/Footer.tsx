@@ -22,6 +22,13 @@ export const Footer: React.FC = (): ReactElement => {
 };
 
 const StyledFooter = styled("footer")`
+  a {
+    color: ${({ theme }) => theme.accent};
+
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+    }
+  }
   .tech {
     border-radius: 9px 9px 0 0;
     opacity: 0.5;

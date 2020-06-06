@@ -17,7 +17,7 @@ export default VenuePage;
 
 const StyledVenue = styled("div")`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 50% 50%;
   height: 100%;
   width: 100%;
 

@@ -1,31 +1,13 @@
 export default [
   {
-    featureType: "all",
-    elementType: "labels.text.fill",
+    featureType: "administrative",
+    elementType: "labels",
     stylers: [
       {
-        saturation: 36,
+        visibility: "simplified",
       },
       {
-        color: "#000000",
-      },
-      {
-        lightness: 40,
-      },
-    ],
-  },
-  {
-    featureType: "all",
-    elementType: "labels.text.stroke",
-    stylers: [
-      {
-        visibility: "on",
-      },
-      {
-        color: "#000000",
-      },
-      {
-        lightness: 16,
+        color: "#e94f3f",
       },
     ],
   },
@@ -39,128 +21,149 @@ export default [
     ],
   },
   {
-    featureType: "administrative",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#000000",
-      },
-      {
-        lightness: 20,
-      },
-    ],
-  },
-  {
-    featureType: "administrative",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#000000",
-      },
-      {
-        lightness: 17,
-      },
-      {
-        weight: 1.2,
-      },
-    ],
-  },
-  {
     featureType: "landscape",
-    elementType: "geometry",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
+        visibility: "on",
       },
       {
-        lightness: 20,
+        gamma: "0.50",
+      },
+      {
+        hue: "#ff4a00",
+      },
+      {
+        lightness: "-79",
+      },
+      {
+        saturation: "-86",
+      },
+    ],
+  },
+  {
+    featureType: "landscape.man_made",
+    elementType: "all",
+    stylers: [
+      {
+        hue: "#ff1700",
+      },
+    ],
+  },
+  {
+    featureType: "landscape.natural.landcover",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on",
+      },
+      {
+        hue: "#ff0000",
       },
     ],
   },
   {
     featureType: "poi",
-    elementType: "geometry",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
+        color: "#e74231",
       },
       {
-        lightness: 21,
+        visibility: "off",
       },
     ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
+    featureType: "poi",
+    elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#000000",
+        color: "#4d6447",
       },
       {
-        lightness: 17,
+        visibility: "off",
       },
     ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
+    featureType: "poi",
+    elementType: "labels.icon",
     stylers: [
       {
-        color: "#000000",
+        color: "#f0ce41",
       },
       {
-        lightness: 29,
-      },
-      {
-        weight: 0.2,
+        visibility: "off",
       },
     ],
   },
   {
-    featureType: "road.arterial",
-    elementType: "geometry",
+    featureType: "poi.park",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
-      },
-      {
-        lightness: 18,
+        color: "#363f42",
       },
     ],
   },
   {
-    featureType: "road.local",
-    elementType: "geometry",
+    featureType: "road",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
+        color: "#231f20",
       },
+    ],
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [
       {
-        lightness: 16,
+        color: "#6c5e53",
       },
     ],
   },
   {
     featureType: "transit",
-    elementType: "geometry",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
+        color: "#313639",
       },
       {
-        lightness: 19,
+        visibility: "off",
+      },
+    ],
+  },
+  {
+    featureType: "transit",
+    elementType: "labels.text",
+    stylers: [
+      {
+        hue: "#ff0000",
+      },
+    ],
+  },
+  {
+    featureType: "transit",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        visibility: "simplified",
+      },
+      {
+        hue: "#ff0000",
       },
     ],
   },
   {
     featureType: "water",
-    elementType: "geometry",
+    elementType: "all",
     stylers: [
       {
-        color: "#000000",
-      },
-      {
-        lightness: 17,
+        color: "#0e171d",
       },
     ],
   },

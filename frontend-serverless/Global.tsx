@@ -7,7 +7,7 @@ export const theme = {
   red: "#FF0039",
   yellow: "#faa916",
   purple: "#6610F2",
-  blue: "#3B68B5",
+  blue: "#3a84df",
   lightgrey: "#f6f6f6",
   grey: "#525252",
   black: "#1e1e1e",
@@ -127,11 +127,12 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${theme.accent};
+    color: ${theme.blue};
     font-weight: 600;
+    transition: all 0.3s;
 
     &:hover {
-      color: ${theme.primary};
+      color: ${theme.yellow};
     }
   }
 

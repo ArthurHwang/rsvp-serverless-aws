@@ -47,6 +47,11 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
 
   a {
     text-transform: uppercase;
+    color: ${({ theme }) => theme.accent};
+
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+    }
   }
 
   .subtitle {

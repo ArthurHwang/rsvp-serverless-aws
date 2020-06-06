@@ -133,6 +133,15 @@ const StyledWindowContainer = styled("div")<WindowProps>`
   z-index: ${(props) => (props.clicked ? "9999" : "-1")};
   opacity: ${(props) => (props.clicked ? "1" : "0")};
 
+  a {
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.accent};
+
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+    }
+  }
+
   .overlay {
     position: absolute;
     background: black;
