@@ -62,7 +62,7 @@ export const VenueLocation: FC = (): ReactElement => {
 export default VenueLocation;
 
 const StyledVenueLocation = styled("div")`
-  height: 100%;
+  height: 100vh;
   background-color: ${({ theme }) => theme.primary};
   display: flex;
   position: relative;

@@ -112,7 +112,7 @@ export const VenueAbout: FC = (): ReactElement => {
 };
 
 const StyledVenueAbout = styled("div")`
-  height: 100%;
+  height: 100vh;
   background-color: ${({ theme }) => theme.bg.grey};
   padding: 6rem 10rem;
   overflow-y: scroll;
