@@ -1,6 +1,8 @@
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
-const withFonts = require('next-fonts');
+require("dotenv").config();
+
+const withPlugins = require("next-compose-plugins");
+const optimizedImages = require("next-optimized-images");
+const withFonts = require("next-fonts");
 
 module.exports = withPlugins(
   [
@@ -13,6 +15,9 @@ module.exports = withPlugins(
     [withFonts],
   ],
   {
-    target: 'serverless',
+    target: "serverless",
+    env: {
+      GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+    },
   }
 );

@@ -58,8 +58,8 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
             </Link>
           </div>
           <div>
-            <Link href="/where">
-              <a className="link">WHERE</a>
+            <Link href="/venue">
+              <a className="link">VENUE</a>
             </Link>
           </div>
           <div>
@@ -93,7 +93,7 @@ const StyledNavMobile = styled("nav")<StyledProps>`
 
   .hamburger {
     transition: transform 0.5s;
-    color: ${(props) => (props.clicked ? props.theme.red : props.theme.accent)};
+    color: ${(props) => (props.clicked ? props.theme.red : props.theme.yellow)};
     transform: ${(props) => (props.clicked ? "rotate(270deg)" : "")};
   }
 

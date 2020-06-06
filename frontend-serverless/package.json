@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@react-google-maps/api": "^1.9.5",
+    "dotenv": "^8.2.0",
     "formik": "^2.1.4",
     "framer-motion": "^1.11.0",
     "google-map-react": "^1.1.7",

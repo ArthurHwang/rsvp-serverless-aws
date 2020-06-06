@@ -29,8 +29,8 @@ export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
         <Link href="/about">
           <a className="link">ABOUT</a>
         </Link>
-        <Link href="/where">
-          <a className="link">WHERE</a>
+        <Link href="/venue">
+          <a className="link">VENUE</a>
         </Link>
         <Link href="/rsvp">
           <a className="link">RSVP</a>

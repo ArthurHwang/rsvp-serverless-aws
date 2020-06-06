@@ -1,22 +1,21 @@
 import styled from "styled-components";
 
-import { VenueLocation } from "../components/Where/VenueLocation";
-import { VenueAbout } from "../components/Where/VenueAbout";
+import { VenueLocation } from "../components/Venue/VenueLocation";
+import { VenueAbout } from "../components/Venue/VenueAbout";
 import { NextPage } from "next";
 
-const WherePage: NextPage = () => {
+const VenuePage: NextPage = () => {
   return (
-    <StyledWhere>
+    <StyledVenue>
       <VenueLocation />
       <VenueAbout />
-    </StyledWhere>
+    </StyledVenue>
   );
 };
 
-export default WherePage;
+export default VenuePage;
 
-const StyledWhere = styled("div")`
-  overflow: hidden;
+const StyledVenue = styled("div")`
   display: grid;
   grid-template-columns: 40% 60%;
   height: 100%;
