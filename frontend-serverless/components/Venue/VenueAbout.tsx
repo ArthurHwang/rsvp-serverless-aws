@@ -17,7 +17,7 @@ const settings = {
   cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
   pauseOnHover: false,
   className: "slick-container",
-  lazyLoad: "ondemand",
+  lazyLoad: "progressive",
   fade: false,
 };
 
