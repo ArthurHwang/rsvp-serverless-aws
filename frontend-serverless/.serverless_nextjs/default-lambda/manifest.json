@@ -16,12 +16,15 @@
         "/index": "pages/index.html",
         "/rsvp": "pages/rsvp.html",
         "/technical": "pages/technical.html",
-        "/where": "pages/where.html",
+        "/venue": "pages/venue.html",
         "/": "pages/index.html"
       }
     }
   },
   "publicFiles": {
-    "/fonts/Berthold-light-extended.otf": "fonts/Berthold-light-extended.otf"
+    "/favicon.png": "favicon.png",
+    "/fonts/Berthold-light-extended.otf": "fonts/Berthold-light-extended.otf",
+    "/robots.txt": "robots.txt",
+    "/sitemap.xml": "sitemap.xml"
   }
 }

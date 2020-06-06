@@ -58,8 +58,8 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
             </Link>
           </div>
           <div>
-            <Link href="/where">
-              <a className="link">WHERE</a>
+            <Link href="/venue">
+              <a className="link">VENUE</a>
             </Link>
           </div>
           <div>
@@ -93,7 +93,7 @@ const StyledNavMobile = styled("nav")<StyledProps>`
 
   .hamburger {
     transition: transform 0.5s;
-    color: ${(props) => (props.clicked ? props.theme.red : props.theme.accent)};
+    color: ${(props) => (props.clicked ? props.theme.red : props.theme.yellow)};
     transform: ${(props) => (props.clicked ? "rotate(270deg)" : "")};
   }
 
@@ -132,6 +132,15 @@ const StyledWindowContainer = styled("div")<WindowProps>`
   transition: z-index 0.5s, opacity 0.5s;
   z-index: ${(props) => (props.clicked ? "9999" : "-1")};
   opacity: ${(props) => (props.clicked ? "1" : "0")};
+
+  a {
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.accent};
+
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+    }
+  }
 
   .overlay {
     position: absolute;

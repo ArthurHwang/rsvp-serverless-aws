@@ -27,7 +27,7 @@ export const Flights: FC = (): ReactElement => {
         ) : (
           <iframe
             frameBorder="0"
-            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&buttonColour=lunar&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"
           ></iframe>
         )}
       </div>
@@ -38,7 +38,6 @@ export const Flights: FC = (): ReactElement => {
 const StyledFlights = styled("div")`
   height: 100%;
   background-color: ${({ theme }) => theme.bg.grey};
-  /* overflow-y: scroll; */
   display: grid;
   grid-template-rows: auto 1fr;
 

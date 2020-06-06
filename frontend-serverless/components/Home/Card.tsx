@@ -16,14 +16,19 @@ export const Card: FC = (): ReactElement => {
       <MdHeart fontSize="45px" color="red" beat={true} />{" "}
       <h2>I hope you do too</h2>
       <p className="friends">To our friends and family:</p>
-      <p>Celebrate with us on August 28, 2020</p>
-      <p>@ The Regents Hotel in Taipei, Taiwan </p>
+      <p>Come celebrate with us</p>
+      <p>@ The Regents Hotel in Taipei, Taiwan</p>
+      <StyledDate>
+        <div className="month">August</div>
+        <div className="day">28</div>
+        <div className="year">2021</div>
+      </StyledDate>
       {/* 
       //@ts-ignore */}
       <DateCountdown
         // @ts-ignore
-        dateTo="August 28, 2020 00:00:00 GMT+03:00"
-        numberOfFigures={5}
+        dateTo="August 28, 2021 00:00:00 GMT+03:00"
+        numberOfFigures={6}
       />
       <p className="rsvp">
         Please{" "}
@@ -37,6 +42,62 @@ export const Card: FC = (): ReactElement => {
   );
 };
 
+const StyledDate = styled("div")`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-items: center;
+  grid-gap: 3rem;
+  margin: 2rem 0 0;
+  line-height: 1.4;
+  width: 100%;
+
+  .month {
+    justify-self: flex-end;
+  }
+
+  .year {
+    justify-self: flex-start;
+  }
+
+  .month,
+  .year {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    align-self: center;
+    text-align: center;
+    padding: 0 2rem;
+    font-size: 3rem;
+  }
+  .day {
+    font-size: 6rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 650px) {
+    .month,
+    .year {
+      font-size: 2.4rem;
+    }
+
+    .day {
+      font-size: 4.4rem;
+    }
+  }
+
+  @media (max-width: 515px) {
+    grid-gap: 1rem;
+
+    .month,
+    .year {
+      font-size: 1.6rem;
+    }
+
+    .day {
+      font-size: 3rem;
+    }
+  }
+`;
+
 const StyledCard = styled("div")`
   background-color: #bbb;
   display: flex;
@@ -44,9 +105,10 @@ const StyledCard = styled("div")`
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
+  line-height: 1.4;
 
   h2 {
-    line-height: 4.5rem;
+    line-height: 7rem;
 
     &:last-of-type {
       margin-bottom: 4rem;
@@ -66,10 +128,10 @@ const StyledCard = styled("div")`
 
   .odometer-block {
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     span {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: 700;
 
       &.sec > * {
@@ -86,11 +148,16 @@ const StyledCard = styled("div")`
     padding: 4rem 2rem;
 
     .odometer-block {
-      margin-top: 2rem;
+      margin-top: 1rem;
+
+      span {
+        font-size: 1.4rem;
+      }
     }
 
     h2 {
       font-size: 2.4rem;
+      line-height: 4rem;
 
       &:last-of-type {
         margin-bottom: 2rem;
@@ -119,6 +186,10 @@ const StyledCard = styled("div")`
     }
 
     p {
+      font-size: 1.2rem;
+    }
+
+    .odometer-block span {
       font-size: 1.2rem;
     }
   }
