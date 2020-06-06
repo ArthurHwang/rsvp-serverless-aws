@@ -61,6 +61,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     letter-spacing: 4px;
     height: 1.5rem;
     padding-left: 4rem;
+    padding-right: 1rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
     background-color: ${({ theme }) => theme.yellow};
