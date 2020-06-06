@@ -69,6 +69,13 @@ const StyledVenueLocation = styled("div")`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 1445px) {
+    /* overflow: initial;
+    display: block; */
+    /* height: auto; */
+    height: 100%;
+  }
+
   .map-container {
     pointer-events: none;
     height: 100%;

@@ -148,7 +148,7 @@ export const Contact: FC = (): ReactElement => {
                   <div className="radio-container">
                     <div className="label-container">
                       <span>YES</span>
-                      <label>
+                      <label style={{ position: "relative", bottom: "1px" }}>
                         <input
                           type="radio"
                           name="yes"
@@ -160,7 +160,7 @@ export const Contact: FC = (): ReactElement => {
                     </div>
                     <div className="label-container">
                       <span>NO</span>
-                      <label>
+                      <label style={{ position: "relative", bottom: "1px" }}>
                         <input
                           type="radio"
                           name="no"

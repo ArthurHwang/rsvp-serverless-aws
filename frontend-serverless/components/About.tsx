@@ -21,10 +21,16 @@ const StyledAbout = styled("div")`
 `;
 
 const LayoutGrid = styled("div")`
+  overflow: hidden;
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  grid-template-columns: 50% 50%;
   height: 100%;
   width: 100%;
+
+  @media (max-width: 1445px) {
+    overflow: initial;
+    display: block;
+  }
 
   .left,
   .right {

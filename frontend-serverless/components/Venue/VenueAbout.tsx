@@ -12,7 +12,7 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 7000,
   cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
   pauseOnHover: false,
@@ -134,7 +134,8 @@ const StyledVenueAbout = styled("div")`
     width: 100%;
   }
 
-  @media (max-width: 1446px) {
+  @media (max-width: 1445px) {
+    height: 100%;
     overflow-y: initial;
     height: auto;
   }
