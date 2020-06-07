@@ -13,7 +13,7 @@ export const Contact: FC = (): ReactElement => {
   return (
     <ContentWrap id="contact">
       <StyledContact>
-        <h2>R.S.V.P</h2>
+        <h2 style={{ lineHeight: "1" }}>R.S.V.P</h2>
         <p
           style={{
             textAlign: "left",
@@ -344,6 +344,7 @@ const StyledContact = styled("div")`
       color: ${({ theme }) => theme.yellow};
       grid-template-columns: 1fr 1fr;
       font-size: 1.4rem;
+      font-weight: 700;
 
       .radio-container {
         display: flex;
@@ -386,7 +387,7 @@ const StyledContact = styled("div")`
 `;
 
 const ContentWrap = styled("section")`
-  padding-top: 6rem;
+  padding-top: 8rem;
   background-color: ${({ theme }) => theme.black};
   height: 100%;
   width: 100%;
@@ -424,7 +425,7 @@ const ContentWrap = styled("section")`
   }
 
   p {
-    font-weight: 400;
+    font-weight: 700;
     color: ${({ theme }) => theme.yellow};
     font-size: 1.4rem;
   }

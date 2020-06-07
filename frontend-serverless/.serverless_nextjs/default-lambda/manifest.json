@@ -1,4 +1,5 @@
 {
+  "buildId": "KvR92Dh8d8DvFgGiOlRuN",
   "pages": {
     "ssr": {
       "dynamic": {},
@@ -12,7 +13,7 @@
       "dynamic": {},
       "nonDynamic": {
         "/404": "pages/404.html",
-        "/about": "pages/about.html",
+        "/history": "pages/history.html",
         "/index": "pages/index.html",
         "/rsvp": "pages/rsvp.html",
         "/technical": "pages/technical.html",

@@ -19,6 +19,7 @@ export const MasonryGallery: FC = (): ReactElement => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
+  // @ts-ignore
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -61,6 +62,7 @@ const StyledMasonryGallery = styled("div")`
 
   img {
     transition: all 0.3s ease-in-out;
+    /* width: 100px; */
     &:hover {
       transform: scale(1.03);
       z-index: 9999;
