@@ -13,7 +13,7 @@ export const Contact: FC = (): ReactElement => {
   return (
     <ContentWrap id="contact">
       <StyledContact>
-        <h2 style={{ lineHeight: "1" }}>R.S.V.P</h2>
+        <h2>R.S.V.P</h2>
         <p
           style={{
             textAlign: "left",
@@ -399,7 +399,7 @@ const ContentWrap = styled("section")`
     margin-top: 2rem;
   }
   @media (max-width: 768px) {
-    padding: 6rem 2rem 4rem;
+    padding: 8rem 2rem 4rem;
     margin-bottom: 0;
   }
   .valid {
