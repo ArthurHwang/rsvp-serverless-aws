@@ -399,7 +399,7 @@ const ContentWrap = styled("section")`
     margin-top: 2rem;
   }
   @media (max-width: 768px) {
-    padding: 8rem 2rem 4rem;
+    padding: 6rem 2rem 4rem;
     margin-bottom: 0;
   }
   .valid {
