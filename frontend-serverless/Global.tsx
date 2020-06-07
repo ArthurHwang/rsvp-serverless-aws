@@ -68,6 +68,23 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
   }
 
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: orange none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: hidden;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: hidden;
+    border-radius: 20px;
+    border: 3px solid orange;
+  }
+
   h1, h2, h3 {
     font-weight: bold;
     color: ${theme.black};

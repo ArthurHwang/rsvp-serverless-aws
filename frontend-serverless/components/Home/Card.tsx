@@ -30,17 +30,30 @@ export const Card: FC = (): ReactElement => {
         dateTo="August 28, 2021 00:00:00 GMT+03:00"
         numberOfFigures={6}
       />
-      <p className="rsvp">
-        Please{" "}
-        <Link href="/rsvp">
-          <a className="link">RSVP</a>
-        </Link>{" "}
-        in advance
-      </p>
-      <p className="rsvp">to let us know you are coming</p>
+      <Link href="/rsvp">
+        <RSVPButton>RSVP HERE</RSVPButton>
+      </Link>
     </StyledCard>
   );
 };
+
+const RSVPButton = styled("button")`
+  height: 4rem;
+  width: 20rem;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  font-family: "berthold";
+  margin-top: 2rem;
+  font-weight: 700;
+  background: none;
+  font-size: 1.6rem;
+  color: ${({ theme }) => theme.blue};
+  transition: transform 0.1s linear;
+
+  &:hover {
+    transform: scale(1.04);
+    cursor: pointer;
+  }
+`;
 
 const StyledDate = styled("div")`
   display: grid;
@@ -51,14 +64,6 @@ const StyledDate = styled("div")`
   line-height: 1.4;
   width: 100%;
 
-  .month {
-    justify-self: flex-end;
-  }
-
-  .year {
-    justify-self: flex-start;
-  }
-
   .month,
   .year {
     border-top: 1px solid black;
@@ -68,6 +73,15 @@ const StyledDate = styled("div")`
     padding: 0 2rem;
     font-size: 3rem;
   }
+
+  .month {
+    justify-self: flex-end;
+  }
+
+  .year {
+    justify-self: flex-start;
+  }
+
   .day {
     font-size: 6rem;
     font-weight: 700;

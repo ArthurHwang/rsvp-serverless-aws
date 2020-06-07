@@ -24,12 +24,12 @@ const settings = {
 export const VenueAbout: FC = (): ReactElement => {
   return (
     <StyledVenueAbout>
-      <h2>Venue Information</h2>
+      {/* <h2>Venue Information</h2> */}
 
       <h3>Regents Hotel</h3>
 
       <p>
-        Come join us celebrate at the 5 star luxury hotel -{" "}
+        Come celebrate with us at the premier 5-star luxury hotel -{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -39,6 +39,11 @@ export const VenueAbout: FC = (): ReactElement => {
         </a>
         .
       </p>
+
+      <Image
+        path="venue/c5a3d0f2-f0ea-40e3-9686-d0bd111e6189.jpg"
+        alt="regents 1"
+      />
 
       <p>
         <span>** </span>Please{" "}
@@ -57,10 +62,9 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* <br /> */}
 
       <p>
-        During your stay, there is tons to do in the vibrant metropolis. From
-        sprawling night markets and endless shopping locations to numerous fine
-        arts museums, there is no shortage of activities. Something is bound to
-        tickle your fancy.
+        From sprawling night markets and endless shopping locations to numerous
+        fine arts museums, there is no shortage of activities. Something is
+        bound to tickle your fancy.
       </p>
 
       <p>
@@ -74,7 +78,7 @@ export const VenueAbout: FC = (): ReactElement => {
 
       {/* 
       //@ts-ignore */}
-      <Slider style={{ margin: "4rem 0" }} {...settings}>
+      <Slider style={{ margin: "2rem 0" }} {...settings}>
         <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
         <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
         <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
@@ -82,9 +86,9 @@ export const VenueAbout: FC = (): ReactElement => {
         <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
         <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
       </Slider>
-      <h2>Food</h2>
+      {/* <h2>Food</h2> */}
 
-      <h3>Family Style</h3>
+      <h3>Food</h3>
 
       <p>
         There is no need to select beef, chicken, or fish. Food at the party
@@ -99,7 +103,7 @@ export const VenueAbout: FC = (): ReactElement => {
 
       {/* 
       //@ts-ignore */}
-      <Slider style={{ margin: "4rem 0" }} {...settings}>
+      <Slider style={{ margin: "2rem 0" }} {...settings}>
         <Image path="venue/food/gallery-40-1920x1080.jpg" alt="regents 7" />
         <Image path="venue/food/gallery-52-1920x1080.jpg" alt="regents 8" />
         <Image path="venue/food/gallery-41-1920x1080.jpg" alt="regents 9" />
@@ -113,12 +117,16 @@ export const VenueAbout: FC = (): ReactElement => {
 
 const StyledVenueAbout = styled("div")`
   height: 100vh;
-  background-color: ${({ theme }) => theme.bg.grey};
-  padding: 6rem 10rem;
+  background-color: ${({ theme }) => theme.black};
+  padding: 6rem 2rem;
   overflow-y: scroll;
   line-height: 1.8;
 
   h2 {
+    color: ${({ theme }) => theme.red};
+  }
+
+  h3 {
     color: ${({ theme }) => theme.red};
   }
 
@@ -127,7 +135,12 @@ const StyledVenueAbout = styled("div")`
   }
 
   p {
-    line-height: 1.4;
+    line-height: 1.1;
+    color: ${({ theme }) => theme.primary};
+    font-size: 1.4rem;
+    /* word-spacing: 2px; */
+    letter-spacing: 1px;
+    /* font-weight: 400; */
   }
 
   img {
