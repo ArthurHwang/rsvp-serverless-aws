@@ -127,7 +127,7 @@ const StyledStory = styled("div")`
   overflow-y: scroll;
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.6rem;
     line-height: 1;
     color: ${({ theme }) => theme.red};
   }
@@ -138,8 +138,8 @@ const StyledStory = styled("div")`
     width: 60%;
     line-height: 1.1;
     font-size: 1.4rem;
-    letter-spacing: 1px;
-    /* font-weight: 400; */
+    letter-spacing: 0.2px;
+    font-weight: 700;
   }
 
   .anchor-right {

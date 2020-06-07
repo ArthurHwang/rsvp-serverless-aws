@@ -8,13 +8,13 @@ import Slider from "react-slick";
 const settings = {
   dots: true,
   infinite: true,
-  speed: 3000,
+  // speed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
   autoplay: false,
   autoplaySpeed: 7000,
-  cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
+  // cssEase: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
   pauseOnHover: false,
   className: "slick-container",
   lazyLoad: "progressive",
@@ -26,7 +26,7 @@ export const VenueAbout: FC = (): ReactElement => {
     <StyledVenueAbout>
       {/* <h2>Venue Information</h2> */}
 
-      <h3>Regents Hotel</h3>
+      <h3>Regent Taipei</h3>
 
       <p>
         Come celebrate with us at the premier 5-star luxury hotel -{" "}
@@ -79,6 +79,7 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
+        {/* <Image path="venue/unnamed.jpg" alt="regents 0" fix /> */}
         <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
         <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
         <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
@@ -128,6 +129,7 @@ const StyledVenueAbout = styled("div")`
 
   h3 {
     color: ${({ theme }) => theme.red};
+    font-size: 2.6rem;
   }
 
   span {
@@ -138,13 +140,28 @@ const StyledVenueAbout = styled("div")`
     line-height: 1.1;
     color: ${({ theme }) => theme.primary};
     font-size: 1.4rem;
+
     /* word-spacing: 2px; */
-    letter-spacing: 1px;
-    /* font-weight: 400; */
+    letter-spacing: 0.2px;
+    font-weight: 600;
   }
 
   img {
     width: 100%;
+  }
+
+  .slick-dots {
+    bottom: 3rem;
+
+    & button:before {
+      color: ${({ theme }) => theme.lightgrey};
+      opacity: 1;
+    }
+  }
+
+  .slick-active button:before {
+    color: ${({ theme }) => theme.red} !important;
+    opacity: 1 !important;
   }
 
   @media (max-width: 1445px) {

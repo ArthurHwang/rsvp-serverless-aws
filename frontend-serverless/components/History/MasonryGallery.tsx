@@ -4,28 +4,13 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
 const photos = [
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
+  { src: require("images/about/photo-2.jpg"), width: 4.5, height: 3 },
   { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-2.jpg"), width: 4, height: 2.5 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
+  { src: require("images/about/photo-3.jpg"), width: 3.3, height: 4.2 },
+  { src: require("images/about/photo-4.jpg"), width: 4, height: 3 },
+  { src: require("images/about/photo-5.jpg"), width: 4, height: 3 },
+  { src: require("images/about/photo-6.jpg"), width: 4, height: 3 },
+  { src: require("images/about/photo-7.jpg"), width: 4, height: 3 },
   { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
   { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
 ];
@@ -52,9 +37,12 @@ export const MasonryGallery: FC = (): ReactElement => {
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
+              // @ts-ignore
               views={photos.map((x) => ({
                 ...x,
+                // @ts-ignore
                 srcset: x.srcSet,
+                // @ts-ignore
                 caption: x.title,
               }))}
             />
@@ -68,7 +56,7 @@ export const MasonryGallery: FC = (): ReactElement => {
 const StyledMasonryGallery = styled("div")`
   background-color: black;
   overflow-x: hidden;
-  overflowy-y: scroll;
+  overflow-y: scroll;
   /* overflow: scroll; */
 
   img {
