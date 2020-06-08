@@ -18,7 +18,14 @@ const options = {
   gestureHandling: "none",
 };
 
-export const VenueLocation: FC = (): ReactElement => {
+type Props = {
+  ratingsReviews: {
+    rating: number;
+    totalReviews: number;
+  };
+};
+
+export const VenueLocation: FC<Props> = ({ ratingsReviews }): ReactElement => {
   const [markerClick, setMarkerClick] = useState(6);
 
   const handleMarkerClick = () => {
@@ -31,7 +38,7 @@ export const VenueLocation: FC = (): ReactElement => {
 
   return (
     <StyledVenueLocation>
-      <InfoWindow />
+      <InfoWindow ratingsReviews={ratingsReviews} />
 
       <div className="map-container">
         <GoogleMapReact

@@ -19,7 +19,7 @@ const TechnicalPage: NextPage = () => (
         <li>React</li>
         <li>TypeScript</li>
         <li>Styled Components</li>
-        <li>Framer Motion</li>
+        {/* <li>Framer Motion</li> */}
         <li>Serverless IaaS framework</li>
         <li>AWS Lambda</li>
         <li>AWS Lambda@edge</li>
@@ -29,6 +29,8 @@ const TechnicalPage: NextPage = () => (
         <li>AWS CloudWatch</li>
         <li>AWS Route53</li>
         <li>AWS CodePipeline / CodeBuild</li>
+        <li>Google Places API</li>
+        <li>Google Maps API</li>
       </ul>
       <div className="source">
         <a
