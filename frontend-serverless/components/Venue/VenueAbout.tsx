@@ -8,13 +8,11 @@ import Slider from "react-slick";
 const settings = {
   dots: true,
   infinite: true,
-  // speed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
   autoplay: false,
   autoplaySpeed: 7000,
-  // cssEase: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)',
   pauseOnHover: false,
   className: "slick-container",
   lazyLoad: "progressive",
@@ -24,9 +22,7 @@ const settings = {
 export const VenueAbout: FC = (): ReactElement => {
   return (
     <StyledVenueAbout>
-      {/* <h2>Venue Information</h2> */}
-
-      <h3>Regent Taipei</h3>
+      <h2>Regent Taipei</h2>
 
       <p>
         Come celebrate with us at the premier 5-star luxury hotel -{" "}
@@ -79,7 +75,6 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
-        {/* <Image path="venue/unnamed.jpg" alt="regents 0" fix /> */}
         <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
         <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
         <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
@@ -89,7 +84,7 @@ export const VenueAbout: FC = (): ReactElement => {
       </Slider>
       {/* <h2>Food</h2> */}
 
-      <h3>Food</h3>
+      <h2>Food</h2>
 
       <p>
         There is no need to select beef, chicken, or fish. Food at the party
@@ -125,11 +120,7 @@ const StyledVenueAbout = styled("div")`
 
   h2 {
     color: ${({ theme }) => theme.red};
-  }
-
-  h3 {
-    color: ${({ theme }) => theme.red};
-    font-size: 2.6rem;
+    /* font-size: 2.6rem; */
   }
 
   span {
@@ -137,7 +128,7 @@ const StyledVenueAbout = styled("div")`
   }
 
   p {
-    line-height: 1.1;
+    line-height: 1.2;
     color: ${({ theme }) => theme.primary};
     font-size: 1.4rem;
 
@@ -151,7 +142,7 @@ const StyledVenueAbout = styled("div")`
   }
 
   .slick-dots {
-    bottom: 3rem;
+    bottom: 1rem;
 
     & button:before {
       color: ${({ theme }) => theme.lightgrey};
@@ -176,11 +167,11 @@ const StyledVenueAbout = styled("div")`
 
   .slick-slider {
     .slick-prev {
-      left: 20px;
+      left: 10px;
       z-index: 200;
     }
     .slick-next {
-      right: 20px;
+      right: 10px;
     }
   }
 `;

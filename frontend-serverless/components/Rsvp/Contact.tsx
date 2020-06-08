@@ -417,6 +417,7 @@ const ContentWrap = styled("section")`
   .has-error {
     border: 1px solid red;
   }
+
   h2,
   h3,
   p {
@@ -424,6 +425,11 @@ const ContentWrap = styled("section")`
     color: ${({ theme }) => theme.lightgrey};
   }
 
+  /* h3 {
+    font-size: 2.6rem;
+    color: ${({ theme }) => theme.red};
+  } */
+  
   p {
     font-weight: 700;
     color: ${({ theme }) => theme.yellow};

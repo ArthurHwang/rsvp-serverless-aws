@@ -37,6 +37,8 @@ export const MasonryGallery: FC = (): ReactElement => {
 
   return (
     <StyledMasonryGallery>
+      {/* 
+      //@ts-ignore */}
       <Gallery photos={photos} direction={"column"} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
@@ -64,6 +66,12 @@ const StyledMasonryGallery = styled("div")`
   overflow-x: hidden;
   overflow-y: scroll;
   /* overflow: scroll; */
+
+  @media (max-width: 1445px) {
+    overflow: initial;
+    overflow-x: hidden;
+    /* display: block; */
+  }
 
   img {
     transition: all 0.3s ease-in-out;
@@ -94,5 +102,9 @@ const StyledMasonryGallery = styled("div")`
       width: 100%;
       height: 100%;
     }
+  }
+
+  @media (max-width: 530px) {
+    display: none;
   }
 `;

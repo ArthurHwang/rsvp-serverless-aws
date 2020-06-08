@@ -86,7 +86,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3 {
-    font-weight: bold;
+    font-weight: 700;
     color: ${theme.black};
     text-transform: uppercase;
     margin: 0;
