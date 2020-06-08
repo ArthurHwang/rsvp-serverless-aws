@@ -8,28 +8,24 @@ import Slider from "react-slick";
 const settings = {
   dots: true,
   infinite: true,
-  speed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 7000,
-  cssEase: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
   pauseOnHover: false,
   className: "slick-container",
-  lazyLoad: "ondemand",
+  lazyLoad: "progressive",
   fade: false,
 };
 
 export const VenueAbout: FC = (): ReactElement => {
   return (
     <StyledVenueAbout>
-      <h2>Venue Information</h2>
-
-      <h3>Regents Hotel</h3>
+      <h2>Regent Taipei</h2>
 
       <p>
-        Come join us celebrate at the 5 star luxury hotel -{" "}
+        Come celebrate with us at the premier 5-star luxury hotel -{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -39,6 +35,13 @@ export const VenueAbout: FC = (): ReactElement => {
         </a>
         .
       </p>
+
+      <div className="image-full">
+        <Image
+          path="venue/c5a3d0f2-f0ea-40e3-9686-d0bd111e6189.jpg"
+          alt="regents 1"
+        />
+      </div>
 
       <p>
         <span>** </span>Please{" "}
@@ -57,10 +60,9 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* <br /> */}
 
       <p>
-        During your stay, there is tons to do in the vibrant metropolis. From
-        sprawling night markets and endless shopping locations to numerous fine
-        arts museums, there is no shortage of activities. Something is bound to
-        tickle your fancy.
+        From sprawling night markets and endless shopping locations to numerous
+        fine arts museums, there is no shortage of activities. Something is
+        bound to tickle your fancy.
       </p>
 
       <p>
@@ -74,7 +76,7 @@ export const VenueAbout: FC = (): ReactElement => {
 
       {/* 
       //@ts-ignore */}
-      <Slider style={{ margin: "4rem 0" }} {...settings}>
+      <Slider style={{ margin: "2rem 0" }} {...settings}>
         <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
         <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
         <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
@@ -82,9 +84,9 @@ export const VenueAbout: FC = (): ReactElement => {
         <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
         <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
       </Slider>
-      <h2>Food</h2>
+      {/* <h2>Food</h2> */}
 
-      <h3>Family Style</h3>
+      <h2>Food</h2>
 
       <p>
         There is no need to select beef, chicken, or fish. Food at the party
@@ -99,7 +101,7 @@ export const VenueAbout: FC = (): ReactElement => {
 
       {/* 
       //@ts-ignore */}
-      <Slider style={{ margin: "4rem 0" }} {...settings}>
+      <Slider style={{ margin: "2rem 0" }} {...settings}>
         <Image path="venue/food/gallery-40-1920x1080.jpg" alt="regents 7" />
         <Image path="venue/food/gallery-52-1920x1080.jpg" alt="regents 8" />
         <Image path="venue/food/gallery-41-1920x1080.jpg" alt="regents 9" />
@@ -112,14 +114,15 @@ export const VenueAbout: FC = (): ReactElement => {
 };
 
 const StyledVenueAbout = styled("div")`
-  height: 100%;
-  background-color: ${({ theme }) => theme.bg.grey};
-  padding: 6rem 10rem;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.black};
+  padding: 6rem 2rem;
   overflow-y: scroll;
   line-height: 1.8;
 
   h2 {
     color: ${({ theme }) => theme.red};
+    /* font-size: 2.6rem; */
   }
 
   span {
@@ -127,14 +130,35 @@ const StyledVenueAbout = styled("div")`
   }
 
   p {
-    line-height: 1.4;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.primary};
+    font-size: 1.4rem;
+
+    /* word-spacing: 2px; */
+    letter-spacing: 0.2px;
+    font-weight: 600;
   }
 
   img {
     width: 100%;
   }
 
-  @media (max-width: 1446px) {
+  .slick-dots {
+    bottom: 1.5rem;
+
+    & button:before {
+      color: ${({ theme }) => theme.lightgrey};
+      opacity: 1;
+    }
+  }
+
+  .slick-active button:before {
+    color: ${({ theme }) => theme.red} !important;
+    opacity: 1 !important;
+  }
+
+  @media (max-width: 1445px) {
+    height: 100%;
     overflow-y: initial;
     height: auto;
   }
@@ -143,13 +167,23 @@ const StyledVenueAbout = styled("div")`
     padding: 4rem 2rem;
   }
 
+  @media (max-width: 500px) {
+    .slick-container {
+      margin: 2rem -2rem !important;
+    }
+
+    .image-full {
+      margin: 1rem -2rem 0;
+    }
+  }
+
   .slick-slider {
     .slick-prev {
-      left: 20px;
+      left: 10px;
       z-index: 200;
     }
     .slick-next {
-      right: 20px;
+      right: 10px;
     }
   }
 `;

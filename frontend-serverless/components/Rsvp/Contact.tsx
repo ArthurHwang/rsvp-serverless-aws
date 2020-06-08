@@ -85,7 +85,7 @@ export const Contact: FC = (): ReactElement => {
                 Primary Guest Information
                 <span style={{ color: "red", marginLeft: "0.5rem" }}>*</span>
               </h3>
-              <p style={{ textAlign: "left", marginBottom: "2rem" }}>
+              <p style={{ textAlign: "left", marginBottom: "1rem" }}>
                 Please provide your information
               </p>
               <div className="input-grid">
@@ -148,7 +148,7 @@ export const Contact: FC = (): ReactElement => {
                   <div className="radio-container">
                     <div className="label-container">
                       <span>YES</span>
-                      <label>
+                      <label style={{ position: "relative", bottom: "1px" }}>
                         <input
                           type="radio"
                           name="yes"
@@ -160,7 +160,7 @@ export const Contact: FC = (): ReactElement => {
                     </div>
                     <div className="label-container">
                       <span>NO</span>
-                      <label>
+                      <label style={{ position: "relative", bottom: "1px" }}>
                         <input
                           type="radio"
                           name="no"
@@ -176,7 +176,7 @@ export const Contact: FC = (): ReactElement => {
                 {values.coming === "yes" && !alert.includes("Sorry") && (
                   <>
                     <h3>Plus One Information</h3>
-                    <p style={{ textAlign: "left", marginBottom: "25px" }}>
+                    <p style={{ textAlign: "left", marginBottom: "1rem" }}>
                       Provide guest details if bringing one
                     </p>
                     <div className="first-last">
@@ -214,7 +214,7 @@ export const Contact: FC = (): ReactElement => {
                       </div>
                     </div>
                     <h3>Special Requests</h3>
-                    <p style={{ textAlign: "left", marginBottom: "25px" }}>
+                    <p style={{ textAlign: "left", marginBottom: "1rem" }}>
                       Let us know your special requests / concerns
                     </p>
                     <div style={{ marginBottom: "14px" }} className="input-row">
@@ -344,6 +344,9 @@ const StyledContact = styled("div")`
       color: ${({ theme }) => theme.yellow};
       grid-template-columns: 1fr 1fr;
       font-size: 1.4rem;
+      font-weight: 700;
+      /* position: relative; */
+      /* bottom: 10px; */
 
       .radio-container {
         display: flex;
@@ -386,47 +389,64 @@ const StyledContact = styled("div")`
 `;
 
 const ContentWrap = styled("section")`
-  padding-top: 6rem;
+  padding-top: 8rem;
+   padding-bottom: 4rem;
   background-color: ${({ theme }) => theme.black};
   height: 100%;
   width: 100%;
+  overflow-y: auto;
 
-  @media (max-width: 1445px) {
-    margin-bottom: 4rem;
+  @media (max-width: 1845px) {
+    /* margin-bottom: 4rem; */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
+
   form {
     margin-top: 2rem;
   }
+
   @media (max-width: 768px) {
     padding: 6rem 2rem 4rem;
     margin-bottom: 0;
   }
+
   .valid {
     color: green;
     text-align: right;
     font-size: 1.2rem;
     height: 28px;
   }
+
   .invalid {
     color: red;
     text-align: right;
     font-size: 1.2rem;
     height: 28px;
   }
+
   .has-error {
     border: 1px solid red;
   }
+
   h2,
   h3,
   p {
     margin-top: 0;
     color: ${({ theme }) => theme.lightgrey};
+    /* line-height: 1.4; */
   }
 
+  /* h3 {
+    font-size: 2.6rem;
+    color: ${({ theme }) => theme.red};
+  } */
+  
   p {
-    font-weight: 400;
+    font-weight: 700;
     color: ${({ theme }) => theme.yellow};
     font-size: 1.4rem;
+    /* margin-bottom: 0; */
   }
 
   span {

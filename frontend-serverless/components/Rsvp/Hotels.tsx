@@ -39,6 +39,7 @@ const StyledHotels = styled("div")`
   background-color: ${({ theme }) => theme.bg.aqua};
   display: grid;
   grid-template-rows: auto 1fr;
+  /* overflow-y: auto; */
 
   .iframe-cont {
     height: 100%;
@@ -48,15 +49,24 @@ const StyledHotels = styled("div")`
     overflow: initial;
     height: 440px;
     padding: 2rem;
+
+    .iframe-cont {
+      padding: 0;
+    }
   }
 
   h2 {
-    padding: 2rem 4rem 0;
+    padding: 2rem 2rem 0;
     height: 6rem;
+    line-height: 1.2;
 
     @media (max-width: 1445px) {
       padding: 0;
       height: auto;
+    }
+
+    @media (max-width: 580px) {
+      padding-top: 2rem;
     }
   }
 
@@ -64,7 +74,7 @@ const StyledHotels = styled("div")`
     width: 100%;
     height: 100%;
     border: none;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
 
     @media (max-width: 1445px) {
       padding: 0;

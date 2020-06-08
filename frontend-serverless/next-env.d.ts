@@ -14,3 +14,4 @@ declare module "react-date-countdown-timer";
 declare module "react-helmet";
 declare module "next-page-transitions";
 declare module "google-map-react";
+declare module "react-masonry-component";

@@ -40,15 +40,21 @@ const StyledFlights = styled("div")`
   background-color: ${({ theme }) => theme.bg.grey};
   display: grid;
   grid-template-rows: auto 1fr;
+  /* overflow-y: auto; */
 
   .iframe-cont {
     height: 100%;
+    padding: 0rem 2rem 0;
   }
 
   @media (max-width: 1445px) {
     overflow: initial;
     height: 500px;
     padding: 2rem;
+
+    .iframe-cont {
+      padding: 0;
+    }
   }
 
   @media (max-width: 577px) {
@@ -68,13 +74,18 @@ const StyledFlights = styled("div")`
   }
 
   h2 {
-    padding: 2rem 4rem 0;
-    height: 20%;
-    height: 6rem;
+    padding: 2.5rem 2rem 0;
+    line-height: 1.2;
+    /* height: 20%; */
+    /* height: 6rem; */
 
     @media (max-width: 1445px) {
       padding: 0;
       height: auto;
+    }
+
+    @media (max-width: 580px) {
+      padding-top: 2rem;
     }
   }
 
@@ -82,7 +93,7 @@ const StyledFlights = styled("div")`
     width: 100%;
     height: 100%;
     border: none;
-    padding: 2rem 4rem;
+    padding: 0;
     @media (max-width: 1445px) {
       padding: 0;
     }

@@ -26,11 +26,12 @@ export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
         <Link href="/">
           <a className="link">HOME</a>
         </Link>
-        <Link href="/about">
-          <a className="link">ABOUT</a>
-        </Link>
+
         <Link href="/venue">
           <a className="link">VENUE</a>
+        </Link>
+        <Link href="/history">
+          <a className="link">HISTORY</a>
         </Link>
         <Link href="/rsvp">
           <a className="link">RSVP</a>
@@ -61,6 +62,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     letter-spacing: 4px;
     height: 1.5rem;
     padding-left: 4rem;
+    padding-right: 1rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
     background-color: ${({ theme }) => theme.yellow};
@@ -90,7 +92,7 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     height: 2.5rem;
     font-size: 1.5rem;
     width: min-content;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
   }
 
   @media (max-width: 1860px) {

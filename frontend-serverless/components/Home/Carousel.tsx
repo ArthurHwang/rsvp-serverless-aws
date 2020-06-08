@@ -7,7 +7,7 @@ import { Image } from "../Image";
 const settings = {
   dots: true,
   infinite: true,
-  speed: 3000,
+  speed: 1500,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
@@ -54,7 +54,7 @@ const StyledCarousel = styled("div")`
     bottom: 3rem;
 
     & button:before {
-      color: ${({ theme }) => theme.yellow};
+      color: ${({ theme }) => theme.lightgrey};
       opacity: 1;
     }
   }

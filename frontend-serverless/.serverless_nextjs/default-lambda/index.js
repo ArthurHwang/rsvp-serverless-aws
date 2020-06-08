@@ -46,6 +46,7 @@ const next_aws_cloudfront_1 = __importDefault(require("next-aws-cloudfront"));
 const addS3HostHeader = (req, s3DomainName) => {
   req.headers["host"] = [{ key: "host", value: s3DomainName }];
 };
+const isDataRequest = (uri) => uri.startsWith("/_next/data");
 const router = (manifest) => {
   const {
     pages: { ssr, html },
@@ -54,14 +55,20 @@ const router = (manifest) => {
     Object.assign({}, ssr.dynamic),
     html.dynamic
   );
-  return (path) => {
-    if (ssr.nonDynamic[path]) {
-      return ssr.nonDynamic[path];
+  return (uri) => {
+    let normalisedUri = uri;
+    if (isDataRequest(uri)) {
+      normalisedUri = uri
+        .replace(`/_next/data/${manifest.buildId}`, "")
+        .replace(".json", "");
+    }
+    if (ssr.nonDynamic[normalisedUri]) {
+      return ssr.nonDynamic[normalisedUri];
     }
     for (const route in allDynamicRoutes) {
       const { file, regex } = allDynamicRoutes[route];
       const re = new RegExp(regex, "i");
-      const pathMatchesRoute = re.test(path);
+      const pathMatchesRoute = re.test(normalisedUri);
       if (pathMatchesRoute) {
         return file;
       }
@@ -98,10 +105,20 @@ exports.handler = (event) =>
       addS3HostHeader(request, s3Origin.domainName);
       return request;
     }
+    const page = require(`./${pagePath}`);
     const { req, res, responsePromise } = next_aws_cloudfront_1.default(
       event.Records[0].cf
     );
-    const page = require(`./${pagePath}`);
-    page.render(req, res);
+    if (isDataRequest(uri)) {
+      const { renderOpts } = yield page.renderReqToHTML(
+        req,
+        res,
+        "passthrough"
+      );
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify(renderOpts.pageData));
+    } else {
+      page.render(req, res);
+    }
     return responsePromise;
   });

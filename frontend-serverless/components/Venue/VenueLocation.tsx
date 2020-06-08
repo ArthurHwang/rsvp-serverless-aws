@@ -62,12 +62,19 @@ export const VenueLocation: FC = (): ReactElement => {
 export default VenueLocation;
 
 const StyledVenueLocation = styled("div")`
-  height: 100%;
+  height: 100vh;
   background-color: ${({ theme }) => theme.primary};
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1445px) {
+    /* overflow: initial;
+    display: block; */
+    /* height: auto; */
+    height: 100%;
+  }
 
   .map-container {
     pointer-events: none;
