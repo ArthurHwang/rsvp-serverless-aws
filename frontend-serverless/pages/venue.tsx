@@ -7,7 +7,6 @@ import { InferGetServerSidePropsType } from "next";
 const VenuePage: any = ({
   ratingsReviews,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(ratingsReviews);
   return (
     <StyledVenue>
       <VenueLocation ratingsReviews={ratingsReviews} />

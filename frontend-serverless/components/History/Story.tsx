@@ -12,6 +12,7 @@ const settings = {
   autoplay: false,
   autoplaySpeed: 7000,
   pauseOnHover: false,
+  adaptiveHeight: true,
   className: "slick-container",
   lazyLoad: "progressive",
   fade: false,
@@ -41,12 +42,10 @@ export const Story: FC = (): ReactElement => {
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0" }} {...settings}>
-          <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
-          <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
-          <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
-          <Image path="venue/gallery-6-1920x1080.jpg" alt="regents 4" />
-          <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
-          <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
+          <Image path="history/photo-2.jpg" alt="regents 1" />
+          <Image path="history/photo-4-resized.jpg" alt="regents 2" />
+          <Image path="history/photo-6-resized.jpg" alt="regents 2" />
+          <Image path="history/me-carol.jpg" alt="regents 2" />
         </Slider>
       </div>
 
@@ -69,12 +68,7 @@ export const Story: FC = (): ReactElement => {
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 " }} {...settings}>
-          <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
-          <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
-          <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
-          <Image path="venue/gallery-6-1920x1080.jpg" alt="regents 4" />
-          <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
-          <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
+          <Image path="history/photo-7-resized.jpg" alt="regents 1" />
         </Slider>
       </div>
       <div className="anchor-right">
@@ -85,22 +79,18 @@ export const Story: FC = (): ReactElement => {
           put up with me for all this time. You know who you are, you are all
           great people and we appreciate you all.
         </p>
-
-        <div className="gif-container">
-          <Image className="gif" path="giphy.gif" alt="regents 6" />
-        </div>
       </div>
       <div className="mobile-show">
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 4rem" }} {...settings}>
-          <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
-          <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
-          <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
-          <Image path="venue/gallery-6-1920x1080.jpg" alt="regents 4" />
-          <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
-          <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
+          <Image path="history/photo-5-resized.jpg" alt="regents 1" />
+          <Image path="history/us-matt.jpg" alt="regents 1" />
         </Slider>
+      </div>
+
+      <div className="gif-container">
+        <Image className="gif" path="giphy.gif" alt="regents 6" />
       </div>
     </StyledStory>
   );
@@ -134,6 +124,11 @@ const StyledStory = styled("div")`
   .gif {
     width: 275px;
     margin-top: 2rem;
+  }
+
+  .gif-container {
+    text-align: right;
+    padding-right: 2rem;
   }
 
   .slick-dots {
@@ -189,6 +184,16 @@ const StyledStory = styled("div")`
     overflow-x: hidden;
     padding-bottom: 6rem;
 
+    .gif-container {
+      /* text-align: right; */
+      width: 60.5%;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .gif {
+      width: 100%;
+    }
+
     .anchor-right {
       h2 {
         width: 60%;
@@ -209,10 +214,21 @@ const StyledStory = styled("div")`
     }
 
     .gif-container {
-      margin: 1rem -2rem 0 !important;
+      width: 100%;
+      margin-top: -2rem;
+      margin-bottom: 4rem;
+      /* margin: 1rem -2rem 0 !important; */
+      /* margin-left: -20px;
+      margin-right: -20px; */
+
+      img {
+        width: 100%;
+      }
     }
+
     .gif {
       width: 100%;
+      /* margin: 0 -2rem; */
     }
 
     .anchor-right {

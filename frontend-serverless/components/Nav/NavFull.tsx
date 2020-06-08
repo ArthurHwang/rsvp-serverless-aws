@@ -21,7 +21,7 @@ export const NavFull: FC<Props> = ({ scrolled, path }): ReactElement => {
           </a>
         </Link>
       </div>
-      <div className="subtitle">Covid-19 Survivors</div>
+      <div className="subtitle">August 28, 2021</div>
       <div className="subnav">
         <Link href="/">
           <a className="link">HOME</a>
@@ -61,8 +61,8 @@ const StyledNav = styled("nav")<{ path: string; scrolled: boolean }>`
     font-weight: 700;
     letter-spacing: 4px;
     height: 1.5rem;
-    padding-left: 4rem;
-    padding-right: 1rem;
+    padding-left: 6rem;
+    padding-right: 0rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
     background-color: ${({ theme }) => theme.yellow};

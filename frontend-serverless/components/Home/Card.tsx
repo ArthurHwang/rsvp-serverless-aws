@@ -49,9 +49,17 @@ const RSVPButton = styled("button")`
   color: ${({ theme }) => theme.blue};
   transition: transform 0.1s linear;
 
+  @media (max-width: 500px) {
+    margin-top: 0;
+  }
+
   &:hover {
     transform: scale(1.04);
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
   }
 `;
 
@@ -137,6 +145,7 @@ const StyledCard = styled("div")`
     &.friends {
       font-size: 3rem;
       margin-bottom: 2rem;
+      font-style: italic;
     }
   }
 

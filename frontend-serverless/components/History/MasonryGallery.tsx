@@ -21,7 +21,12 @@ const photos = [
   { src: require("images/history/photo-6-resized.jpg"), width: 4, height: 3 },
   { src: require("images/history/photo-7-resized.jpg"), width: 4, height: 3 },
   { src: require("images/history/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/history/photo-1.jpg"), width: 4, height: 3 },
+  {
+    src: require("images/history/photo-1.jpg"),
+    width: 4,
+    height: 3,
+    title: "HIIIIIIII",
+  },
 ];
 
 export const MasonryGallery: FC = (): ReactElement => {
