@@ -9,15 +9,20 @@ const Gallery = dynamic(() => import("react-photo-gallery"), {
 });
 
 const photos = [
-  { src: require("images/about/photo-2.jpg"), width: 4.5, height: 3 },
-  { src: require("images/about/us.jpg"), width: 1, height: 1.7 },
-  { src: require("images/about/photo-3.jpg"), width: 3.3, height: 4.2 },
-  { src: require("images/about/photo-4.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-5.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-6.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-7.jpg"), width: 4, height: 3 },
-  { src: require("images/about/us-matt.jpg"), width: 4, height: 3 },
-  { src: require("images/about/photo-1.jpg"), width: 4, height: 3 },
+  { src: require("images/history/photo-2.jpg"), width: 4.5, height: 3 },
+  { src: require("images/history/me-carol.jpg"), width: 1.1, height: 1.7 },
+  { src: require("images/history/us.jpg"), width: 1, height: 1.7 },
+  {
+    src: require("images/history/photo-3-resized.jpg"),
+    width: 3.3,
+    height: 4.2,
+  },
+  { src: require("images/history/photo-4-resized.jpg"), width: 4, height: 3 },
+  { src: require("images/history/photo-5-resized.jpg"), width: 4, height: 3 },
+  { src: require("images/history/photo-6-resized.jpg"), width: 4, height: 3 },
+  { src: require("images/history/photo-7-resized.jpg"), width: 4, height: 3 },
+  { src: require("images/history/us-matt.jpg"), width: 4, height: 3 },
+  { src: require("images/history/photo-1.jpg"), width: 4, height: 3 },
 ];
 
 export const MasonryGallery: FC = (): ReactElement => {
