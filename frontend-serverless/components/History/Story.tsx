@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FC, ReactElement } from "react";
 import { Image } from "../Image";
 import Slider from "react-slick";
+
 const settings = {
   dots: true,
   infinite: true,
@@ -25,15 +26,15 @@ export const Story: FC = (): ReactElement => {
           We met in college. During one of our first meetings, I was trying to
           be a tough guy, so I bet her that she couldn't do a quadruple shot of
           Jack Daniels. The night ended with me begging for dear life against a
-          window blind. Her night ended with her being coherent and finishing
-          her calculus homework. It all started from there.
+          dusty curtain. Her night ended with her being coherent and finishing
+          calculus homework. It all started from here.
         </p>
 
         <p>
           As we got to know each other, our spark grew into a flame. I asked her
           out in front of a karaoke bar after screaming my way through "The
-          Power of Love" by Celine Dion all night. Here we are ten years later
-          ride or die for each other. Thank you Celine.
+          Power of Love" by Celine Dion - maybe she got the hint. Here we are
+          ten years later ride or die for each other. Thanks Celine!
         </p>
       </div>
       <div className="mobile-show">
@@ -50,20 +51,18 @@ export const Story: FC = (): ReactElement => {
       </div>
 
       <div className="anchor-right">
-        <h2>Our Friends</h2>
+        <h2>Our Families</h2>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-          veniam consectetur nobis, iusto nemo blanditiis ipsa dicta ducimus
-          possimus. Quod laboriosam alias ut repellat dolorum nulla, qui
-          quibusdam esse ad corrupti voluptas blanditiis eaque dolor voluptates
-          porro quia, maxime vero cupiditate. Vero ratione placeat odit, maiores
-          quasi, soluta nam facere id dolore, impedit sit rerum tenetur aut eius
-          voluptate magni quia deserunt commodi quas debitis reprehenderit. Ab
-          et sequi asperiores dolore quam eaque, totam itaque eos porro ducimus
-          aut, nam doloremque eveniet incidunt ad, cupiditate tenetur ex soluta?
-          Reprehenderit eius reiciendis doloribus sunt facere at perspiciatis
-          debitis odit voluptatum deserunt.
+          I would like to say a special thank you to the sisters Catherine and
+          Connie. Without their emotional and psychological support over the
+          years, we might have crashed and burned many years ago.
         </p>
+        <p>
+          To the rest of our families - thank you all for supporting us and
+          being great people. We love you all and hope to see everyone in
+          Taiwan!
+        </p>
+        {/* <Image style={{ width: '200px' }} path="giphy-2.gif" alt="regents 6" /> */}
       </div>
 
       <div className="mobile-show">
@@ -79,20 +78,17 @@ export const Story: FC = (): ReactElement => {
         </Slider>
       </div>
       <div className="anchor-right">
-        <h2>Our Families</h2>
+        <h2>Our Friends</h2>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-          veniam consectetur nobis, iusto nemo blanditiis ipsa dicta ducimus
-          possimus. Quod laboriosam alias ut repellat dolorum nulla, qui
-          quibusdam esse ad corrupti voluptas blanditiis eaque dolor voluptates
-          porro quia, maxime vero cupiditate. Vero ratione placeat odit, maiores
-          quasi, soluta nam facere id dolore, impedit sit rerum tenetur aut eius
-          voluptate magni quia deserunt commodi quas debitis reprehenderit. Ab
-          et sequi asperiores dolore quam eaque, totam itaque eos porro ducimus
-          aut, nam doloremque eveniet incidunt ad, cupiditate tenetur ex soluta?
-          Reprehenderit eius reiciendis doloribus sunt facere at perspiciatis
-          debitis odit voluptatum deserunt.
+          Carol and I don't get out much but when we see our friends, it usually
+          revolves around the same group of people that have been kind enough to
+          put up with me for all this time. You know who you are, you are all
+          great people and we appreciate you all.
         </p>
+
+        <div className="gif-container">
+          <Image className="gif" path="giphy.gif" alt="regents 6" />
+        </div>
       </div>
       <div className="mobile-show">
         {/* 
@@ -112,8 +108,8 @@ export const Story: FC = (): ReactElement => {
 
 const StyledStory = styled("div")`
   background-color: ${({ theme }) => theme.black};
-  padding-top: 12rem;
-  /* overflow-y: scroll; */
+  padding-top: 8rem;
+  overflow-y: auto;
 
   img {
     width: 100%;
@@ -135,8 +131,13 @@ const StyledStory = styled("div")`
     font-weight: 700;
   }
 
+  .gif {
+    width: 275px;
+    margin-top: 2rem;
+  }
+
   .slick-dots {
-    bottom: 1rem;
+    bottom: 1.5rem;
 
     & button:before {
       color: ${({ theme }) => theme.lightgrey};
@@ -201,9 +202,21 @@ const StyledStory = styled("div")`
   }
 
   @media (max-width: 530px) {
-    padding: 8rem 2rem 0;
+    padding: 6rem 2rem 2rem;
+
+    .slick-container {
+      margin: 2rem -2rem !important;
+    }
+
+    .gif-container {
+      margin: 1rem -2rem 0 !important;
+    }
+    .gif {
+      width: 100%;
+    }
 
     .anchor-right {
+      padding: 0;
       h2,
       p {
         width: 100%;

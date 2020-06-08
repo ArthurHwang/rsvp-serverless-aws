@@ -64,7 +64,7 @@ export const MasonryGallery: FC = (): ReactElement => {
 const StyledMasonryGallery = styled("div")`
   background-color: black;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   /* overflow: scroll; */
 
   @media (max-width: 1445px) {

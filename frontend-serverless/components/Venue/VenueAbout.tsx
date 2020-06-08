@@ -36,10 +36,12 @@ export const VenueAbout: FC = (): ReactElement => {
         .
       </p>
 
-      <Image
-        path="venue/c5a3d0f2-f0ea-40e3-9686-d0bd111e6189.jpg"
-        alt="regents 1"
-      />
+      <div className="image-full">
+        <Image
+          path="venue/c5a3d0f2-f0ea-40e3-9686-d0bd111e6189.jpg"
+          alt="regents 1"
+        />
+      </div>
 
       <p>
         <span>** </span>Please{" "}
@@ -142,7 +144,7 @@ const StyledVenueAbout = styled("div")`
   }
 
   .slick-dots {
-    bottom: 1rem;
+    bottom: 1.5rem;
 
     & button:before {
       color: ${({ theme }) => theme.lightgrey};
@@ -163,6 +165,16 @@ const StyledVenueAbout = styled("div")`
 
   @media (max-width: 800px) {
     padding: 4rem 2rem;
+  }
+
+  @media (max-width: 500px) {
+    .slick-container {
+      margin: 2rem -2rem !important;
+    }
+
+    .image-full {
+      margin: 1rem -2rem 0;
+    }
   }
 
   .slick-slider {
