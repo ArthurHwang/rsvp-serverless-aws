@@ -28,6 +28,7 @@ class MyApp extends App<AppProps> {
         />
         <PageTransition
           timeout={300}
+          key={router.route}
           classNames="page-transition"
           loadingClassNames="loading-indicator"
         >
