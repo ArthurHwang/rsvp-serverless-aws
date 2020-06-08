@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FC, ReactElement, useState, useCallback } from "react";
-// import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import dynamic from "next/dynamic";
 

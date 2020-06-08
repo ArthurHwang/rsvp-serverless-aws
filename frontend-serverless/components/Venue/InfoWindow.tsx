@@ -35,6 +35,8 @@ export const InfoWindow: FC<Props> = ({ ratingsReviews }): ReactElement => {
         <div className="rating">
           <span className="gold">{ratingsReviews.rating}</span>
           <div className="stars">
+            {/* 
+            //@ts-ignore */}
             {[1, 2, 3, 4, 5].map((el, idx) => (
               <FaStar className="review-star" key={idx} />
             ))}
