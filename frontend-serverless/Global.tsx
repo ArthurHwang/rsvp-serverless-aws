@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    font-family:  "Berthold","-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", "Segoe UI", "lato", "Arial", "Open Sans", "sans-serif";
+    font-family:  "Berthold", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Roboto", "Segoe UI", "lato", "Arial", "Open Sans", "sans-serif";
     font-weight: 400;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
@@ -76,9 +76,11 @@ export const GlobalStyle = createGlobalStyle`
   *::-webkit-scrollbar {
     width: 5px;
   }
+
   *::-webkit-scrollbar-track {
     background: hidden;
   }
+
   *::-webkit-scrollbar-thumb {
     background-color: hidden;
     border-radius: 20px;
@@ -108,6 +110,14 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 2rem;
   }
 
+  p {
+    font-weight: 700;
+  }
+
+  li {
+    color: ${theme.grey};
+  }
+
   @media(max-width:490px) {
     h2 {
       font-size: 3rem; 
@@ -123,13 +133,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  p {
-    font-weight: 700;
-  }
 
-  li {
-    color: ${theme.grey};
-  }
 
   strong {
     font-weight: 800;

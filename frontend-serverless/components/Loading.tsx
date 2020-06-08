@@ -42,7 +42,7 @@ const StyledLoading = styled("div")`
 
 
   & > div {
-  background-color: red;
+  background-color: ${({ theme }) => theme.red};
   height: 100%;
   width: 6px;
   display: inline-block;

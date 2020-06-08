@@ -7,7 +7,7 @@ export const NavMobileHeader: FC = (): ReactElement => {
       <div className="title">
         <p>CAROL & ARTHUR</p>
       </div>
-      <div className="subtitle">Covid-19 Survivors</div>
+      <div className="subtitle">August 28, 2021</div>
     </StyledNav>
   );
 };

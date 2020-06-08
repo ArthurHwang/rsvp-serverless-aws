@@ -14,9 +14,9 @@ export const InfoWindow: FC<Props> = ({ ratingsReviews }): ReactElement => {
     const payload = [];
     for (let i = 0; i < ratingsReviews.rating; i++) {
       if (i > 3) {
-        payload.push(<FaStarHalf className="gold" />);
+        payload.push(<FaStarHalf key={i} className="gold" />);
       } else {
-        payload.push(<FaStar className="gold" />);
+        payload.push(<FaStar key={i} className="gold" />);
       }
     }
     return payload;
