@@ -40,6 +40,7 @@ const StyledFooter = styled("footer")`
     text-align: center;
     margin-left: -35px;
     font-size: 1rem;
+    z-index: 9999;
     font-weight: 700;
   }
 `;

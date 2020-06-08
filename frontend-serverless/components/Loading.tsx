@@ -7,7 +7,7 @@ type Props = {
 export const Loading: FC<Props> = ({ className }): ReactElement => {
   return (
     <StyledLoading className={className}>
-      <div className="sk-circle1 sk-child"></div>
+      {/* <div className="sk-circle1 sk-child"></div>
       <div className="sk-circle2 sk-child"></div>
       <div className="sk-circle3 sk-child"></div>
       <div className="sk-circle4 sk-child"></div>
@@ -18,13 +18,75 @@ export const Loading: FC<Props> = ({ className }): ReactElement => {
       <div className="sk-circle9 sk-child"></div>
       <div className="sk-circle10 sk-child"></div>
       <div className="sk-circle11 sk-child"></div>
-      <div className="sk-circle12 sk-child"></div>
+      <div className="sk-circle12 sk-child"></div> */}
+
+      <div className="rect1"></div>
+      <div className="rect2"></div>
+      <div className="rect3"></div>
+      <div className="rect4"></div>
+      <div className="rect5"></div>
     </StyledLoading>
   );
 };
 
 const StyledLoading = styled("div")`
   margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+
+    &.in-place {
+    margin: 0 auto;
+  }
+
+
+  & > div {
+  background-color: red;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  margin: 0 0.2rem;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+& .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+& .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+& .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+& .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+  /* margin: 100px auto;
   width: 40px;
   height: 40px;
   position: relative;
@@ -41,7 +103,7 @@ const StyledLoading = styled("div")`
     top: 0;
   }
   & .sk-child:before {
-    content: "";
+    content: '';
     display: block;
     margin: 0 auto;
     width: 15%;
@@ -175,5 +237,5 @@ const StyledLoading = styled("div")`
       -webkit-transform: scale(1);
       transform: scale(1);
     }
-  }
+  } */
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactElement, FC } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 type Props = {
   ratingsReviews: {
@@ -10,9 +10,18 @@ type Props = {
 };
 // @ts-ignore
 export const InfoWindow: FC<Props> = ({ ratingsReviews }): ReactElement => {
-  console.log(ratingsReviews);
+  function generateRating() {
+    const payload = [];
+    for (let i = 0; i < ratingsReviews.rating; i++) {
+      if (i > 3) {
+        payload.push(<FaStarHalf className="gold" />);
+      } else {
+        payload.push(<FaStar className="gold" />);
+      }
+    }
+    return payload;
+  }
 
-  console.log(Math.floor(ratingsReviews.rating));
   return (
     <StyledInfoWindow>
       <p className="location">台北晶華酒店 Regent Taipei</p>
@@ -24,11 +33,12 @@ export const InfoWindow: FC<Props> = ({ ratingsReviews }): ReactElement => {
 
       <div className="ratings-reviews">
         <div className="rating">
-          {ratingsReviews.rating}
+          <span className="gold">{ratingsReviews.rating}</span>
           <div className="stars">
             {[1, 2, 3, 4, 5].map((el, idx) => (
-              <FaStar key={idx} />
+              <FaStar className="review-star" key={idx} />
             ))}
+            <div className="stars-realized">{generateRating()}</div>
           </div>
         </div>
 
@@ -51,7 +61,6 @@ const StyledInfoWindow = styled("div")`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
   border-radius: 2px;
-  /* z-index: 5000; */
   line-height: 1.2;
 
   .ratings-reviews {
@@ -62,10 +71,27 @@ const StyledInfoWindow = styled("div")`
 
     .rating {
       display: inherit;
+      /* position: relative; */
     }
 
     .stars {
       margin-left: 0.4rem;
+      position: relative;
+
+      .review-star {
+        border: none;
+        color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .stars-realized {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .gold {
+      color: #ff8100;
     }
   }
 
