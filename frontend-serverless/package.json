@@ -12,10 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@react-google-maps/api": "^1.9.5",
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
-    "framer-motion": "^1.11.0",
     "google-map-react": "^1.1.7",
     "husky": "^4.2.5",
     "next": "^9.4.4",
@@ -34,11 +32,9 @@
     "react-ionicons": "^3.1.4",
     "react-photo-gallery": "^8.0.0",
     "react-slick": "^0.26.1",
-    "responsive-loader": "^1.2.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "url-loader": "^4.1.0",
-    "webp-loader": "^0.6.0",
     "yup": "^0.29.1"
   },
   "husky": {
