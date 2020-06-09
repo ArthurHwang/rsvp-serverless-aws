@@ -36,8 +36,15 @@ const StyledLoading = styled("div")`
   text-align: center;
   font-size: 10px;
 
-    &.in-place {
+  
+
+  &.in-place {
     margin: 0 auto;
+  }
+
+  &.small {
+    height: 40px;
+    margin-bottom: 0.5rem;
   }
 
 
