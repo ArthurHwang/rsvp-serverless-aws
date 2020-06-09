@@ -1,5 +1,5 @@
 {
-  "buildId": "dcBGD6flcmGgthYmENyxN",
+  "buildId": "qhHVEq0zFCM7mtVbl2r1Z",
   "pages": {
     "ssr": {
       "dynamic": {},
@@ -24,6 +24,7 @@
   },
   "publicFiles": {
     "/favicon.png": "favicon.png",
+    "/fonts/Abril_Display_Regular.otf": "fonts/Abril_Display_Regular.otf",
     "/fonts/Berthold-light-extended.otf": "fonts/Berthold-light-extended.otf",
     "/robots.txt": "robots.txt",
     "/sitemap.xml": "sitemap.xml"

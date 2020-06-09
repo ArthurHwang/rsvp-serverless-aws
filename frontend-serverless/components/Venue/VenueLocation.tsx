@@ -18,14 +18,7 @@ const options = {
   gestureHandling: "none",
 };
 
-type Props = {
-  ratingsReviews: {
-    rating: number;
-    totalReviews: number;
-  };
-};
-
-export const VenueLocation: FC<Props> = ({ ratingsReviews }): ReactElement => {
+export const VenueLocation: FC = (): ReactElement => {
   const [markerClick, setMarkerClick] = useState(6);
 
   const handleMarkerClick = () => {
@@ -38,7 +31,7 @@ export const VenueLocation: FC<Props> = ({ ratingsReviews }): ReactElement => {
 
   return (
     <StyledVenueLocation>
-      <InfoWindow ratingsReviews={ratingsReviews} />
+      <InfoWindow />
 
       <div className="map-container">
         <GoogleMapReact
@@ -70,7 +63,7 @@ export default VenueLocation;
 
 const StyledVenueLocation = styled("div")`
   height: 100vh;
-  background-color: ${({ theme }) => theme.primary};
+  /* background-color: ${({ theme }) => theme.black}; */
   display: flex;
   position: relative;
   justify-content: center;

@@ -9,14 +9,13 @@
     "build": "next build",
     "start": "next start"
   },
-  "author": "",
+  "author": "Arthur Hwang",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
     "husky": "^4.2.5",
-    "imagemin-mozjpeg": "^9.0.0",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.1.0",
@@ -35,6 +34,7 @@
     "react-slick": "^0.26.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
+    "swr": "^0.2.2",
     "url-loader": "^4.1.0",
     "yup": "^0.29.1"
   },

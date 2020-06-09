@@ -12,7 +12,7 @@ export const Flights: FC = (): ReactElement => {
   useEffect(() => {
     const frameTimer = setTimeout(() => {
       hideSpinner();
-    }, 2000);
+    }, 2500);
 
     return () => clearTimeout(frameTimer);
   }, []);
@@ -27,7 +27,7 @@ export const Flights: FC = (): ReactElement => {
         ) : (
           <iframe
             frameBorder="0"
-            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&buttonColour=lunar&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&buttonColour=malt&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'&fontColour=%23aaa"
           ></iframe>
         )}
       </div>
@@ -37,10 +37,10 @@ export const Flights: FC = (): ReactElement => {
 
 const StyledFlights = styled("div")`
   height: 100%;
-  background-color: ${({ theme }) => theme.bg.grey};
+  background-color: #444;
+
   display: grid;
   grid-template-rows: auto 1fr;
-  /* overflow-y: auto; */
 
   .iframe-cont {
     height: 100%;
@@ -74,10 +74,9 @@ const StyledFlights = styled("div")`
   }
 
   h2 {
-    padding: 2.5rem 2rem 0;
+    padding: 2rem 2rem 0.5rem;
     line-height: 1.2;
-    /* height: 20%; */
-    /* height: 6rem; */
+    color: ${({ theme }) => theme.black};
 
     @media (max-width: 1445px) {
       padding: 0;

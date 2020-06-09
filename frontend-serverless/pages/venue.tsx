@@ -1,32 +1,22 @@
 import styled from "styled-components";
-
+import Head from "next/head";
 import { VenueLocation } from "../components/Venue/VenueLocation";
 import { VenueAbout } from "../components/Venue/VenueAbout";
-import { InferGetServerSidePropsType } from "next";
+import { NextPage } from "next";
 
-const VenuePage: any = ({
-  ratingsReviews,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const VenuePage: NextPage = () => {
   return (
     <StyledVenue>
-      <VenueLocation ratingsReviews={ratingsReviews} />
+      <Head>
+        <title>Arthur and Carol - Venue</title>
+        <meta name="description" content="Carol and Arthur - Venue" />
+        <link rel="canonical" href="https://carolandarthur.com/venue" />
+      </Head>
+      <VenueLocation />
       <VenueAbout />
     </StyledVenue>
   );
 };
-
-export async function getServerSideProps() {
-  const res = await fetch(
-    `https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ5ymH9mipQjQRqo6WdCNtP24&key=${process.env.GOOGLE_MAPS_API_KEY}`
-  );
-  const data = await res.json();
-  const ratingsReviews = {
-    rating: data.result.rating,
-    totalReviews: data.result.user_ratings_total,
-  };
-
-  return { props: { ratingsReviews } };
-}
 
 export default VenuePage;
 

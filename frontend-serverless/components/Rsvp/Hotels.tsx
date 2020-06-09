@@ -26,7 +26,7 @@ export const Hotels: FC = (): ReactElement => {
         ) : (
           <iframe
             frameBorder="0"
-            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&buttonColour=lunar&poweredBySize=0"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=HotelSearchWidget&locale=en-US&market=US&currency=USD&destinationName='Taipei'&buttonColour=dawn&poweredBySize=0&fontColour=%23aaa"
           ></iframe>
         )}
       </div>
@@ -36,7 +36,10 @@ export const Hotels: FC = (): ReactElement => {
 
 const StyledHotels = styled("div")`
   height: 100%;
-  background-color: ${({ theme }) => theme.bg.aqua};
+  /* background-color: ${({ theme }) => theme.bg.aqua}; */
+  /* background-color: ${({ theme }) => theme.bg.aqua}; */
+  background-color: #323E48;
+  
   display: grid;
   grid-template-rows: auto 1fr;
   /* overflow-y: auto; */
@@ -59,6 +62,7 @@ const StyledHotels = styled("div")`
     padding: 2rem 2rem 0;
     height: 6rem;
     line-height: 1.2;
+    color: ${({ theme }) => theme.black};
 
     @media (max-width: 1445px) {
       padding: 0;

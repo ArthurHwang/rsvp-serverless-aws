@@ -11,6 +11,7 @@ module.exports = withPlugins(
       optimizedImages,
       {
         optimizeImagesInDev: true,
+        optimizeImages: false,
       },
     ],
     [withFonts],

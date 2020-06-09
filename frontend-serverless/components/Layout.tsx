@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Meta } from "./Meta";
 import { Nav } from "./Nav/Nav";
-
 import { ReactElement } from "react";
 
 type Props = {

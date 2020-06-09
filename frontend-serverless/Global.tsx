@@ -32,6 +32,12 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     src: url('/fonts/Berthold-light-extended.otf') format('truetype');
   }
+  /* @font-face {
+    font-family: 'Abril-Display';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/fonts/Abril_Display_Regular.otf') format('truetype');
+  } */
 
   *,
   *:before,
@@ -148,7 +154,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${theme.blue};
+    color: ${theme.accent};
     font-weight: 600;
     transition: all 0.3s;
 
