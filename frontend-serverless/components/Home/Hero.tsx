@@ -20,9 +20,9 @@ const settings = {
   fade: true,
 };
 
-export const Carousel: FC = (): ReactElement => {
+export const Hero: FC = (): ReactElement => {
   return (
-    <StyledCarousel>
+    <StyledHero>
       {/* 
       //@ts-ignore */}
       <Slider {...settings}>
@@ -37,11 +37,11 @@ export const Carousel: FC = (): ReactElement => {
         <Image path="home/IMG_5123_vignette.jpg" alt="Carol and Arthur ring" />
       </Slider>
       <Indicator />
-    </StyledCarousel>
+    </StyledHero>
   );
 };
 
-const StyledCarousel = styled("div")`
+const StyledHero = styled("div")`
   height: 100%;
 
   img {

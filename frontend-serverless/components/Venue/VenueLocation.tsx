@@ -63,7 +63,7 @@ export default VenueLocation;
 
 const StyledVenueLocation = styled("div")`
   height: 100vh;
-  background-color: ${({ theme }) => theme.primary};
+  /* background-color: ${({ theme }) => theme.black}; */
   display: flex;
   position: relative;
   justify-content: center;

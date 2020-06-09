@@ -6,9 +6,6 @@ import { Footer } from "../components/Footer";
 import { GlobalStyle, theme } from "../Global";
 import { ThemeProvider } from "styled-components";
 import { PageTransition } from "next-page-transitions";
-// import { Loading } from '../components/Loading';
-
-// import useSWR from 'swr';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

@@ -7,19 +7,6 @@ type Props = {
 export const Loading: FC<Props> = ({ className }): ReactElement => {
   return (
     <StyledLoading className={className}>
-      {/* <div className="sk-circle1 sk-child"></div>
-      <div className="sk-circle2 sk-child"></div>
-      <div className="sk-circle3 sk-child"></div>
-      <div className="sk-circle4 sk-child"></div>
-      <div className="sk-circle5 sk-child"></div>
-      <div className="sk-circle6 sk-child"></div>
-      <div className="sk-circle7 sk-child"></div>
-      <div className="sk-circle8 sk-child"></div>
-      <div className="sk-circle9 sk-child"></div>
-      <div className="sk-circle10 sk-child"></div>
-      <div className="sk-circle11 sk-child"></div>
-      <div className="sk-circle12 sk-child"></div> */}
-
       <div className="rect1"></div>
       <div className="rect2"></div>
       <div className="rect3"></div>
@@ -36,8 +23,6 @@ const StyledLoading = styled("div")`
   text-align: center;
   font-size: 10px;
 
-  
-
   &.in-place {
     margin: 0 auto;
   }
@@ -47,202 +32,58 @@ const StyledLoading = styled("div")`
     margin-bottom: 0.5rem;
   }
 
-
   & > div {
-  background-color: ${({ theme }) => theme.red};
-  height: 100%;
-  width: 6px;
-  display: inline-block;
-  margin: 0 0.2rem;
-  
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
-}
-
-& .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
-
-& .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-& .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-& .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
-
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-  20% { -webkit-transform: scaleY(1.0) }
-}
-
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% { 
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% { 
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
-  }
-}
-  /* margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-
-  &.in-place {
-    margin: 0 auto;
-  }
-
-  & .sk-child {
-    width: 100%;
+    background-color: ${({ theme }) => theme.red};
     height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+    width: 6px;
+    display: inline-block;
+    margin: 0 0.2rem;
+
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
   }
-  & .sk-child:before {
-    content: '';
-    display: block;
-    margin: 0 auto;
-    width: 15%;
-    height: 15%;
-    background-color: ${({ theme }) => theme.yellow};
-    border-radius: 100%;
-    -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
-    animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
-  }
-  & .sk-circle2 {
-    -webkit-transform: rotate(30deg);
-    -ms-transform: rotate(30deg);
-    transform: rotate(30deg);
-  }
-  & .sk-circle3 {
-    -webkit-transform: rotate(60deg);
-    -ms-transform: rotate(60deg);
-    transform: rotate(60deg);
-  }
-  & .sk-circle4 {
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-  & .sk-circle5 {
-    -webkit-transform: rotate(120deg);
-    -ms-transform: rotate(120deg);
-    transform: rotate(120deg);
-  }
-  & .sk-circle6 {
-    -webkit-transform: rotate(150deg);
-    -ms-transform: rotate(150deg);
-    transform: rotate(150deg);
-  }
-  & .sk-circle7 {
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  & .sk-circle8 {
-    -webkit-transform: rotate(210deg);
-    -ms-transform: rotate(210deg);
-    transform: rotate(210deg);
-  }
-  & .sk-circle9 {
-    -webkit-transform: rotate(240deg);
-    -ms-transform: rotate(240deg);
-    transform: rotate(240deg);
-  }
-  & .sk-circle10 {
-    -webkit-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-  }
-  & .sk-circle11 {
-    -webkit-transform: rotate(300deg);
-    -ms-transform: rotate(300deg);
-    transform: rotate(300deg);
-  }
-  & .sk-circle12 {
-    -webkit-transform: rotate(330deg);
-    -ms-transform: rotate(330deg);
-    transform: rotate(330deg);
-  }
-  & .sk-circle2:before {
+
+  & .rect2 {
     -webkit-animation-delay: -1.1s;
     animation-delay: -1.1s;
   }
-  & .sk-circle3:before {
+
+  & .rect3 {
     -webkit-animation-delay: -1s;
     animation-delay: -1s;
   }
-  & .sk-circle4:before {
+
+  & .rect4 {
     -webkit-animation-delay: -0.9s;
     animation-delay: -0.9s;
   }
-  & .sk-circle5:before {
+
+  & .rect5 {
     -webkit-animation-delay: -0.8s;
     animation-delay: -0.8s;
   }
-  & .sk-circle6:before {
-    -webkit-animation-delay: -0.7s;
-    animation-delay: -0.7s;
-  }
-  & .sk-circle7:before {
-    -webkit-animation-delay: -0.6s;
-    animation-delay: -0.6s;
-  }
-  & .sk-circle8:before {
-    -webkit-animation-delay: -0.5s;
-    animation-delay: -0.5s;
-  }
-  & .sk-circle9:before {
-    -webkit-animation-delay: -0.4s;
-    animation-delay: -0.4s;
-  }
-  & .sk-circle10:before {
-    -webkit-animation-delay: -0.3s;
-    animation-delay: -0.3s;
-  }
-  & .sk-circle11:before {
-    -webkit-animation-delay: -0.2s;
-    animation-delay: -0.2s;
-  }
-  & .sk-circle12:before {
-    -webkit-animation-delay: -0.1s;
-    animation-delay: -0.1s;
-  }
 
-  @-webkit-keyframes sk-circleBounceDelay {
+  @-webkit-keyframes sk-stretchdelay {
     0%,
-    80%,
+    40%,
     100% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
+      -webkit-transform: scaleY(0.4);
     }
-    40% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
+    20% {
+      -webkit-transform: scaleY(1);
     }
   }
 
-  @keyframes sk-circleBounceDelay {
+  @keyframes sk-stretchdelay {
     0%,
-    80%,
+    40%,
     100% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
     }
-    40% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
+    20% {
+      transform: scaleY(1);
+      -webkit-transform: scaleY(1);
     }
-  } */
+  }
 `;

@@ -11,12 +11,10 @@ const FourOhFourPage: NextPage<any> = () => {
         <title>404 Error</title>
         <meta name="description" content="error page, oh noes" />
       </Head>
-
       <ContentWrap>
         <div className="container">
           <div className="text">
             <h1> ERROR 404 </h1>
-
             <h2>
               Go{" "}
               <Link href="/">

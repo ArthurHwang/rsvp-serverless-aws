@@ -4,6 +4,7 @@ import { RiMenu3Line } from "react-icons/ri";
 import Link from "next/link";
 import { NavMobileHeader } from "./NavMobileHeader";
 import { useRouter } from "next/router";
+
 type Props = {
   path: string;
   scrolled: boolean;

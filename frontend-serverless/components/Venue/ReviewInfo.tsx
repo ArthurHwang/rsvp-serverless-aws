@@ -30,7 +30,7 @@ export const ReviewInfo: FC = (): ReactElement => {
   });
 
   if (error) {
-    return <span>Error...</span>;
+    return <div>Error... unable to fetch data</div>;
   }
 
   if (!data) {
@@ -93,6 +93,6 @@ const StyledReviewInfo = styled("div")`
 
   .gold {
     color: #ff8100;
-    color: ${({ theme }) => theme.red};
+    /* color: ${({ theme }) => theme.red}; */
   }
 `;

@@ -51,7 +51,6 @@ export const Contact: FC = (): ReactElement => {
 
             if (response.status === 200) {
               setStatus(json);
-
               if (values.coming === "yes") {
                 setAlert("Submission Successful, see you in Taiwan!");
               } else {
@@ -291,15 +290,19 @@ const StyledContact = styled("div")`
       padding-left: 2rem;
       font-family: "Berthold";
       border: 1px solid grey;
+
       ::-webkit-input-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       ::-moz-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       :-ms-input-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       :-moz-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
@@ -311,18 +314,23 @@ const StyledContact = styled("div")`
       padding: 1.5rem;
       font-weight: 400;
       font-family: "Berthold";
+
       ::-webkit-input-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       ::-moz-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       :-ms-input-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       :-moz-placeholder {
         color: rgba(0, 0, 0, 0.4);
       }
+
       @media (max-width: 650px) {
         position: relative;
         bottom: 8px;
@@ -345,8 +353,6 @@ const StyledContact = styled("div")`
       grid-template-columns: 1fr 1fr;
       font-size: 1.4rem;
       font-weight: 700;
-      /* position: relative; */
-      /* bottom: 10px; */
 
       .radio-container {
         display: flex;
@@ -377,12 +383,14 @@ const StyledContact = styled("div")`
         }
       }
     }
+
     @media (max-width: 650px) {
       grid-template-columns: 1fr;
       grid-gap: 0;
       grid-template-rows: auto auto;
     }
   }
+
   .submit {
     text-align: center;
   }
@@ -390,14 +398,13 @@ const StyledContact = styled("div")`
 
 const ContentWrap = styled("section")`
   padding-top: 8rem;
-   padding-bottom: 4rem;
+  padding-bottom: 4rem;
   background-color: ${({ theme }) => theme.black};
   height: 100%;
   width: 100%;
   overflow-y: auto;
 
   @media (max-width: 1845px) {
-    /* margin-bottom: 4rem; */
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
@@ -434,19 +441,12 @@ const ContentWrap = styled("section")`
   p {
     margin-top: 0;
     color: ${({ theme }) => theme.lightgrey};
-    /* line-height: 1.4; */
   }
 
-  /* h3 {
-    font-size: 2.6rem;
-    color: ${({ theme }) => theme.red};
-  } */
-  
   p {
     font-weight: 700;
     color: ${({ theme }) => theme.yellow};
     font-size: 1.4rem;
-    /* margin-bottom: 0; */
   }
 
   span {
@@ -469,15 +469,19 @@ const Button = styled("button")`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+
   svg {
     margin-left: 1rem;
   }
+
   &:disabled {
     opacity: 0.6;
   }
+
   &:hover {
     transform: scale(1.05);
   }
+
   @media (max-width: 490px) {
     width: 196px;
   }

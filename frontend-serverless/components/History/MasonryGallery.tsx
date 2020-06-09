@@ -1,40 +1,18 @@
 import styled from "styled-components";
 import { FC, ReactElement, useState, useCallback } from "react";
-import Carousel, { Modal, ModalGateway } from "react-images";
 import dynamic from "next/dynamic";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import { photos } from "./Photos";
 
 const Gallery = dynamic(() => import("react-photo-gallery"), {
   ssr: false,
 });
 
-const photos = [
-  { src: require("images/history/photo-2.jpg"), width: 4.5, height: 3 },
-  { src: require("images/history/me-carol.jpg"), width: 1.1, height: 1.7 },
-  { src: require("images/history/us.jpg"), width: 1, height: 1.7 },
-  {
-    src: require("images/history/photo-3-resized.jpg"),
-    width: 3.3,
-    height: 4.2,
-  },
-  { src: require("images/history/photo-4-resized.jpg"), width: 4, height: 3 },
-  { src: require("images/history/photo-5-resized.jpg"), width: 4, height: 3 },
-  { src: require("images/history/photo-6-resized.jpg"), width: 4, height: 3 },
-  { src: require("images/history/photo-7-resized.jpg"), width: 4, height: 3 },
-  { src: require("images/history/us-matt.jpg"), width: 4, height: 3 },
-  {
-    src: require("images/history/photo-1.jpg"),
-    width: 4,
-    height: 3,
-    title: "HIIIIIIII",
-  },
-];
-
 export const MasonryGallery: FC = (): ReactElement => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  // @ts-ignore
-  const openLightbox = useCallback((event, { photo, index }) => {
+  const openLightbox = useCallback((_event, { index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
@@ -74,19 +52,11 @@ const StyledMasonryGallery = styled("div")`
   background-color: black;
   overflow-x: hidden;
   overflow-y: auto;
-  /* overflow: scroll; */
-
-  @media (max-width: 1445px) {
-    overflow: initial;
-    overflow-x: hidden;
-    /* display: block; */
-  }
 
   img {
-    transition: all 0.3s ease-in-out;
-    /* width: 100px; */
+    transition: all 0.2s ease-in-out;
     &:hover {
-      transform: scale(1.03);
+      transform: translateY(-4px);
       z-index: 9999;
     }
   }
@@ -115,5 +85,10 @@ const StyledMasonryGallery = styled("div")`
 
   @media (max-width: 530px) {
     display: none;
+  }
+
+  @media (max-width: 1445px) {
+    overflow: initial;
+    overflow-x: hidden;
   }
 `;

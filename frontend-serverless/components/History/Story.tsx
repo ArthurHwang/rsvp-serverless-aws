@@ -24,11 +24,11 @@ export const Story: FC = (): ReactElement => {
       <div className="anchor-right">
         <h2>Our Story</h2>
         <p>
-          We met in college. During one of our first meetings, I was trying to
+          We met in college. During one of our first encounters, I was trying to
           be a tough guy, so I bet her that she couldn't do a quadruple shot of
           Jack Daniels. The night ended with me begging for dear life against a
-          dusty curtain. Her night ended with her being coherent and finishing
-          calculus homework. It all started from here.
+          dusty curtain. Her night ended with finishing calculus homework and
+          balancing her checkbook. It all started from here.
         </p>
 
         <p>
@@ -46,6 +46,8 @@ export const Story: FC = (): ReactElement => {
           <Image path="history/photo-4-resized.jpg" alt="regents 2" />
           <Image path="history/photo-6-resized.jpg" alt="regents 2" />
           <Image path="history/me-carol.jpg" alt="regents 2" />
+          <Image path="history/photo-14-resized.jpg" alt="regents 2" />
+          <Image path="history/photo-6-resized.jpg" alt="regents 2" />
         </Slider>
       </div>
 
@@ -56,12 +58,12 @@ export const Story: FC = (): ReactElement => {
           Connie. Without their emotional and psychological support over the
           years, we might have crashed and burned many years ago.
         </p>
+
         <p>
           To the rest of our families - thank you all for supporting us and
           being great people. We love you all and hope to see everyone in
           Taiwan!
         </p>
-        {/* <Image style={{ width: '200px' }} path="giphy-2.gif" alt="regents 6" /> */}
       </div>
 
       <div className="mobile-show">
@@ -69,10 +71,19 @@ export const Story: FC = (): ReactElement => {
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 " }} {...settings}>
           <Image path="history/photo-7-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-9-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-16-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-10-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-12-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-15-resized.jpg" alt="regents 1" />
         </Slider>
       </div>
       <div className="anchor-right">
         <h2>Our Friends</h2>
+        <p>
+          Over the years we have met some amazing people who we love to see and
+          spend time with
+        </p>
         <p>
           Carol and I don't get out much but when we see our friends, it usually
           revolves around the same group of people that have been kind enough to
@@ -85,7 +96,9 @@ export const Story: FC = (): ReactElement => {
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 4rem" }} {...settings}>
           <Image path="history/photo-5-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-13-resized.jpg" alt="regents 1" />
           <Image path="history/us-matt.jpg" alt="regents 1" />
+          <Image path="history/photo-8-resized.jpg" alt="regents 1" />
         </Slider>
       </div>
 
@@ -106,8 +119,6 @@ const StyledStory = styled("div")`
   }
 
   h2 {
-    /* font-size: 2.6rem; */
-    /* line-height: 1; */
     color: ${({ theme }) => theme.red};
   }
 
@@ -185,7 +196,6 @@ const StyledStory = styled("div")`
     padding-bottom: 6rem;
 
     .gif-container {
-      /* text-align: right; */
       width: 60.5%;
       margin: 0 auto;
       padding: 0;
@@ -217,9 +227,6 @@ const StyledStory = styled("div")`
       width: 100%;
       margin-top: -2rem;
       margin-bottom: 4rem;
-      /* margin: 1rem -2rem 0 !important; */
-      /* margin-left: -20px;
-      margin-right: -20px; */
 
       img {
         width: 100%;
@@ -228,7 +235,6 @@ const StyledStory = styled("div")`
 
     .gif {
       width: 100%;
-      /* margin: 0 -2rem; */
     }
 
     .anchor-right {

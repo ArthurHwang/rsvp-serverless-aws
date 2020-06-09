@@ -12,16 +12,5 @@ export const Image: FC<ImageProps> = ({
   alt,
   ...props
 }): ReactElement => {
-  return (
-    <img
-      {...props}
-      // src={require(`images/${path}?webp`)}
-      src={require(`images/${path}`)}
-      alt={alt}
-      // onError={(e: any) => {
-      //   e.target.onerror = null;
-      //   e.target.src = `images/${path}`;
-      // }}
-    />
-  );
+  return <img {...props} src={require(`images/${path}`)} alt={alt} />;
 };
