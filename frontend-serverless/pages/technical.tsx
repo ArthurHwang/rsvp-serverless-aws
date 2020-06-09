@@ -20,9 +20,9 @@ const TechnicalPage: NextPage = () => (
         <li>TypeScript</li>
         <li>Styled Components</li>
         {/* <li>Framer Motion</li> */}
-        <li>Serverless IaaS framework</li>
+        <li>Serverless IaaS Framework</li>
         <li>AWS Lambda</li>
-        <li>AWS Lambda@edge</li>
+        <li>AWS Lambda@Edge</li>
         <li>AWS API Gateway</li>
         <li>AWS DynamoDB</li>
         <li>AWS DynamoDB Streams</li>
