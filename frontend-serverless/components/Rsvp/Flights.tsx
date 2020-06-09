@@ -27,7 +27,7 @@ export const Flights: FC = (): ReactElement => {
         ) : (
           <iframe
             frameBorder="0"
-            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&buttonColour=malt&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'&fontColour=%23bbb"
+            src="https://widgets.skyscanner.net/widget-server/widgets/iframe?skyscannerWidget=FlightSearchWidget&locale=en-US&buttonColour=malt&market=US&currency=USD&destinationName='TPE'&directFlights=true&directFlightsIsChecked=true&flightType=return&poweredBySize=0&originName='LAX'&fontColour=%23aaa"
           ></iframe>
         )}
       </div>
