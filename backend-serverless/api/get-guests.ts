@@ -1,5 +1,6 @@
 //
 // Route: GET /guests
+// Returns all guests in database
 //
 
 const AWS = require("aws-sdk");

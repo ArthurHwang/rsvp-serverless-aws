@@ -1,4 +1,8 @@
 "use strict";
+//
+// Route: GET /guest/{user}
+//  Queries email address at route /guest/{user}.  Will return data for 1 guest.
+//
 var __awaiter =
   (this && this.__awaiter) ||
   function (thisArg, _arguments, P, generator) {
@@ -137,25 +141,29 @@ var AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-1" });
 var dynamodb = new AWS.DynamoDB.DocumentClient();
 var tableName = process.env.GUESTS_TABLE;
-exports.handler = function (_event) {
+exports.handler = function (event) {
   return __awaiter(void 0, void 0, void 0, function () {
     var data, err_1;
     return __generator(this, function (_a) {
       switch (_a.label) {
         case 0:
-          console.log(_event);
-          _a.label = 1;
-        case 1:
-          _a.trys.push([1, 3, , 4]);
+          _a.trys.push([0, 2, , 3]);
           return [
             4 /*yield*/,
             dynamodb
-              .scan({
+              .query({
                 TableName: tableName,
+                KeyConditionExpression: "#email = :email",
+                ExpressionAttributeNames: {
+                  "#email": "email",
+                },
+                ExpressionAttributeValues: {
+                  ":email": event.pathParameters.email,
+                },
               })
               .promise(),
           ];
-        case 2:
+        case 1:
           data = _a.sent();
           return [
             2 /*return*/,
@@ -168,7 +176,7 @@ exports.handler = function (_event) {
               body: JSON.stringify(data),
             },
           ];
-        case 3:
+        case 2:
           err_1 = _a.sent();
           console.log("Error", err_1);
           return [
@@ -185,7 +193,7 @@ exports.handler = function (_event) {
               }),
             },
           ];
-        case 4:
+        case 3:
           return [2 /*return*/];
       }
     });

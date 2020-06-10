@@ -1,5 +1,6 @@
 //
 // Route: GET /guests
+// Returns all guests in database
 //
 var __awaiter =
   (this && this.__awaiter) ||

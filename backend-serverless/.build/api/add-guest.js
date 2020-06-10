@@ -141,7 +141,6 @@ AWS.config.update({ region: "us-east-1" });
 var moment = require("moment");
 var dynamodb = new AWS.DynamoDB.DocumentClient();
 var tableName = process.env.GUESTS_TABLE;
-// Default behaviour of dynamodb putItem - if email exists, it will overwrite to an entirely new item.   Email addresses stored in database will be unique entries.  Otherwise, it will insert a new document.
 exports.handler = function (event) {
   return __awaiter(void 0, void 0, void 0, function () {
     var req, data, err_1;
