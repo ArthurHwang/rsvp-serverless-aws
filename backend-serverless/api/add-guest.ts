@@ -2,6 +2,12 @@
 // Route: POST /guest
 //
 
+//
+// Route: POST /guest
+// Default behaviour of dynamodb putItem - if email exists, it will overwrite to an entirely new item.   Email addresses stored in database will be unique entries.  Otherwise, it will insert a new document (Exactly what I need)
+//
+
+export {};
 const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-1" });
 const moment = require("moment");
@@ -11,6 +17,7 @@ const tableName = process.env.GUESTS_TABLE;
 
 exports.handler = async (event: any): Promise<any> => {
   try {
+    console.log(event);
     let req = JSON.parse(event.body);
     req.timestamp = moment().unix();
 
