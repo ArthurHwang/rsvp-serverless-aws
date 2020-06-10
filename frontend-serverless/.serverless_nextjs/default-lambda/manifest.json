@@ -1,5 +1,5 @@
 {
-  "buildId": "qhHVEq0zFCM7mtVbl2r1Z",
+  "buildId": "YHjKgPgGoQDFB8iQVGjrB",
   "pages": {
     "ssr": {
       "dynamic": {},
@@ -26,7 +26,9 @@
     "/favicon.png": "favicon.png",
     "/fonts/Abril_Display_Regular.otf": "fonts/Abril_Display_Regular.otf",
     "/fonts/Berthold-light-extended.otf": "fonts/Berthold-light-extended.otf",
+    "/IMG_4985_vignette.jpg": "IMG_4985_vignette.jpg",
     "/robots.txt": "robots.txt",
+    "/screenshot-1.png": "screenshot-1.png",
     "/sitemap.xml": "sitemap.xml"
   }
 }
