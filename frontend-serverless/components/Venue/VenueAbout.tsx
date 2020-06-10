@@ -66,12 +66,12 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
-        <Image path="venue/gallery-16-1920x1080.jpg" alt="regents 1" />
-        <Image path="venue/gallery-18-1920x1080.jpg" alt="regents 2" />
-        <Image path="venue/gallery-31-1920x1080.jpg" alt="regents 3" />
-        <Image path="venue/gallery-6-1920x1080.jpg" alt="regents 4" />
-        <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
-        <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
+        <Image path="venue/gallery-16-1920x1080.jpg" alt="photo 1" />
+        <Image path="venue/gallery-18-1920x1080.jpg" alt="photo 2" />
+        <Image path="venue/gallery-31-1920x1080.jpg" alt="photo 3" />
+        <Image path="venue/gallery-6-1920x1080.jpg" alt="photo 4" />
+        <Image path="venue/gallery-27-1920x1080.jpg" alt="photo 5" />
+        <Image path="venue/gallery-37-1920x1080.jpg" alt="photo 6" />
       </Slider>
       <h2>Food</h2>
       <p>
@@ -87,12 +87,12 @@ export const VenueAbout: FC = (): ReactElement => {
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
-        <Image path="venue/food/gallery-40-1920x1080.jpg" alt="regents 7" />
-        <Image path="venue/food/gallery-52-1920x1080.jpg" alt="regents 8" />
-        <Image path="venue/food/gallery-41-1920x1080.jpg" alt="regents 9" />
-        <Image path="venue/food/gallery-48-1920x1080.jpg" alt="regents 10" />
-        <Image path="venue/food/gallery-51-1920x1080.jpg" alt="regents 11" />
-        <Image path="venue/gallery-10-1920x1080.jpg" alt="regents 12" />
+        <Image path="venue/food/gallery-40-1920x1080.jpg" alt="photo 7" />
+        <Image path="venue/food/gallery-52-1920x1080.jpg" alt="photo 8" />
+        <Image path="venue/food/gallery-41-1920x1080.jpg" alt="photo 9" />
+        <Image path="venue/food/gallery-48-1920x1080.jpg" alt="photo 10" />
+        <Image path="venue/food/gallery-51-1920x1080.jpg" alt="photo 11" />
+        <Image path="venue/gallery-10-1920x1080.jpg" alt="photo 12" />
       </Slider>
     </StyledVenueAbout>
   );

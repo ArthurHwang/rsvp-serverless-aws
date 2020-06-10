@@ -42,12 +42,12 @@ export const Story: FC = (): ReactElement => {
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0" }} {...settings}>
-          <Image path="history/photo-2.jpg" alt="regents 1" />
-          <Image path="history/photo-4-resized.jpg" alt="regents 2" />
-          <Image path="history/photo-6-resized.jpg" alt="regents 2" />
-          <Image path="history/me-carol.jpg" alt="regents 2" />
-          <Image path="history/photo-14-resized.jpg" alt="regents 2" />
-          <Image path="history/photo-6-resized.jpg" alt="regents 2" />
+          <Image path="history/photo-2.jpg" alt="photo 1" />
+          <Image path="history/photo-4-resized.jpg" alt="photo 2" />
+          <Image path="history/photo-6-resized.jpg" alt="photo 3" />
+          <Image path="history/me-carol.jpg" alt="photo 4" />
+          <Image path="history/photo-14-resized.jpg" alt="photo 5" />
+          <Image path="history/photo-6-resized.jpg" alt="photo 6" />
         </Slider>
       </div>
 
@@ -70,12 +70,12 @@ export const Story: FC = (): ReactElement => {
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 " }} {...settings}>
-          <Image path="history/photo-7-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-9-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-16-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-10-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-12-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-15-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-7-resized.jpg" alt="photo 7" />
+          <Image path="history/photo-9-resized.jpg" alt="photo 8" />
+          <Image path="history/photo-16-resized.jpg" alt="photo 9" />
+          <Image path="history/photo-10-resized.jpg" alt="photo 10" />
+          <Image path="history/photo-12-resized.jpg" alt="photo 11" />
+          <Image path="history/photo-15-resized.jpg" alt="photo 12" />
         </Slider>
       </div>
       <div className="anchor-right">
@@ -91,15 +91,15 @@ export const Story: FC = (): ReactElement => {
         {/* 
         //@ts-ignore */}
         <Slider style={{ margin: "2rem 0 4rem" }} {...settings}>
-          <Image path="history/photo-5-resized.jpg" alt="regents 1" />
-          <Image path="history/photo-13-resized.jpg" alt="regents 1" />
-          <Image path="history/us-matt.jpg" alt="regents 1" />
-          <Image path="history/photo-8-resized.jpg" alt="regents 1" />
+          <Image path="history/photo-5-resized.jpg" alt="photo 13" />
+          <Image path="history/photo-13-resized.jpg" alt="photo 14" />
+          <Image path="history/us-matt.jpg" alt="photo 15" />
+          <Image path="history/photo-8-resized.jpg" alt="photo 16" />
         </Slider>
       </div>
 
       <div className="gif-container">
-        <Image className="gif" path="giphy.gif" alt="regents 6" />
+        <Image className="gif" path="giphy.gif" alt="power rangers" />
       </div>
     </StyledStory>
   );
