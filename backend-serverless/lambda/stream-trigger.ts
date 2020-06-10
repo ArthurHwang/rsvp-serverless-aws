@@ -13,7 +13,7 @@ const auth = {
 
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-function sendResponseEmail(guestEvent) {
+function sendResponseEmail(guestEvent: any) {
   const first = guestEvent.first.S;
   const last = guestEvent.last.S;
   const email = guestEvent.email.S;
@@ -64,7 +64,7 @@ function sendResponseEmail(guestEvent) {
                ${generateCustomFields(specialRequests, "requests")}
                `,
       },
-      (err: any, info: any) => {
+      (err: any, _info: any) => {
         if (err) {
           throw new Error(err);
         } else {
@@ -97,7 +97,7 @@ function sendResponseEmail(guestEvent) {
                <p>You can also reach me at (714) 280-6188.  Call or text me anytime.</p>
                `,
       },
-      (err: any, info: any) => {
+      (err: any, _info: any) => {
         if (err) {
           throw new Error(err);
         } else {
@@ -108,13 +108,10 @@ function sendResponseEmail(guestEvent) {
   }
 }
 
-exports.handler = (event, context, callback) => {
+exports.handler = (event, _context, callback) => {
   console.log("trigger stream was called");
-
   const eventData = event.Records[0].dynamodb.NewImage;
-
   console.log(eventData);
-
   try {
     sendResponseEmail(eventData);
     callback(null, {

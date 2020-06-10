@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactElement, FC } from "react";
-
 import { ReviewInfo } from "./ReviewInfo";
 
 // @ts-ignore

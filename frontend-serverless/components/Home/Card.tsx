@@ -30,7 +30,6 @@ const RSVPButton = styled("button")`
   height: 4rem;
   width: 18rem;
   border: 1px solid ${({ theme }) => theme.accent};
-  /* border: none; */
   background-color: ${({ theme }) => theme.accent};
   font-family: "berthold";
   margin-top: 1rem;
@@ -129,14 +128,12 @@ const StyledCard = styled("div")`
   padding: 4rem 0;
   line-height: 1.4;
   height: 100vh;
-  color: #DDD;
-  /* color: ${({ theme }) => theme.lightgrey}; */
+  color: #ddd;
 
   h2 {
     line-height: 7rem;
     font-size: 5rem;
-    /* color: ${({ theme }) => theme.lightgrey}; */
-    color: #DDD;
+    color: #ddd;
 
     &:last-of-type {
       margin-bottom: 2rem;

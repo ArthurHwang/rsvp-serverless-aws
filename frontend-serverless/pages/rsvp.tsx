@@ -36,12 +36,7 @@ const StyledRSVP = styled("div")`
 
   .left {
     min-height: 100%;
-    /* overflow-y: scroll; */
     background-color: ${({ theme }) => theme.black};
-
-    /* @media (max-width: 1445px) {
-      height: auto;
-    } */
   }
 
   .right {

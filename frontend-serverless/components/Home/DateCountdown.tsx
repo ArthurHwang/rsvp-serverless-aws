@@ -17,9 +17,11 @@ export default class CountDown extends Component<Props> {
     isExpired: false,
   };
   // @ts-ignore
+  // needs to be here for clearInterval
   timer;
 
   // @ts-ignore
+  // needs to be here for clearInterval
   distance;
 
   componentDidMount() {
@@ -89,10 +91,6 @@ export default class CountDown extends Component<Props> {
 const StyledDateCountdown = styled("div")`
   margin: 3rem 0;
   font-family: "arial";
-  /* position: absolute; */
-  /* font-style: condensed; */
-  /* letter-spacing: -1px; */
-  /* font-weight: 700; */
   .counter {
     text-align: center;
     display: inline-flex;
@@ -118,7 +116,6 @@ const StyledDateCountdown = styled("div")`
     }
 
     .entry-title {
-      /* min-width: 80px; */
       width: 100%;
       color: #ddd;
       margin-top: 5px;

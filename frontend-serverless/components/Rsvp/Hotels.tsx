@@ -36,13 +36,9 @@ export const Hotels: FC = (): ReactElement => {
 
 const StyledHotels = styled("div")`
   height: 100%;
-  /* background-color: ${({ theme }) => theme.bg.aqua}; */
-  /* background-color: ${({ theme }) => theme.bg.aqua}; */
-  background-color: #323E48;
-  
+  background-color: #323e48;
   display: grid;
   grid-template-rows: auto 1fr;
-  /* overflow-y: auto; */
 
   .iframe-cont {
     height: 100%;

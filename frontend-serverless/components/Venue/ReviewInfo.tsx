@@ -93,6 +93,5 @@ const StyledReviewInfo = styled("div")`
 
   .gold {
     color: #ff8100;
-    /* color: ${({ theme }) => theme.red}; */
   }
 `;

@@ -1,10 +1,8 @@
 //
 // Route: POST /guest
 //
-
-//
-// Route: POST /guest
-// Default behaviour of dynamodb putItem - if email exists, it will overwrite to an entirely new item.   Email addresses stored in database will be unique entries.  Otherwise, it will insert a new document (Exactly what I need)
+// Default behaviour of dynamodb putItem - if email exists, it will overwrite to an entirely new item.
+// Email addresses stored in database will be unique entries.Otherwise, it will insert a new document(Exactly what I need)
 //
 
 export {};

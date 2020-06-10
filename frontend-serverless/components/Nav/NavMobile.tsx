@@ -10,6 +10,16 @@ type Props = {
   scrolled: boolean;
 };
 
+type StyledProps = {
+  scrolled: boolean;
+  path: string;
+  clicked: boolean;
+};
+
+type WindowProps = {
+  clicked: boolean;
+};
+
 export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
   const [clicked, setClicked] = useState(false);
   const router = useRouter();
@@ -71,16 +81,6 @@ export const NavMobile: FC<Props> = ({ scrolled, path }): ReactElement => {
       </StyledWindowContainer>
     </>
   );
-};
-
-type StyledProps = {
-  scrolled: boolean;
-  path: string;
-  clicked: boolean;
-};
-
-type WindowProps = {
-  clicked: boolean;
 };
 
 const StyledNavMobile = styled("nav")<StyledProps>`

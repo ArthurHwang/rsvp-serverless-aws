@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ReactElement, FC } from "react";
 import { Image } from "../Image";
 import Link from "next/link";
-
 import Slider from "react-slick";
 
 const settings = {
@@ -23,7 +22,6 @@ export const VenueAbout: FC = (): ReactElement => {
   return (
     <StyledVenueAbout>
       <h2>Regent Taipei</h2>
-
       <p>
         Come celebrate with us at the premier 5-star luxury hotel -{" "}
         <a
@@ -35,14 +33,12 @@ export const VenueAbout: FC = (): ReactElement => {
         </a>
         .
       </p>
-
       <div className="image-full">
         <Image
           path="venue/c5a3d0f2-f0ea-40e3-9686-d0bd111e6189.jpg"
           alt="regents 1"
         />
       </div>
-
       <p>
         <span>** </span>Please{" "}
         <Link href="/rsvp">
@@ -56,24 +52,17 @@ export const VenueAbout: FC = (): ReactElement => {
         Our guests can enjoy a special room rate, however there is a cut-off
         date so please let us know ASAP.
       </p>
-
-      {/* <br /> */}
-
       <p>
         From sprawling night markets and endless shopping locations to numerous
         fine arts museums, there is no shortage of activities. Something is
         bound to tickle your fancy.
       </p>
-
       <p>
         The hotel is located in the heart of{" "}
         <a href="https://en.wikipedia.org/wiki/Taipei_101">Taipei 101's </a>
         financial district. Previously the tallest building in the world for 6
         years!
       </p>
-
-      {/* <p></p> */}
-
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
@@ -84,10 +73,7 @@ export const VenueAbout: FC = (): ReactElement => {
         <Image path="venue/gallery-27-1920x1080.jpg" alt="regents 5" />
         <Image path="venue/gallery-37-1920x1080.jpg" alt="regents 6" />
       </Slider>
-      {/* <h2>Food</h2> */}
-
       <h2>Food</h2>
-
       <p>
         There is no need to select beef, chicken, or fish. Food at the party
         will be served family style at each table so you can pick and choose to
@@ -98,7 +84,6 @@ export const VenueAbout: FC = (): ReactElement => {
         street and alley is filled with mouth-watering eats. I encourage you to
         try everything you can.
       </p>
-
       {/* 
       //@ts-ignore */}
       <Slider style={{ margin: "2rem 0" }} {...settings}>
@@ -122,7 +107,6 @@ const StyledVenueAbout = styled("div")`
 
   h2 {
     color: ${({ theme }) => theme.red};
-    /* font-size: 2.6rem; */
   }
 
   span {
@@ -133,8 +117,6 @@ const StyledVenueAbout = styled("div")`
     line-height: 1.2;
     color: ${({ theme }) => theme.primary};
     font-size: 1.4rem;
-
-    /* word-spacing: 2px; */
     letter-spacing: 0.2px;
     font-weight: 600;
   }
