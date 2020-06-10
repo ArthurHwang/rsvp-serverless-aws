@@ -1,32 +1,43 @@
-// //
-// // Route: GET /guest
-// //
-// export {};
-// const AWS = require('aws-sdk');
-// AWS.config.update({ region: 'us-west-1' });
+//
+// Route: GET /guest/{user}
+//
+export {};
+const AWS = require("aws-sdk");
+AWS.config.update({ region: "us-east-1" });
 
-// const util = require('./util');
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+const tableName = process.env.GUESTS_TABLE;
 
-// const dynamodb = new AWS.DynamoDB.DocumentClient();
-// const tableName = process.env.USERS_TABLE;
+exports.handler = async (_event: any): Promise<any> => {
+  console.log(_event);
+  try {
+    let data = await dynamodb
+      .scan({
+        TableName: tableName,
+      })
+      .promise();
 
-// exports.handler = async (event) => {
-//   try {
-//     return {
-//       statusCode: 200,
-//       headers: util.getResponseHeaders(),
-//       body: JSON.stringify(''),
-//     };
-//   } catch (err) {
-//     console.log('Error', err);
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+      body: JSON.stringify(data),
+    };
+  } catch (err) {
+    console.log("Error", err);
 
-//     return {
-//       statusCode: err.statusCode ? err.statusCode : 500,
-//       headers: util.getResponseHeaders(),
-//       body: JSON.stringify({
-//         error: err.name ? err.name : 'Exception',
-//         message: err.message ? err.message : 'Unknown Error',
-//       }),
-//     };
-//   }
-// };
+    return {
+      statusCode: err.statusCode ? err.statusCode : 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+      body: JSON.stringify({
+        error: err.name ? err.name : "Exception",
+        message: err.message ? err.message : "Unknown Error",
+      }),
+    };
+  }
+};

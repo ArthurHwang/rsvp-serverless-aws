@@ -87,7 +87,7 @@ function sendResponseEmail(guestEvent) {
                <p>We are now going to cancel the wedding because you cannot make it...</p> 
                <br />
                <p>Just Kidding!!</p>  
-               <p>If you have a change of heart, please fill out the online form again</p>
+               <p>If you have a change of heart, please fill out the online form again.  Please make sure to use the same email address so that our database can update your entry correctly.</p>
                <a href="https://carolandarthur.com/rsvp">RSVP form</a>
 
                <br />
