@@ -15,7 +15,6 @@ export const photos = [
     width: 5.4,
     height: 4,
   },
-
   {
     src: require("images/history/photo-5-resized.jpg"),
     width: 4,
@@ -26,7 +25,6 @@ export const photos = [
     width: 4,
     height: 3,
   },
-
   {
     src: require("images/history/photo-14-resized.jpg"),
     width: 2.3,
@@ -37,11 +35,8 @@ export const photos = [
     width: 3.8,
     height: 2.5,
   },
-
   { src: require("images/history/us-matt.jpg"), width: 4, height: 3 },
-
   { src: require("images/history/us.jpg"), width: 1, height: 1.7 },
-
   {
     src: require("images/history/photo-8-resized.jpg"),
     width: 2.3,
