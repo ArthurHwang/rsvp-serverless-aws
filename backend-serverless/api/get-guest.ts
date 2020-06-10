@@ -1,6 +1,6 @@
 //
 // Route: GET /guest/{user}
-//  Queries email address at route /guest/{user}.  Will return data for 1 guest.
+// Queries email address at route /guest/{user}.  Will return data for 1 guest.
 //
 
 export {};
@@ -11,7 +11,6 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = process.env.GUESTS_TABLE;
 
 exports.handler = async (event: any): Promise<any> => {
-  // console.log(_event);
   try {
     let data = await dynamodb
       .query({

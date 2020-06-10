@@ -14,6 +14,7 @@ export const NavMobileHeader: FC = (): ReactElement => {
 
 const StyledNav = styled("nav")`
   margin-bottom: 2rem;
+
   .subtitle {
     color: red;
     font-size: 1rem;

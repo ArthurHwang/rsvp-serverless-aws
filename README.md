@@ -16,7 +16,8 @@ https://carolandarthur.com
 - AWS DynamoDB
 - AWS DynamoDB Streams
 - AWS Cloudwatch
-- AWS CodeBuild / CodePipeline
+- AWS CodeBuild
+- AWS CodePipeline
 - AWS Route53
 - Google Places API
 - Google Maps API
