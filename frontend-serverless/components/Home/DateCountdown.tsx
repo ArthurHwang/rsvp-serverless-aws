@@ -90,7 +90,7 @@ export default class CountDown extends Component<Props> {
 
 const StyledDateCountdown = styled("div")`
   margin: 3rem 0;
-  font-family: "arial";
+  font-family: "segoe ui";
   .counter {
     text-align: center;
     display: inline-flex;
