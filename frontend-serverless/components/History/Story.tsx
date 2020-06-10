@@ -81,10 +81,6 @@ export const Story: FC = (): ReactElement => {
       <div className="anchor-right">
         <h2>Our Friends</h2>
         <p>
-          Over the years we have met some amazing people who we love to see and
-          spend time with
-        </p>
-        <p>
           Carol and I don't get out much but when we see our friends, it usually
           revolves around the same group of people that have been kind enough to
           put up with me for all this time. You know who you are, you are all
