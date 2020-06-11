@@ -15,7 +15,6 @@ const HomePage: NextPage = () => {
 export default HomePage;
 
 const StyledHome = styled("div")`
-  overflow: hidden;
   display: grid;
   grid-template-columns: 65% 35%;
   height: 100%;

@@ -42,7 +42,7 @@ export const Hero: FC = (): ReactElement => {
 };
 
 const StyledHero = styled("div")`
-  height: 100%;
+  height: 100vh;
 
   img {
     height: 100%;
