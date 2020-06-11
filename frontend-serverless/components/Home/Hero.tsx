@@ -44,6 +44,10 @@ export const Hero: FC = (): ReactElement => {
 const StyledHero = styled("div")`
   height: 100vh;
 
+  @media (max-width: 1445px) {
+    height: 100%;
+  }
+
   img {
     height: 100%;
     width: 100%;
