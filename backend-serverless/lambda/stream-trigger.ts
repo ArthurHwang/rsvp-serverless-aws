@@ -1,3 +1,6 @@
+// When DynamoDB data is inserted into the database, DynamoDB streams will invoke this function.
+// Takes form submitted user data and creates auto-response emails depending on if they answered "yes" or no" on the RSVP form.
+
 const nodemailer = require("nodemailer");
 const mg = require("nodemailer-mailgun-transport");
 

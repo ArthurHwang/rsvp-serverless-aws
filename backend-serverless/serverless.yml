@@ -123,13 +123,9 @@ resources:
         AttributeDefinitions:
           - AttributeName: email
             AttributeType: S
-          # - AttributeName: timestamp
-          #   AttributeType: N
         KeySchema:
           - AttributeName: email
             KeyType: HASH
-          # - AttributeName: timestamp
-          #   KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

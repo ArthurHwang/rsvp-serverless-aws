@@ -6,7 +6,6 @@
 .pnp.js
 
 
-/.serverless/
 /.serverless_nextjs/
 # testing
 /coverage

@@ -12,5 +12,4 @@ secrets.json
 .env.production.local
 .env
 
-/.serverless/
 /.build/

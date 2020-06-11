@@ -1,3 +1,6 @@
+// Creates GitHub repository commit status badges on master branch for CI / CD status
+// Event trigger is from cloudwatch events defined in serverless.yml
+
 const aws = require("aws-sdk");
 const axios = require("axios");
 
