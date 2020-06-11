@@ -53,7 +53,6 @@ const StyledTechnical = styled("div")`
   height: 100%;
   color: ${({ theme }) => theme.primary};
   text-align: center;
-  overflow: scroll;
 
   ul {
     list-style-type: none;

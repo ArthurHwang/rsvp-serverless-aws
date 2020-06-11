@@ -263,7 +263,7 @@ const StyledContact = styled("div")`
   margin: 0 auto;
 
   @media (max-width: 1980px) {
-    margin: 0 20% 0 auto;
+    margin: 0 15% 0 auto;
   }
 
   @media (max-width: 1860px) {
