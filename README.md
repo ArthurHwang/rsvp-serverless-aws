@@ -1,6 +1,6 @@
 ### carolandarthur.com
 
-[![Uptime Robot](https://img.shields.io/uptimerobot/ratio/7/m785282246-941172bcd4158815bd59ae98)](https://arthurhwang.dev) [![GitHub issues](https://img.shields.io/github/issues/ArthurHwang/rsvp-serverless-aws)](https://github.com/ArthurHwang/rsvp-serverless-aws/issues) [![GitHub issues closed](https://img.shields.io/github/issues-closed/ArthurHwang/rsvp-serverless-aws)](https://github.com/ArthurHwang/rsvp-serverless-aws/issues?q=is%3Aissue+is%3Aclosed)
+[![Uptime Robot](https://img.shields.io/uptimerobot/ratio/7/m785282246-941172bcd4158815bd59ae98)](https://carolandarthur.com) [![GitHub issues](https://img.shields.io/github/issues/ArthurHwang/rsvp-serverless-aws)](https://github.com/ArthurHwang/rsvp-serverless-aws/issues) [![GitHub issues closed](https://img.shields.io/github/issues-closed/ArthurHwang/rsvp-serverless-aws)](https://github.com/ArthurHwang/rsvp-serverless-aws/issues?q=is%3Aissue+is%3Aclosed)
 
 ### Motivation
 As newlyweds, my wife and I started sending out wedding invitations by mail but quickly realized it would be very difficult to keep track of 150+ people all over the world that would be attending our wedding.
@@ -30,7 +30,7 @@ CI / CD was integrated by building a workflow pipeline using AWS CodeBuild / AWS
 - Google Places API
 - Google Maps API
 
-[![homepage](https://carolandarthur.com/screenshot-1.png)](https://arthurhwang.dev)
+[![homepage](https://carolandarthur.com/screenshot-1.png)](https://carolandarthur.com)
 
 
 
